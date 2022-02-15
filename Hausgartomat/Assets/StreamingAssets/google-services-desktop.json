@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "1074873643423",
+    "project_id": "testgartomat",
+    "storage_bucket": "testgartomat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074873643423:android:acdac165dbd49fff9d4daa",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.ArduinoToUnity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074873643423-ao9gv7fbifsq0e2v3smu94ne0q32ln1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtLr-T2fbEuAl69kL1PUvt9bdWzfIgxyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074873643423-ao9gv7fbifsq0e2v3smu94ne0q32ln1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074873643423:android:9b29fae26fbaf84b9d4daa",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.DatabaseTest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074873643423-ao9gv7fbifsq0e2v3smu94ne0q32ln1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtLr-T2fbEuAl69kL1PUvt9bdWzfIgxyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074873643423-ao9gv7fbifsq0e2v3smu94ne0q32ln1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074873643423:android:4ca6790b358470909d4daa",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.com.unity.template.mobile2D"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1074873643423-ao9gv7fbifsq0e2v3smu94ne0q32ln1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtLr-T2fbEuAl69kL1PUvt9bdWzfIgxyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1074873643423-ao9gv7fbifsq0e2v3smu94ne0q32ln1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
