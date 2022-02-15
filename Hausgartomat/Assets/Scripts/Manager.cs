@@ -15,12 +15,16 @@ public class Manager : MonoBehaviour
     private Screen _plantpedia_Script;
     private Screen _dashboard_Script;
     private Screen _plantInfo_Script;
+    private Screen[] screens;
 
-    public float speed = 0.3F;
-    private float startTime;
-    private float journeyLength;
+    private Screen presentScreen;
 
-    private bool lerpStarted = false;
+    //public List<Plant> plants;
+
+    //Main screen limits
+    public const float maxX = 2.8f;
+    public const float maxY = 4.3f;
+
 
     void Start()
     {
@@ -29,32 +33,33 @@ public class Manager : MonoBehaviour
         _plantpedia_Script = plantPedia_Screen.GetComponent<Screen>();
         _dashboard_Script = dashboard_Screen.GetComponent<Screen>();
         _plantInfo_Script = plantInfo_Screen.GetComponent<Screen>();
+        screens = new Screen[] {_planing_Script, _dashboard_Script, 
+                                _plantInfo_Script, _addPlant_Script, 
+                                _plantpedia_Script};
+        presentScreen = _dashboard_Script;
+    }
+    void Update()
+    {
 
     }
 
-    // Move to the target end position.
-    void Update()
+    public void SetActualScreen(int number)
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _planing_Script.ShowUp();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _addPlant_Script.ShowUp();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _plantpedia_Script.ShowUp();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            _dashboard_Script.ShowUp();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            _plantInfo_Script.ShowUp();
-        }
+        presentScreen.GoAway();
+        presentScreen = screens[number];
+        screens[number].ShowUp();
+        Screen temp = screens[number];
+    }
 
+    public void SetActualScreen(SubScreen subscreen)
+    {
+        presentScreen.GoAway();
+        presentScreen = subscreen;
+        subscreen.ShowUp();
+    }
+
+    public void GoToLastScreen()
+    {
+        presentScreen.LastScreen();
     }
 }
