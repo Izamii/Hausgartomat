@@ -10,14 +10,14 @@ public class Screen : MonoBehaviour
     private bool lerpStarted;
     private bool lerpCalled;
 
-    public float speed = 1f;
+    [SerializeField] private float speed = 1f;
     private float startTime;
     private float journeyLength;
     private bool directionOfLerp;
     private bool lerpAway;
 
-    public Screen lastScreen;
-    public List<SubScreen> innerScreens;
+    [SerializeField] private Screen lastScreen;
+    [SerializeField] private List<SubScreen> innerScreens;
 
     void Start()
     {

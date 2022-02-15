@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    public Transform planing_Screen;
-    public Transform addPlant_Screen;
-    public Transform plantPedia_Screen;
-    public Transform dashboard_Screen;
-    public Transform plantInfo_Screen;
+    [SerializeField] private Transform planing_Screen;
+    [SerializeField] private Transform addPlant_Screen;
+    [SerializeField] private Transform plantPedia_Screen;
+    [SerializeField] private Transform dashboard_Screen;
+    [SerializeField] private Transform plantInfo_Screen;
 
     private Screen _planing_Script;
     private Screen _addPlant_Script;
@@ -19,11 +19,11 @@ public class Manager : MonoBehaviour
 
     private Screen presentScreen;
 
-    //public List<Plant> plants;
+    //[SerializeField] private List<Plant> plants;
 
     //Main screen limits
-    public const float maxX = 2.8f;
-    public const float maxY = 4.3f;
+    [SerializeField] private const float maxX = 2.8f;
+    [SerializeField] private const float maxY = 4.3f;
 
 
     void Start()

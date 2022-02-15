@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SubScreen : Screen
 {
-    public SubScreen next;
+    [SerializeField] private SubScreen next;
 
     public void GoToNext()
     {
