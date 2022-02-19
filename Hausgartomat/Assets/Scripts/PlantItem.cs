@@ -11,4 +11,16 @@ public class PlantItem:MonoBehaviour
     [SerializeField] private string nickname;
     [SerializeField] private string kind;
     [SerializeField] private PlantState plantState;
+    [SerializeField] private GameObject manager;
+
+    public string getNickname()
+    {
+        return nickname;
+    }
+
+    public void Go()
+    {
+        GoToScreen _goToScreen = manager.GetComponent<GoToScreen>();
+        _goToScreen.GoTo(icon, nickname, kind, plantState);
+    }
 }
