@@ -21,6 +21,6 @@ public class PlantItem:MonoBehaviour
     public void Go()
     {
         GoToScreen _goToScreen = manager.GetComponent<GoToScreen>();
-        _goToScreen.GoTo(icon, nickname, kind, plantState);
+        _goToScreen.GoToPlantScreen(icon, nickname, kind, plantState);
     }
 }
