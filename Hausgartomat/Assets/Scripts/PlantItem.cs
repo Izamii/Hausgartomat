@@ -9,7 +9,6 @@ public class PlantItem:MonoBehaviour
 {
     [SerializeField] private Sprite icon;
     [SerializeField] private string nickname;
+    [SerializeField] private string kind;
     [SerializeField] private PlantState plantState;
-
-
 }
