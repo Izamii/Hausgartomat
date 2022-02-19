@@ -9,6 +9,7 @@ public class GoToScreen : MonoBehaviour
     private DashboardPlant _dashboardPlant;
     private GameObject lastScreen;
     private GameObject actualScreen;
+    [SerializeField] private GameObject navi;
 
     [SerializeField] private GameObject[] planes;
 
@@ -30,14 +31,14 @@ public class GoToScreen : MonoBehaviour
     //Go to Add Plant
     public void GoToAddPlant()
     {
-        planes[0].SetActive(false);
-        planes[2].SetActive(true);
+        Navigation _navi = navi.GetComponent<Navigation>();
+        _navi.NavigationBarClick(planes[2]);
     }
 
     //Go to Plantpedia
-    public void GoBack(GameObject lastScreen, GameObject thisScreen)
+    public void GoBack(GameObject lastScreen)
     {
-        lastScreen.SetActive(true);
-        thisScreen.SetActive(false);
+        Navigation _navi = navi.GetComponent<Navigation>();
+        _navi.NavigationBarClick(lastScreen);
     }
 }
