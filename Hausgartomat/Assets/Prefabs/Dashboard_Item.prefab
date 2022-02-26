@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b055d480e32836348894d9f13068b382, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 0}
   nickname: Bob
   kind: SuperBob
   plantState: {fileID: 0}
