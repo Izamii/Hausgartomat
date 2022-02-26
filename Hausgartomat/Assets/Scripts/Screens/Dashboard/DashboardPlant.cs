@@ -7,15 +7,15 @@ public class DashboardPlant : MonoBehaviour
 {
     [SerializeField] private Text nickname;
     [SerializeField] private Text kind;
-    /*[SerializeField] private Sprite icon;
-    [SerializeField] private Sprite stateWater;
-    [SerializeField] private Sprite stateLight;
-    [SerializeField] private Sprite stateTemp;*/
+    [SerializeField] private Image icon;
+    [SerializeField] private PlantState state;
 
     private PlantItem _plantItem;
 
-    public void setScreen(Sprite icon, string nickname, string kind, PlantState states)
+    public void SetScreen(Image icon, string nickname, string kind, PlantState states)
     {   
         this.nickname.text = nickname;
+        this.kind.text = kind;
+        this.icon.sprite = icon.sprite;
     }
 }

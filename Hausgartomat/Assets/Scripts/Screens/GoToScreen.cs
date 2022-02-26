@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoToScreen : MonoBehaviour
 {
@@ -20,12 +21,12 @@ public class GoToScreen : MonoBehaviour
 
 
     //Go to Plant State Screen
-    public void GoToPlantScreen(Sprite icon, string nickname, string kind, PlantState state)
+    public void GoToPlantScreen(Image icon, string nickname, string kind, PlantState state)
     {
-        planes[1].SetActive(true); //Dashboard Plant
-        planes[0].SetActive(false); //Main Dashboard
+        Navigation _navi = navi.GetComponent<Navigation>();
+        _navi.NavigationBarClick(planes[1]);
         _dashboardPlant = planes[1].GetComponent<DashboardPlant>();
-        _dashboardPlant.setScreen(icon, nickname, kind, state);
+        _dashboardPlant.SetScreen(icon, nickname, kind, state);
     }
 
     //Go to Add Plant
