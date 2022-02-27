@@ -14,13 +14,17 @@ public class PlantItem:MonoBehaviour
     [SerializeField] private PlantState plantState;
     [SerializeField] private GameObject manager;
 
-    public PlantItem(Image icon, string nickname, string kind, PlantState plantState, GameObject manager)
+    public PlantItem(Image icon, string nickname, string kind, PlantState plantState)
     {
         this.icon = icon;
         this.nickname = nickname;
         this.kind = kind;
         this.plantState = plantState;
-        this.manager = manager;
+        this.manager = GameObject.Find("Manager");
+    }
+    public PlantItem(string nickname)
+    {
+        this.nickname = nickname;
     }
 
     public string getNickname()
