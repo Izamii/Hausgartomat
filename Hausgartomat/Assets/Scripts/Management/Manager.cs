@@ -15,29 +15,25 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject dashboard;
     [SerializeField] private GameObject prefabDashPlant;
     [SerializeField] private GameObject prefabDashAddBtn;
-    [SerializeField] private Sprite plus;
     [SerializeField] private Sprite testSprite;
     [SerializeField] private GameObject navi;
-    private GoToScreen _navi; 
+    private GoToScreen _navi;
 
-    private GameObject add;
-    private GameObject empty;
-    private GameObject plant;
+    public GoToScreen Navi { get => _navi; set => _navi = value; }
 
     // Start is called before the first frame update
     void Start()
     {
         PlantState s = new PlantState("Mota");
         PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Mota", s);
+
         InstantiateBottom();
         InstantiateNewPlantItem(plantyThePlant);
-        //1 Add dummy plants, Bob and Carla over the Add and empty buttons
-        
     }
-    private void InstantiateNewPlantItem(PlantItem plant)
+    public void InstantiateNewPlantItem(PlantItem plant)
     {
         int dashboardItems = dashboard.transform.GetChildCount();
-        _navi = navi.GetComponent<GoToScreen>();
+        Navi = navi.GetComponent<GoToScreen>();
         GameObject item = Instantiate(prefabDashPlant, dashboard.transform);
         
         item.GetComponent<PlantItem>().Nickname = plant.Nickname;
@@ -66,11 +62,11 @@ public class Manager : MonoBehaviour
     private void InstantiateAddPlant()
     {
         Debug.Log(navi);
-        Debug.Log(_navi);
-        _navi = navi.GetComponent<GoToScreen>();
-        Debug.Log(_navi);
+        Debug.Log(Navi);
+        Navi = navi.GetComponent<GoToScreen>();
+        Debug.Log(Navi);
         GameObject item = Instantiate(prefabDashAddBtn, dashboard.transform);
-        item.GetComponent<Button>().onClick.AddListener(_navi.GoToAddPlant);
+        item.GetComponent<Button>().onClick.AddListener(Navi.GoToAddPlant);
     }
     private void InstantiateBottom()
     {
@@ -79,10 +75,4 @@ public class Manager : MonoBehaviour
     }
 
 
-    //Update should be done every 10-30 seconds
-    // Update is called once per frame
-    /*void Update()
-    {
-        
-    }*/
 }

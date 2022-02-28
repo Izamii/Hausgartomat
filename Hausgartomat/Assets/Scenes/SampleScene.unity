@@ -1564,7 +1564,6 @@ MonoBehaviour:
   dashboard: {fileID: 885933629}
   prefabDashPlant: {fileID: 8717880734459081410, guid: 2045584cffb7bb74f8d4c161dfeb1d88, type: 3}
   prefabDashAddBtn: {fileID: 1204632725086281430, guid: ebae9af28a74a584599ea41041d0f70d, type: 3}
-  plus: {fileID: 21300000, guid: 2b82ba9c8ef6a9641afee7072fa6b033, type: 3}
   testSprite: {fileID: 21300000, guid: 7f70a1fb251cc7b4e80e67ee657c93b0, type: 3}
   navi: {fileID: 524291082}
 --- !u!1 &527457778
@@ -2946,7 +2945,9 @@ MonoBehaviour:
   plantImg: {fileID: 2109528434}
   plantSelection: {fileID: 2035469457}
   nickname: 
-  testSprite: {fileID: 21300000, guid: c7fa1447ac303fc40ab465031a4d67fb, type: 3}
+  plantSprite: {fileID: 0}
+  manager: {fileID: 524291085}
+  dashboard: {fileID: 53005458}
 --- !u!114 &709504315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3090,7 +3091,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 711039949}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 709504314}
+        m_TargetAssemblyTypeName: AddPlantScript, Assembly-CSharp
+        m_MethodName: CreateNewPlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &711039949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5305,7 +5318,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 709504314}
+        m_TargetAssemblyTypeName: AddPlantScript, Assembly-CSharp
+        m_MethodName: UpdateNickname
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 758440903}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -9284,8 +9309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5478d030e6fe6494d9a5f72c5ed296e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastScreen: {fileID: 53005458}
-  manager: {fileID: 524291082}
 --- !u!1 &1989497996
 GameObject:
   m_ObjectHideFlags: 0
@@ -9597,10 +9620,10 @@ MonoBehaviour:
       - m_Target: {fileID: 709504314}
         m_TargetAssemblyTypeName: AddPlantScript, Assembly-CSharp
         m_MethodName: ChangeAddPlantImage
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21300000, guid: c7fa1447ac303fc40ab465031a4d67fb, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
