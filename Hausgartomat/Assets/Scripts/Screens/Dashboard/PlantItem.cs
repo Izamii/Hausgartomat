@@ -8,33 +8,40 @@ using UnityEngine.UI;
 * */
 public class PlantItem:MonoBehaviour
 {
-    [SerializeField] private Image icon;
+    [SerializeField] private Sprite icon;
     [SerializeField] private string nickname;
     [SerializeField] private string kind;
     [SerializeField] private PlantState plantState;
     [SerializeField] private GameObject manager;
 
-    public PlantItem(Image icon, string nickname, string kind, PlantState plantState)
+    public Sprite Icon { get => icon; set => icon = value; }
+    public string Nickname { get => nickname; set => nickname = value; }
+    public string Kind { get => kind; set => kind = value; }
+    public PlantState PlantState { get => plantState; set => plantState = value; }
+    public GameObject Manager { get => manager; set => manager = value; }
+
+    public PlantItem(Sprite icon, string nickname, string kind, PlantState plantState)
     {
-        this.icon = icon;
-        this.nickname = nickname;
-        this.kind = kind;
-        this.plantState = plantState;
-        this.manager = GameObject.Find("Manager");
+        this.Icon = icon;
+        this.Nickname = nickname;
+        this.Kind = kind;
+        this.PlantState = plantState;
+        this.Manager = GameObject.Find("Manager");
     }
     public PlantItem(string nickname)
     {
-        this.nickname = nickname;
+        this.Nickname = nickname;
     }
 
     public string getNickname()
     {
-        return nickname;
+        return Nickname;
     }
 
     public void Go()
     {
-        GoToScreen _goToScreen = manager.GetComponent<GoToScreen>();
-        _goToScreen.GoToPlantScreen(icon, nickname, kind, plantState);
+        GoToScreen _goToScreen = Manager.GetComponent<GoToScreen>();
+        //TODOOOOOOOOO FIX
+        //_goToScreen.GoToPlantScreen(Icon, Nickname, Kind, PlantState);
     }
 }

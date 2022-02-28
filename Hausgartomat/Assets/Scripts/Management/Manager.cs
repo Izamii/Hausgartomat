@@ -16,6 +16,7 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject prefabDashPlant;
     [SerializeField] private GameObject prefabDashAddBtn;
     [SerializeField] private Sprite plus;
+    [SerializeField] private Sprite testSprite;
     [SerializeField] private GameObject navi;
     private GoToScreen _navi; 
 
@@ -26,57 +27,33 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlantState s = new PlantState("Mota");
+        PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Mota", s);
         InstantiateBottom();
-        InstantiateNewPlantItem();
+        InstantiateNewPlantItem(plantyThePlant);
         //1 Add dummy plants, Bob and Carla over the Add and empty buttons
         int dashboardItems = dashboard.transform.GetChildCount();
         Debug.Log(dashboardItems);
         string itemName = dashboard.transform.GetChild(dashboardItems - 3).name;
         Debug.Log(itemName);
     }
-
-    private void InstantiateDashboardItem(GameObject item, Color color, Sprite icon, PlantItem plantItem)
-    {
-        item = Instantiate(prefabDashPlant, dashboard.transform);
-        item.GetComponent<Image>().color = color;
-        if(icon != null)
-        {
-            item.transform.GetChild(1).GetComponent<Image>().sprite = icon;
-            item.transform.GetChild(0).GetComponent<Text>().text = plantItem.getNickname();
-
-        }
-        else
-        {
-            item.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
-            item.transform.GetChild(0).GetComponent<Text>().text = "";
-        }
-
-    }
-
-
-
-    private void InstantiateNewPlantItem()
+    private void InstantiateNewPlantItem(PlantItem plant)
     {
         int dashboardItems = dashboard.transform.GetChildCount();
-        Debug.Log(dashboardItems);
-        string itemName = dashboard.transform.GetChild(dashboardItems - 3).name;
-        Debug.Log(itemName);
         _navi = navi.GetComponent<GoToScreen>();
         GameObject item = Instantiate(prefabDashPlant, dashboard.transform);
-
-        GameObject temp = item;
-        for(int i = 1; i<4 ; i++)
+        
+        item.GetComponent<PlantItem>().Nickname = plant.Nickname;
+        item.GetComponent<PlantItem>().Kind = plant.Kind;
+        item.GetComponent<PlantItem>().PlantState = plant.PlantState;
+        item.GetComponent<PlantItem>().Manager = plant.Manager;
+        item.transform.GetChild(0).GetComponent<Text>().text = plant.Nickname;
+        item.transform.GetChild(1).GetComponent<Image>().sprite = plant.Icon;
+        //Reorganize
+        for (int i = 1; i<4 ; i++)
         {
             dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
         }
-    }
-
-
-    public PlantItem newPlant(Image icon, string name, string nickname, string kind)
-    {
-        //TODO: Work on how to get the states
-        PlantState states = new PlantState(kind);
-        return new PlantItem(icon, nickname, kind, states);
     }
 
     private void InstatiateEmptys()
