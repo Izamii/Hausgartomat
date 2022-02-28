@@ -21,7 +21,7 @@ public class GoToScreen : MonoBehaviour
 
 
     //Go to Plant State Screen
-    public void GoToPlantScreen(Image icon, string nickname, string kind, PlantState state)
+    public void GoToPlantScreen(Sprite icon, string nickname, string kind, PlantState state)
     {
         Navigation _navi = navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(planes[1]);

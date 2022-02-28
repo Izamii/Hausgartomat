@@ -42,6 +42,6 @@ public class PlantItem:MonoBehaviour
     {
         GoToScreen _goToScreen = Manager.GetComponent<GoToScreen>();
         //TODOOOOOOOOO FIX
-        //_goToScreen.GoToPlantScreen(Icon, Nickname, Kind, PlantState);
+        _goToScreen.GoToPlantScreen(Icon, Nickname, Kind, PlantState);
     }
 }

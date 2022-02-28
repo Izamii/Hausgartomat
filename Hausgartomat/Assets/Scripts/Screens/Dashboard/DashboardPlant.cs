@@ -12,10 +12,10 @@ public class DashboardPlant : MonoBehaviour
 
     private PlantItem _plantItem;
 
-    public void SetScreen(Image icon, string nickname, string kind, PlantState states)
+    public void SetScreen(Sprite icon, string nickname, string kind, PlantState states)
     {   
         this.nickname.text = nickname;
         this.kind.text = kind;
-        this.icon.sprite = icon.sprite;
+        this.icon.sprite = icon;
     }
 }

@@ -32,10 +32,7 @@ public class Manager : MonoBehaviour
         InstantiateBottom();
         InstantiateNewPlantItem(plantyThePlant);
         //1 Add dummy plants, Bob and Carla over the Add and empty buttons
-        int dashboardItems = dashboard.transform.GetChildCount();
-        Debug.Log(dashboardItems);
-        string itemName = dashboard.transform.GetChild(dashboardItems - 3).name;
-        Debug.Log(itemName);
+        
     }
     private void InstantiateNewPlantItem(PlantItem plant)
     {
@@ -47,6 +44,7 @@ public class Manager : MonoBehaviour
         item.GetComponent<PlantItem>().Kind = plant.Kind;
         item.GetComponent<PlantItem>().PlantState = plant.PlantState;
         item.GetComponent<PlantItem>().Manager = plant.Manager;
+        item.GetComponent<PlantItem>().Icon = plant.Icon;
         item.transform.GetChild(0).GetComponent<Text>().text = plant.Nickname;
         item.transform.GetChild(1).GetComponent<Image>().sprite = plant.Icon;
         //Reorganize
@@ -55,7 +53,6 @@ public class Manager : MonoBehaviour
             dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
         }
     }
-
     private void InstatiateEmptys()
     {
         for(int i = 0; i < 2; i++)
