@@ -24,10 +24,12 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Test dummy plant creation
         PlantState s = new PlantState("Mota");
         PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Mota", s);
 
         InstantiateBottom();
+        //Last part of test
         InstantiateNewPlantItem(plantyThePlant);
     }
     public void InstantiateNewPlantItem(PlantItem plant)
@@ -73,6 +75,4 @@ public class Manager : MonoBehaviour
         InstantiateAddPlant();
         InstatiateEmptys();
     }
-
-
 }

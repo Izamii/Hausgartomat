@@ -5,20 +5,9 @@ using UnityEngine.UI;
 
 public class GoToScreen : MonoBehaviour
 {
-
-    private PlantItem _plantItem;
     private DashboardPlant _dashboardPlant;
-    private GameObject lastScreen;
-    private GameObject actualScreen;
     [SerializeField] private GameObject navi;
-
     [SerializeField] private GameObject[] planes;
-
-    public GameObject[] getPlanes()
-    {
-        return planes;
-    }
-
 
     //Go to Plant State Screen
     public void GoToPlantScreen(Sprite icon, string nickname, string kind, PlantState state)

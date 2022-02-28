@@ -9,13 +9,11 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private Text kind;
     [SerializeField] private Image icon;
     [SerializeField] private PlantState state;
-
-    private PlantItem _plantItem;
-
     public void SetScreen(Sprite icon, string nickname, string kind, PlantState states)
     {   
         this.nickname.text = nickname;
         this.kind.text = kind;
         this.icon.sprite = icon;
+        //Use state to determine color, faces and icons
     }
 }

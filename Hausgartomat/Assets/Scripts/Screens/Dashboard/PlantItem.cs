@@ -28,20 +28,9 @@ public class PlantItem:MonoBehaviour
         this.PlantState = plantState;
         this.Manager = GameObject.Find("Manager");
     }
-    public PlantItem(string nickname)
-    {
-        this.Nickname = nickname;
-    }
-
-    public string getNickname()
-    {
-        return Nickname;
-    }
-
-    public void Go()
+    public void OpenPlantScreen()
     {
         GoToScreen _goToScreen = Manager.GetComponent<GoToScreen>();
-        //TODOOOOOOOOO FIX
         _goToScreen.GoToPlantScreen(Icon, Nickname, Kind, PlantState);
     }
 }

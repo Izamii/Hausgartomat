@@ -31,6 +31,9 @@ public class PlantState : MonoBehaviour
     public PlantState(string kind)
     {
         this.kind = kind;
+        //1 Get Values from DB about this kind of plant
+        //2 Provide Arduino with values
+        //3 Recive initial state
     }
 
     //States provided by arduino :D 
@@ -38,14 +41,10 @@ public class PlantState : MonoBehaviour
     /*
      Needs a Port and connection to the arduino :D*/
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public void SendLimitsToArduino()
     {
-        //Get info from DB for this plant
+        //Send limits for this plant to be tested on Arduino
     }
-
     public int[] RequestStates()
     {
         int[][] values = RequestLimitsFromDB();
@@ -54,7 +53,23 @@ public class PlantState : MonoBehaviour
 
     public int[][] RequestLimitsFromDB()
     {
+        SendLimitsToArduino();
         //Min Max Values for each parameter. Light, Water, Temperature
         return new int[][] { new int[] { 10, 20 }, new int[] { 30, 40 }, new int[] { 50, 60 } };
     } 
+
+    //Send Signal to Arduino to turn on/off an equipment.
+    public void SwitchArduinoEquipment(int i)
+    {
+        switch (i)
+        {
+            case 1: //Water
+                break;
+            case 2: //Light
+                break;
+            case 3: //Fan
+                break;
+        }
+
+    }
 }
