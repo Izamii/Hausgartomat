@@ -26,15 +26,13 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InstantiateAddPlant();
-        InstatiateEmptys();
+        InstantiateBottom();
+        InstantiateNewPlantItem();
         //1 Add dummy plants, Bob and Carla over the Add and empty buttons
         int dashboardItems = dashboard.transform.GetChildCount();
         Debug.Log(dashboardItems);
         string itemName = dashboard.transform.GetChild(dashboardItems - 3).name;
         Debug.Log(itemName);
-        
-
     }
 
     private void InstantiateDashboardItem(GameObject item, Color color, Sprite icon, PlantItem plantItem)
@@ -55,10 +53,41 @@ public class Manager : MonoBehaviour
 
     }
 
+
+
+    private void InstantiateNewPlantItem()
+    {
+        int dashboardItems = dashboard.transform.GetChildCount();
+        Debug.Log(dashboardItems);
+        string itemName = dashboard.transform.GetChild(dashboardItems - 3).name;
+        Debug.Log(itemName);
+        _navi = navi.GetComponent<GoToScreen>();
+        GameObject item = Instantiate(prefabDashPlant, dashboard.transform);
+
+        GameObject temp = item;
+        for(int i = 1; i<4 ; i++)
+        {
+            dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
+        }
+    }
+
+
+    public PlantItem newPlant(Image icon, string name, string nickname, string kind)
+    {
+        //TODO: Work on how to get the states
+        PlantState states = new PlantState(kind);
+        return new PlantItem(icon, nickname, kind, states);
+    }
+
     private void InstatiateEmptys()
     {
-        InstantiateDashboardItem(empty, Color.clear, null, null);
-        InstantiateDashboardItem(empty, Color.clear, null, null);
+        for(int i = 0; i < 2; i++)
+        {
+            GameObject item = Instantiate(prefabDashPlant, dashboard.transform);
+            item.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
+            item.transform.GetChild(0).GetComponent<Text>().text = "";
+            item.GetComponent<Image>().color = Color.clear;
+        }
     }
     private void InstantiateAddPlant()
     {
@@ -69,13 +98,13 @@ public class Manager : MonoBehaviour
         GameObject item = Instantiate(prefabDashAddBtn, dashboard.transform);
         item.GetComponent<Button>().onClick.AddListener(_navi.GoToAddPlant);
     }
-
-
-    public PlantItem newPlant(Image icon, string name, string nickname, string kind)
+    private void InstantiateBottom()
     {
-        PlantState states = new PlantState(kind);
-        return new PlantItem(icon, nickname, kind, states);
+        InstantiateAddPlant();
+        InstatiateEmptys();
     }
+
+
     //Update should be done every 10-30 seconds
     // Update is called once per frame
     /*void Update()
