@@ -12,6 +12,8 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private GameObject confirmationPanel;
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject manager;
+    [SerializeField] private Dropdown kindDropdown;
+    [SerializeField] private InputField nameField;
     public void SetScreen(Sprite icon, string nickname, string kind, PlantState states)
     {   
         this.nickname.text = nickname;
@@ -25,13 +27,26 @@ public class DashboardPlant : MonoBehaviour
     {
         //Turn Inut Field and Dropdown ON
     }
-    public void ChangePlantNickname(GameObject dashboardItem)
+    public void ChangePlantNickname()
     {
-
+        nickname.text = nameField.text;
     }
-    public void ChangePlantKind(GameObject dashboardItem)
+    public void ChangePlantKind()
     {
-        //Uodate Text, Image, New State with same port
+        //Icon = icon from DB for new Plant kind
+        kind.text = kindDropdown.transform.GetChild(0).GetComponent<Text>().text;
+    }
+
+    public void UpdatePlantInfo()
+    {
+        if (kindDropdown.IsActive())
+        {
+            ChangePlantKind();
+        }
+        else
+        {
+            ChangePlantNickname();
+        }
     }
 
     public void ConfirmationPanelPopUp(bool on)
