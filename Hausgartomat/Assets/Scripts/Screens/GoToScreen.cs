@@ -9,10 +9,13 @@ public class GoToScreen : MonoBehaviour
     [SerializeField] private GameObject navi;
     [SerializeField] private GameObject[] planes;
 
+    public GameObject Navi { get => navi; set => navi = value; }
+
+
     //Go to Plant State Screen
     public void GoToPlantScreen(Sprite icon, string nickname, string kind, PlantState state)
     {
-        Navigation _navi = navi.GetComponent<Navigation>();
+        Navigation _navi = Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(planes[1]);
         _dashboardPlant = planes[1].GetComponent<DashboardPlant>();
         _dashboardPlant.SetScreen(icon, nickname, kind, state);
@@ -21,14 +24,14 @@ public class GoToScreen : MonoBehaviour
     //Go to Add Plant
     public void GoToAddPlant()
     {
-        Navigation _navi = navi.GetComponent<Navigation>();
+        Navigation _navi = Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(planes[2]);
     }
 
     //Go to Plantpedia
     public void GoBack(GameObject lastScreen)
     {
-        Navigation _navi = navi.GetComponent<Navigation>();
+        Navigation _navi = Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(lastScreen);
     }
 }

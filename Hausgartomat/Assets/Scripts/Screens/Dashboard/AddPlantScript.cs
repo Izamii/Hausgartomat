@@ -41,7 +41,7 @@ public class AddPlantScript : MonoBehaviour
         PlantItem newPlantItem = 
             new PlantItem(plantImg.sprite, nickname, selected , state);
         manager.InstantiateNewPlantItem(newPlantItem);
-        manager.Navi.GoBack(dashboard);
+        manager.GoTo.GoBack(dashboard);
     }
 
 }

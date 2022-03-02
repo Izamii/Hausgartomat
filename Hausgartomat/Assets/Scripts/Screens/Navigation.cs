@@ -8,11 +8,14 @@ public class Navigation : MonoBehaviour
     [SerializeField] private GameObject[] panels;
     [SerializeField] private Button[] menu;
     private Color pressed = new Color32(176,209,169,255);
+
+    public GameObject[] Panels { get => panels; set => panels = value; }
+
     public void NavigationBarClick(GameObject activePanel)
     {
-        for (int i = 0; i < panels.Length; i++)
+        for (int i = 0; i < Panels.Length; i++)
         {
-            panels[i].SetActive(false);
+            Panels[i].SetActive(false);
 
         }
         activePanel.SetActive(true);

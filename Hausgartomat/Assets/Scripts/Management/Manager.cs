@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,10 +14,11 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject prefabDashPlant;
     [SerializeField] private GameObject prefabDashAddBtn;
     [SerializeField] private Sprite testSprite;
-    [SerializeField] private GameObject navi;
-    private GoToScreen _navi;
+    [SerializeField] private GameObject goToScreen;
+    private GoToScreen _goToScreen;
 
-    public GoToScreen Navi { get => _navi; set => _navi = value; }
+    public GoToScreen GoTo { get => _goToScreen; set => _goToScreen = value; }
+    public GameObject Dashboard { get => dashboard; set => dashboard = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +31,11 @@ public class Manager : MonoBehaviour
         //Last part of test
         InstantiateNewPlantItem(plantyThePlant);
     }
+    //Create
     public void InstantiateNewPlantItem(PlantItem plant)
     {
-        int dashboardItems = dashboard.transform.GetChildCount();
-        Navi = navi.GetComponent<GoToScreen>();
-        GameObject item = Instantiate(prefabDashPlant, dashboard.transform);
+        int dashboardItems = Dashboard.transform.GetChildCount();
+        GameObject item = Instantiate(prefabDashPlant, Dashboard.transform);
         
         item.GetComponent<PlantItem>().Nickname = plant.Nickname;
         item.GetComponent<PlantItem>().Kind = plant.Kind;
@@ -45,17 +44,18 @@ public class Manager : MonoBehaviour
         item.GetComponent<PlantItem>().Icon = plant.Icon;
         item.transform.GetChild(0).GetComponent<Text>().text = plant.Nickname;
         item.transform.GetChild(1).GetComponent<Image>().sprite = plant.Icon;
+        item.name = plant.Nickname;
         //Reorganize
         for (int i = 1; i<4 ; i++)
         {
-            dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
+            Dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
         }
     }
     private void InstatiateEmptys()
     {
         for(int i = 0; i < 2; i++)
         {
-            GameObject item = Instantiate(prefabDashPlant, dashboard.transform);
+            GameObject item = Instantiate(prefabDashPlant, Dashboard.transform);
             item.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
             item.transform.GetChild(0).GetComponent<Text>().text = "";
             item.GetComponent<Image>().color = Color.clear;
@@ -63,16 +63,21 @@ public class Manager : MonoBehaviour
     }
     private void InstantiateAddPlant()
     {
-        Debug.Log(navi);
-        Debug.Log(Navi);
-        Navi = navi.GetComponent<GoToScreen>();
-        Debug.Log(Navi);
-        GameObject item = Instantiate(prefabDashAddBtn, dashboard.transform);
-        item.GetComponent<Button>().onClick.AddListener(Navi.GoToAddPlant);
+        GoTo = goToScreen.GetComponent<GoToScreen>();
+        GameObject item = Instantiate(prefabDashAddBtn, Dashboard.transform);
+        item.GetComponent<Button>().onClick.AddListener(GoTo.GoToAddPlant);
     }
     private void InstantiateBottom()
     {
         InstantiateAddPlant();
         InstatiateEmptys();
+    }
+
+    //Delete
+    public void DeletePlant(Text nickname)
+    {
+        Navigation _navi = GoTo.Navi.GetComponent<Navigation>();
+        _navi.NavigationBarClick(GoTo.Navi.GetComponent<Navigation>().Panels[0]);
+        Destroy(dashboard.transform.Find(nickname.text).gameObject);
     }
 }
