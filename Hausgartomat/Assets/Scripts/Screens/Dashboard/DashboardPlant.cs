@@ -10,7 +10,7 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private Image icon;
     [SerializeField] private PlantState state;
     [SerializeField] private GameObject confirmationPanel;
-    [SerializeField] private GameObject dashboardOrigin;
+    [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject manager;
     public void SetScreen(Sprite icon, string nickname, string kind, PlantState states)
     {   
@@ -34,12 +34,18 @@ public class DashboardPlant : MonoBehaviour
         //Uodate Text, Image, New State with same port
     }
 
-    public void ConfirmationPanelPopUp()
+    public void ConfirmationPanelPopUp(bool on)
     {
-        confirmationPanel.SetActive(true);
+        confirmationPanel.SetActive(on);
     }
-    public void deletePlant()
+    public void OptionsPanelPopUp(bool on)
     {
+        optionsPanel.SetActive(on);
+    }
+    public void DeletePlant()
+    {
+        confirmationPanel.SetActive(false);
+        optionsPanel.SetActive(false);
         manager.GetComponent<Manager>().DeletePlant(nickname);
     }
 }
