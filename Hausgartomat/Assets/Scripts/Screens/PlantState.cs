@@ -61,7 +61,9 @@ public class PlantState : MonoBehaviour
     }
     public float[] RequestStates()
     {
+        //Open coms
         SendLimitsToArduino(limits);
+        //Close coms
         return new float[] { 1, 2, 1 };
     }
 
