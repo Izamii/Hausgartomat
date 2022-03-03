@@ -45,17 +45,17 @@ public class PlantState : MonoBehaviour
     {
         //Send limits for this plant to be tested on Arduino
     }
-    public int[] RequestStates()
+    public float[] RequestStates()
     {
-        int[][] values = RequestLimitsFromDB();
-        return new int[] { 1, 2, 1 };
+        float[][] values = RequestLimitsFromDB();
+        return new float[] { 1, 2, 1 };
     }
 
-    public int[][] RequestLimitsFromDB()
+    public float[][] RequestLimitsFromDB()
     {
         SendLimitsToArduino();
         //Min Max Values for each parameter. Light, Water, Temperature
-        return new int[][] { new int[] { 10, 20 }, new int[] { 30, 40 }, new int[] { 50, 60 } };
+        return new float[][] { new float[] { 10, 20 }, new float[] { 30, 40 }, new float[] { 50, 60 } };
     } 
 
     //Send Signal to Arduino to turn on/off an equipment.
