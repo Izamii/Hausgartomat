@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,9 @@ public class Manager : MonoBehaviour
     [SerializeField] private Sprite testSprite;
     [SerializeField] private GameObject goToScreen;
     private GoToScreen _goToScreen;
+    [Space]
+    [Header("Test Area")]
+    [SerializeField] private GameObject testPlant;
 
     public GoToScreen GoTo { get => _goToScreen; set => _goToScreen = value; }
     public GameObject Dashboard { get => dashboard; set => dashboard = value; }
@@ -23,13 +27,18 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Test dummy plant creation
+        
+
+        
+        
+    }
+    private void Awake()
+    {
+        InstantiateBottom();
         PlantState s = new PlantState("Mota");
         PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Mota", s);
-
-        InstantiateBottom();
-        //Last part of test
         InstantiateNewPlantItem(plantyThePlant);
+        StartCoroutine(CheckStates());
     }
     //Create
     public void InstantiateNewPlantItem(PlantItem plant)
@@ -79,5 +88,21 @@ public class Manager : MonoBehaviour
         Navigation _navi = GoTo.Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(GoTo.Navi.GetComponent<Navigation>().Panels[0]);
         Destroy(dashboard.transform.Find(nickname.text).gameObject);
+    }
+
+    IEnumerator CheckStates()
+    {
+        while (true)
+        {
+            for(int i = 0; i < dashboard.transform.childCount - 3; i++)
+            {
+                Debug.Log("Checking States");
+                Debug.Log(dashboard.transform.GetChild(i).name);
+                dashboard.transform.GetChild(i).GetComponent<Image>().color = Random.ColorHSV();
+                // Check States every X seconds for all plant items
+                Debug.Log("States checked");
+            }
+            yield return new WaitForSeconds(3);
+        }
     }
 }

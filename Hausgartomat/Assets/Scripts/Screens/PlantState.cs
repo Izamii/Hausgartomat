@@ -27,12 +27,26 @@ public class PlantState : MonoBehaviour
     [SerializeField] private int lightState;
     [SerializeField] private int waterState;
     [SerializeField] private int tempState;
+    [SerializeField] private GameObject manager;
+    private GetPlantData _getPlantData;
+    private float[] lightVals;
+    private float[] humidityVals;
+    private float[] temperatureVals;
+    private float[][] limits;
 
+    private void Awake()
+    {
+        manager = GameObject.Find("Manager");
+        _getPlantData = manager.GetComponent<GetPlantData>();
+    }
     public PlantState(string kind)
     {
         this.kind = kind;
+        //plantDB = _getPlantData.GETSinglePlant(kind);
         //1 Get Values from DB about this kind of plant
+        //limits = RequestLimitsFromDB();
         //2 Provide Arduino with values
+
         //3 Recive initial state
     }
 
@@ -41,21 +55,23 @@ public class PlantState : MonoBehaviour
     /*
      Needs a Port and connection to the arduino :D*/
 
-    public void SendLimitsToArduino()
+    public void SendLimitsToArduino(float[][] limits)
     {
         //Send limits for this plant to be tested on Arduino
     }
     public float[] RequestStates()
     {
-        float[][] values = RequestLimitsFromDB();
+        SendLimitsToArduino(limits);
         return new float[] { 1, 2, 1 };
     }
 
     public float[][] RequestLimitsFromDB()
     {
-        SendLimitsToArduino();
+        lightVals = plantDB.light;
+        humidityVals = plantDB.humidity;
+        temperatureVals = plantDB.temperature;
         //Min Max Values for each parameter. Light, Water, Temperature
-        return new float[][] { new float[] { 10, 20 }, new float[] { 30, 40 }, new float[] { 50, 60 } };
+        return new float[][] {lightVals, humidityVals, temperatureVals};
     } 
 
     //Send Signal to Arduino to turn on/off an equipment.
