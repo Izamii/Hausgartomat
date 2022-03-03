@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
+using Firebase;
 using Firebase.Extensions;
 using Firebase.Firestore;
 using UnityEngine;
@@ -13,11 +14,27 @@ public class GetPlantData : MonoBehaviour
     [SerializeField] private string plantname = "Tomate";
     
     private QuerySnapshot databaseSnapshot;
+    private List<Plant> plantList = new List<Plant>();
+    
     public void Start()
     {
-        StartCoroutine(Plantpedia());
+        CheckDependencies();
     }
 
+    private async void CheckDependencies()
+    {
+        var dependencyStatus = await FirebaseApp.CheckAndFixDependenciesAsync();
+        if (dependencyStatus == DependencyStatus.Available)
+        {   
+            Debug.Log("Dependencies are functional.");
+            StartCoroutine(Plantpedia());
+        }
+        else
+        {
+            Debug.LogError($"Could not resolve all Firebase dependencies: {dependencyStatus}");
+        }
+    }
+    
     private IEnumerator Plantpedia()
     {
         Task<QuerySnapshot> plantpediaTask = FirebaseFirestore.DefaultInstance.Collection("Plantpedia").GetSnapshotAsync();
@@ -32,45 +49,41 @@ public class GetPlantData : MonoBehaviour
         }
 
         databaseSnapshot = plantpediaTask.Result;
+        foreach (DocumentSnapshot plant in databaseSnapshot.Documents)
+        {
+            plantList.Add(plant.ConvertTo<Plant>());
+        }
         Debug.Log("Done");
     }
 
-    public void updatePlantData()
+    public void UpdatePlantData()
     {
         StartCoroutine(Plantpedia());
     }
 
-    public List<Plant> getAllPlants()
+    public List<Plant> GETAllPlants()
     {
-        List<Plant> plantList = new List<Plant>();
-        if (databaseSnapshot != null)
-        {
-            foreach (DocumentSnapshot plant in databaseSnapshot.Documents)
-            {
-                plantList.Add(plant.ConvertTo<Plant>());
-            }
-        }
         return plantList;
     }
     
-    public Plant getSinglePlant(string name)
+    public Plant GETSinglePlant(string plantName)
     {
-        //getAllPlants();
         Plant plantreturn = null;
-        foreach (DocumentSnapshot plant in  databaseSnapshot.Documents)
+        foreach (Plant plant in plantList)
         {
-            if (plant.Id == name)
+            if (plant.name == name)
             {
-                plantreturn = plant.ConvertTo<Plant>();
+                plantreturn = plant;
             }
         }
-
         return plantreturn;
     }
-
+    
+    
+    //Test-Function for Output
     public void buttonClick()
     {
-        Plant returnval = getSinglePlant(plantname);
+        Plant returnval = GETSinglePlant(plantname);
         if (returnval != null)
         {
             returnval.printData();
