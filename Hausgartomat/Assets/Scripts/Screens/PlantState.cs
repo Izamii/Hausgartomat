@@ -36,10 +36,10 @@ public class PlantState : MonoBehaviour
     private float[] humidityVals;
     private float[] temperatureVals;
     private float mediocreTemp = 3;
-    private float mediocreHumidity = 10;
+    private float mediocreHumidity = 0.1f;
     private float mediocreLight = 50;
 
-    private SerialPort sp = new SerialPort("COM12", 9600);
+    private SerialPort sp = new SerialPort("COM11", 9600);
     private string arduinoByte = "";
 
     public PlantState(string kind)
@@ -51,17 +51,9 @@ public class PlantState : MonoBehaviour
         this.lightVals = plantDB.light;
         this.humidityVals = plantDB.humidity;
         this.temperatureVals = plantDB.temperature;
-    }
-    
-    public void generateParameters(string kind)
-    {
-        this.kind = kind;
-        manager = GameObject.Find("Manager");
-        _getPlantData = manager.GetComponent<GetPlantData>();
-        plantDB = _getPlantData.GETSinglePlant(kind);
-        this.lightVals = plantDB.light;
-        this.humidityVals = plantDB.humidity;
-        this.temperatureVals = plantDB.temperature;
+        Debug.Log("---------------------------"+ lightVals[2]);
+        //Temporal, until value in Tomaten DB is fixed
+        if (plantDB.name.Equals("Tomate")) lightVals[2] *= 100;
     }
 
     public float[] LightVals { get => lightVals; set => lightVals = value; }
@@ -88,35 +80,11 @@ public class PlantState : MonoBehaviour
         sp.Open();
         sp.ReadTimeout = 50;
         //Get values from arduino
-        for (int i = 0; i < 3; i++)
-        {
-            switch (i)
-            {
-                case 0://Gimme light
-                    WriteToArduino("GETLIGHT");
-                    break;
-                case 1://Gimme Humidity
-                    WriteToArduino("GETHUMIDITY");
-                    break;
-                case 2://Gimme Temp
-                    WriteToArduino("GETTEMP");
-                    break;
-            }
-            //Debug.Log("Written to Arduino");
-            try
-            {
-                arduinoByte = sp.ReadLine();
-                //Debug.Log(arduinoByte);
-                ManageResponse(arduinoByte);
-            }
-            catch
-            {
-                Debug.Log("Error");
-            }
-        }
+        StartCoroutine(CheckStates()); //GOT A NULL REFERENCE EXCEPTION
         //Close coms
         sp.Close();
         return DetermineState(lightState, waterState, tempState);
+            //DetermineState(waterState);
     }
 
 
@@ -138,106 +106,115 @@ public class PlantState : MonoBehaviour
     */
     private void ManageResponse(string response)
     {
-        string type = response.Split(' ')[0];
-        float amount = float.Parse(response.Split(' ')[1]);
+        string[] split = response.Split(' ');
+        string type = split[0];
+        float amount = float.Parse(split[1]);
+        int equipmentON = int.Parse(split[2]);
         //Debug.Log(type);
         switch (type)
         {
             case "t":
                 //Too low, risky
-                if (amount < MediocreRange(temperatureVals, mediocreTemp)[0])
+                if (amount < (temperatureVals[0] - mediocreTemp))
                 {
                     tempState = 0;
                 }
                 else
                 //Mediocre low
-                if (amount >= MediocreRange(temperatureVals, mediocreTemp)[0] && amount < temperatureVals[0])
+                if (amount >= (temperatureVals[0] - mediocreTemp) && amount < temperatureVals[0])
                 {
                     tempState = 1;
                 }
                 else
                 //Good
-                if (amount >= temperatureVals[0] && amount < temperatureVals[1])
+                if (amount >= temperatureVals[0] && amount < temperatureVals[2])
                 {
                     tempState = 2;
                 }
                 else
                 //Mediocre high
-                if (amount >= temperatureVals[1] && amount < MediocreRange(temperatureVals, mediocreTemp)[1])
+                if (amount >= temperatureVals[2] && amount < (temperatureVals[2] + mediocreTemp))
                 {
                     tempState = 3;
                 }
                 else
                 //Too High
-                if (amount >= MediocreRange(temperatureVals, mediocreTemp)[1])
+                if (amount >= (temperatureVals[2] + mediocreTemp))
                 {
                     tempState = 4;
                 }
-                Debug.Log("Tempstate: "+tempState + ". Temp: " + amount);
+                Debug.Log("Tempstate: "+ tempState + ". Temp: " + amount + 
+                    ". Vals: " + (temperatureVals[0] - mediocreTemp)  + ", " + temperatureVals[0]
+                    + ", " + temperatureVals[2] + ", "  + (temperatureVals[2] + mediocreTemp));
                 break;
             case "h":
+                amount *= 0.01f;
                 //Too low, risky
-                if (amount < MediocreRange(humidityVals, mediocreHumidity)[0])
+                if (amount < humidityVals[0] - mediocreHumidity)
                 {
                     waterState = 0;
                 }
                 else
                 //Mediocre low
-                if (amount >= MediocreRange(humidityVals, mediocreHumidity)[0] && amount < humidityVals[0])
+                if (amount >= humidityVals[0] - mediocreHumidity && amount < humidityVals[0])
                 {
                     waterState = 1;
                 }
                 else
                 //Good
-                if (amount >= humidityVals[0] && amount < humidityVals[1])
+                if (amount >= humidityVals[0] && amount < humidityVals[2])
                 {
                     waterState = 2;
                 }
                 else
                 //Mediocre high
-                if (amount >= humidityVals[1] && amount < MediocreRange(humidityVals, mediocreHumidity)[1])
+                if (amount >= humidityVals[2] && amount < humidityVals[2] + mediocreHumidity)
                 {
                     waterState = 3;
                 }
                 else
                 //Too High
-                if (amount >= MediocreRange(humidityVals, mediocreHumidity)[1])
+                if (amount >= humidityVals[2] + mediocreHumidity)
                 {
                     waterState = 4;
                 }
-                Debug.Log("Humidstate: " + tempState + ". Wetness: " + amount);
+                Debug.Log("Humidstate: " + lightState + ". Wetness: " + amount +
+                    ". Vals: " + (humidityVals[0] - mediocreHumidity) + ", " + humidityVals[0]
+                    + ", " + humidityVals[2] + ", " + (humidityVals[2] + mediocreHumidity));
                 break;
             case "l":
                 //Too low, risky
-                if (amount < MediocreRange(lightVals, mediocreLight)[0])
+                if (amount < lightVals[0] - mediocreLight)
                 {
                     lightState = 0;
                 }
                 else
                 //Mediocre low
-                if (amount >= MediocreRange(lightVals, mediocreLight)[0] && amount < lightVals[0])
+                if (amount >= lightVals[0] && amount < lightVals[0] - 50)
                 {
                     lightState = 1;
                 }
                 else
                 //Good
-                if (amount >= lightVals[0] && amount < lightVals[1])
+                if (amount >= lightVals[0] && amount < lightVals[2])
                 {
                     lightState = 2;
                 }
                 else
                 //Mediocre high
-                if (amount >= lightVals[1] && amount < MediocreRange(lightVals, mediocreLight)[1])
+                if (amount >= lightVals[2] && amount < lightVals[2] + mediocreLight)
                 {
                     lightState = 3;
                 }
                 else
                 //Too High
-                if (amount >= MediocreRange(lightVals, mediocreLight)[1])
+                if (amount >= lightVals[2] + mediocreLight)
                 {
                     lightState = 4;
                 }
-                Debug.Log("Lightstate: " + tempState + ". Lightness: " + amount);
+                Debug.Log("Lightstate: " + lightState + ". Lightness: " + amount +
+                    ". Vals: " + (lightVals[0] - mediocreLight) + ", " + lightVals[0]
+                    + ", " + lightVals[2] + ", " + (lightVals[2] + mediocreLight));
                 break;
         }
 
@@ -251,13 +228,21 @@ public class PlantState : MonoBehaviour
     {
         if(state1 == 0 || state1 == 4 || state2 == 0 || state2 == 4 || state3 == 0 || state3 == 4)
         {
-            return 0; //Red, Risky
-        }
+            return 2; //Red, Risky
+        }else
         if (state1 == 1 || state1 == 3 || state2 == 1 || state2 == 3 || state3 == 1 || state3 == 3)
         {
             return 1; //Yellow, Mediocre
-        }
-        return 2; //Green, good
+        }else
+        return 0; //Green, good
+    }
+
+    private int DetermineState(int state)
+    {
+        if(state == 0 || state == 4) { return 2; }
+        if(state == 1 || state == 3) { return 1; }
+        if(state == 2) { return 0; }
+        return 4;
     }
 
     public IEnumerator AsynchronousReadFromArduino(Action<string> callback, Action fail = null, float timeout = float.PositiveInfinity)
@@ -297,21 +282,44 @@ public class PlantState : MonoBehaviour
         yield return null;
     }
 
-
-    /**
-     * Ranges of values that are still OK for the plant, but could be better
-     */
-    float[] MediocreRange(float[] range, float modifier)
-    {
-        float[] medRange = range;
-        medRange[0] -= modifier;
-        medRange[1] += modifier;
-        return medRange;
-    }
-
     public int testState()
     {
         return 1;
+    }
+
+    IEnumerator CheckStates()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            
+            switch (i)
+            {
+                case 0://Gimme light
+                    WriteToArduino("GETTEMP");
+                    break;
+                case 1://Gimme Humidity
+                    WriteToArduino("GETHUMIDITY");
+                    break;
+                case 2://Gimme Temp
+                    WriteToArduino("GETTEMP");
+                    break;
+                case 4:
+                    yield break;
+            }
+            //Debug.Log("Written to Arduino");
+            yield return new WaitForSeconds(0.5f);
+            try
+            {
+                arduinoByte = sp.ReadLine();
+                Debug.Log(arduinoByte);
+                ManageResponse(arduinoByte);
+            }
+            catch
+            {
+                Debug.Log("Error");
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 }
 
