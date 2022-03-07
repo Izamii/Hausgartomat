@@ -13,6 +13,7 @@ public class PlantItem:MonoBehaviour
     [SerializeField] private string kind;
     [SerializeField] private PlantState plantState;
     [SerializeField] private GameObject manager;
+    private PlantState test;
 
     public Sprite Icon { get => icon; set => icon = value; }
     public string Nickname { get => nickname; set => nickname = value; }
@@ -27,6 +28,17 @@ public class PlantItem:MonoBehaviour
         this.Kind = kind;
         this.PlantState = plantState;
         this.Manager = GameObject.Find("Manager");
+        Debug.Log(plantState);
+    }
+    public PlantItem(Sprite icon, string nickname, string kind)
+    {
+        this.Icon = icon;
+        this.Nickname = nickname;
+        this.Kind = kind;
+        this.PlantState = new PlantState(kind);
+        Debug.Log(this.PlantState.LightVals[0] + "PlantItem Constructor");
+        this.Manager = GameObject.Find("Manager");
+        //test = gameObject.AddComponent<PlantState>();
     }
     public void OpenPlantScreen()
     {

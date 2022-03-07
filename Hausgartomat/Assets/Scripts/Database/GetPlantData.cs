@@ -15,9 +15,11 @@ public class GetPlantData : MonoBehaviour
     
     private QuerySnapshot databaseSnapshot;
     private List<Plant> plantList = new List<Plant>();
+    private Manager manager;
     
     public void Start()
     {
+        manager = GameObject.Find("Manager").GetComponent<Manager>();
         CheckDependencies();
     }
 
@@ -52,8 +54,10 @@ public class GetPlantData : MonoBehaviour
         foreach (DocumentSnapshot plant in databaseSnapshot.Documents)
         {
             plantList.Add(plant.ConvertTo<Plant>());
+            //Debug.Log(plant.ConvertTo<Plant>().name);
         }
         Debug.Log("Done");
+        manager.StartCoroutine(manager.CheckStates());
     }
 
     public void UpdatePlantData()
@@ -71,7 +75,7 @@ public class GetPlantData : MonoBehaviour
         Plant plantreturn = null;
         foreach (Plant plant in plantList)
         {
-            if (plant.name == name)
+            if (plant.name.Equals(plantName))
             {
                 plantreturn = plant;
             }

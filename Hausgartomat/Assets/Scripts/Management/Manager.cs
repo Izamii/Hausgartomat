@@ -20,6 +20,7 @@ public class Manager : MonoBehaviour
     [Space]
     [Header("Test Area")]
     [SerializeField] private GameObject testPlant;
+    private Plant plantDBTest;
 
     public GoToScreen GoTo { get => _goToScreen; set => _goToScreen = value; }
     public GameObject Dashboard { get => dashboard; set => dashboard = value; }
@@ -28,17 +29,12 @@ public class Manager : MonoBehaviour
     void Start()
     {
         
-
-        
-        
     }
     private void Awake()
     {
         InstantiateBottom();
-        PlantState s = new PlantState("Mota");
-        PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Mota", s);
-        InstantiateNewPlantItem(plantyThePlant);
-        StartCoroutine(CheckStates());
+        
+        //StartCoroutine(CheckStates());
     }
     //Create
     public void InstantiateNewPlantItem(PlantItem plant)
@@ -90,18 +86,36 @@ public class Manager : MonoBehaviour
         Destroy(dashboard.transform.Find(nickname.text).gameObject);
     }
 
-    IEnumerator CheckStates()
+    public IEnumerator CheckStates()
     {
+        //PlantState s = new PlantState("Tomate");
+        //Debug.Log("Heres the error --> " + s + "<----- bitch");
+        PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Tomate");
+        InstantiateNewPlantItem(plantyThePlant);
+        int j = 0;
+        // Check States every X seconds for all plant items  
         while (true)
         {
-            for(int i = 0; i < dashboard.transform.childCount - 3; i++)
+            Debug.Log("Checking States");
+            for (int i = 0; i < dashboard.transform.childCount - 3; i++)
             {
-                Debug.Log("Checking States");
-                Debug.Log(dashboard.transform.GetChild(i).name);
-                dashboard.transform.GetChild(i).GetComponent<Image>().color = Random.ColorHSV();
-                // Check States every X seconds for all plant items
-                Debug.Log("States checked");
+                //Debug.Log(dashboard.transform.GetChild(i).GetComponent<PlantItem>().PlantState.LightVals[0]);
+                int test = dashboard.transform.GetChild(i).GetComponent<PlantItem>().PlantState.RequestStates();
+                switch (test)
+                {
+                    case 0:
+                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.green;
+                        break;
+                    case 1:
+                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
+                        break;
+                    case 2:
+                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
+                        break;
+                }
+                //dashboard.transform.GetChild(i).GetComponent<Image>().color = Random.ColorHSV();                          
             }
+            //Debug.Log("States checked " + j++ + " times.");
             yield return new WaitForSeconds(3);
         }
     }
