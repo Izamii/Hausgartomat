@@ -113,16 +113,6 @@ public class PlantState : MonoBehaviour
             {
                 Debug.Log("Error");
             }
-            /*
-             StartCoroutine
-            (
-                AsynchronousReadFromArduino
-                ((string s) => Debug.Log(s),     // Callback
-                    () => Debug.LogError("Error!"), // Error callback
-                    5000f                          // Timeout (milliseconds)
-                )
-            );
-            */
         }
         //Close coms
         sp.Close();
