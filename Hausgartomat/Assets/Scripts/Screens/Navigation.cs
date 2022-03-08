@@ -15,8 +15,8 @@ public class Navigation : MonoBehaviour
     {
         for (int i = 0; i < Panels.Length; i++)
         {
+            if (Panels[i].name.Equals("Dashboard_Main")) continue;//Dashboard must be always active to keep the state inspection running in the background
             Panels[i].SetActive(false);
-
         }
         activePanel.SetActive(true);
         foreach (Button btn in menu)

@@ -59,7 +59,7 @@ public class AddPlantScript : MonoBehaviour
         if (nameField.text.Length > 0)
         {
             confirmationBtn.interactable = true;
-            Debug.Log(nameField.text);
+            //Debug.Log(nameField.text);
         }
         else
         {

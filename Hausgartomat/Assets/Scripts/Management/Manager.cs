@@ -1,4 +1,5 @@
 using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,13 +29,13 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
     private void Awake()
     {
         InstantiateBottom();
-        
-        //StartCoroutine(CheckStates());
+
+        StartCoroutine(CheckStates());
     }
     //Create
     public void InstantiateNewPlantItem(PlantItem plant)
@@ -45,6 +46,7 @@ public class Manager : MonoBehaviour
         item.AddComponent<PlantState>();
         item.GetComponent<PlantState>().Kind = plant.Kind;
         item.GetComponent<PlantState>().SetVariables();
+
         item.GetComponent<PlantItem>().Nickname = plant.Nickname;
         item.GetComponent<PlantItem>().Kind = plant.Kind;
         //item.GetComponent<PlantItem>().PlantState = plant.PlantState;
@@ -54,16 +56,16 @@ public class Manager : MonoBehaviour
         item.transform.GetChild(1).GetComponent<Image>().sprite = plant.Icon;
         item.name = plant.Nickname;
         //Reorganize
-        for (int i = 1; i<4 ; i++)
+        for (int i = 1; i < 4; i++)
         {
-            Dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
+            Dashboard.transform.GetChild(dashboardItems - 3).SetAsLastSibling();
         }
 
-        
+
     }
     private void InstatiateEmptys()
     {
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < 2; i++)
         {
             GameObject item = Instantiate(prefabDashPlant, Dashboard.transform);
             item.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
@@ -82,7 +84,6 @@ public class Manager : MonoBehaviour
         InstantiateAddPlant();
         InstatiateEmptys();
     }
-
     //Delete
     public void DeletePlant(Text nickname)
     {
@@ -93,19 +94,29 @@ public class Manager : MonoBehaviour
 
     public IEnumerator CheckStates()
     {
+
+        //Pedir los tres numeros aqui, con una separacion de 1 segundo entre cada una y usar esos pa comparar todos
         int j = 0;
-        yield return new WaitForSeconds(2);
         // Check States every X seconds for all plant items  
-        while (true)
+        while (j < 25)
         {
-            Debug.Log("Checking States");
+            //Debug.Log("Checking States");
             for (int i = 0; i < dashboard.transform.childCount - 3; i++)
             {
                 //yield return new wait until child is finished checking all its values
-                dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.Open();
+                if (!dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen)
+                {
+                    try
+                    {
+                        dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.Open();
+                    }
+                    catch (IOException)
+                    {
+                        
+                    }
+                }
+                //Debug.Log("Port is open: " + dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
 
-                yield return new WaitUntil(() => dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
-                Debug.Log("Port is open: " + dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
                 int test = dashboard.transform.GetChild(i).GetComponent<PlantState>().RequestStates();
                 switch (test)
                 {
@@ -119,11 +130,14 @@ public class Manager : MonoBehaviour
                         dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
                         break;
                 }
-                //dashboard.transform.GetChild(i).GetComponent<Image>().color = Random.ColorHSV();
-                yield return new WaitUntil(() => !dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
+                dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.Close();
+                yield return new WaitUntil(() => dashboard.transform.GetChild(i).GetComponent<PlantState>().FinishedChecking);
+                //yield return new WaitForSeconds(2);
+                dashboard.transform.GetChild(i).GetComponent<PlantState>().FinishedChecking = false;
             }
             //Debug.Log("States checked " + j++ + " times.");
-
+            j++;
+            yield return new WaitForSeconds(5);
         }
     }
 }
