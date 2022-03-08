@@ -32,34 +32,33 @@ public class PlantState : MonoBehaviour
     [SerializeField] private GameObject manager;
 
     private GetPlantData _getPlantData;
-    private float[] lightVals;
-    private float[] humidityVals;
-    private float[] temperatureVals;
+    [SerializeField] private float[] lightVals;
+    [SerializeField] private float[] humidityVals;
+    [SerializeField] private float[] temperatureVals;
     private float mediocreTemp = 3;
     private float mediocreHumidity = 0.1f;
     private float mediocreLight = 50;
 
-    private SerialPort sp = new SerialPort("COM11", 9600);
+    private SerialPort sp;
     private string arduinoByte = "";
 
     public PlantState(string kind)
     {
-        this.kind = kind;
+        this.Kind = kind;
         manager = GameObject.Find("Manager");
         _getPlantData = manager.GetComponent<GetPlantData>();
         plantDB = _getPlantData.GETSinglePlant(kind);
         this.lightVals = plantDB.light;
         this.humidityVals = plantDB.humidity;
         this.temperatureVals = plantDB.temperature;
-        Debug.Log("---------------------------"+ lightVals[2]);
-        //Temporal, until value in Tomaten DB is fixed
-        if (plantDB.name.Equals("Tomate")) lightVals[2] *= 100;
     }
 
     public float[] LightVals { get => lightVals; set => lightVals = value; }
     public int LightState { get => lightState; set => lightState = value; }
     public int WaterState { get => waterState; set => waterState = value; }
     public int TempState { get => tempState; set => tempState = value; }
+    public string Kind { get => kind; set => kind = value; }
+    public SerialPort Sp { get => sp; set => sp = value; }
 
     private void Awake()
     {
@@ -74,15 +73,14 @@ public class PlantState : MonoBehaviour
 
     public int RequestStates()
     {
-        manager = GameObject.Find("Manager");
-        _getPlantData = manager.GetComponent<GetPlantData>();
+        
         //Open coms
-        sp.Open();
-        sp.ReadTimeout = 50;
+        //Sp.Open();
+        Sp.ReadTimeout = 50;
         //Get values from arduino
         StartCoroutine(CheckStates()); //GOT A NULL REFERENCE EXCEPTION
         //Close coms
-        sp.Close();
+        Sp.Close();
         return DetermineState(lightState, waterState, tempState);
             //DetermineState(waterState);
     }
@@ -96,8 +94,8 @@ public class PlantState : MonoBehaviour
 
     private void WriteToArduino(string message)
     {
-        sp.WriteLine(message);
-        sp.BaseStream.Flush();
+        Sp.WriteLine(message);
+        Sp.BaseStream.Flush();
     }
 
     /**
@@ -196,25 +194,25 @@ public class PlantState : MonoBehaviour
                 }
                 else
                 //Good
-                if (amount >= lightVals[0] && amount < lightVals[2])
+                if (amount >= lightVals[0] && amount < lightVals[1])
                 {
                     lightState = 2;
                 }
                 else
                 //Mediocre high
-                if (amount >= lightVals[2] && amount < lightVals[2] + mediocreLight)
+                if (amount >= lightVals[2] && amount < lightVals[1] + mediocreLight)
                 {
                     lightState = 3;
                 }
                 else
                 //Too High
-                if (amount >= lightVals[2] + mediocreLight)
+                if (amount >= lightVals[1] + mediocreLight)
                 {
                     lightState = 4;
                 }
                 Debug.Log("Lightstate: " + lightState + ". Lightness: " + amount +
                     ". Vals: " + (lightVals[0] - mediocreLight) + ", " + lightVals[0]
-                    + ", " + lightVals[2] + ", " + (lightVals[2] + mediocreLight));
+                    + ", " + lightVals[1] + ", " + (lightVals[1] + mediocreLight));
                 break;
         }
 
@@ -257,7 +255,7 @@ public class PlantState : MonoBehaviour
         {
             try
             {
-                dataString = sp.ReadLine();
+                dataString = Sp.ReadLine();
             }
             catch (TimeoutException)
             {
@@ -271,6 +269,7 @@ public class PlantState : MonoBehaviour
             }
             else
                 yield return null; // Wait for next frame
+            yield return new WaitUntil(() => true);
 
             nowTime = DateTime.Now;
             diff = nowTime - initialTime;
@@ -291,7 +290,8 @@ public class PlantState : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            
+            //Yield return new wait until the last value has been read or x time has passed
+            yield return new WaitUntil(() => Sp.IsOpen);
             switch (i)
             {
                 case 0://Gimme light
@@ -307,10 +307,9 @@ public class PlantState : MonoBehaviour
                     yield break;
             }
             //Debug.Log("Written to Arduino");
-            yield return new WaitForSeconds(0.5f);
             try
             {
-                arduinoByte = sp.ReadLine();
+                arduinoByte = Sp.ReadLine();
                 Debug.Log(arduinoByte);
                 ManageResponse(arduinoByte);
             }
@@ -318,8 +317,18 @@ public class PlantState : MonoBehaviour
             {
                 Debug.Log("Error");
             }
-            yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    public void SetVariables()
+    {
+        manager = GameObject.Find("Manager");
+        _getPlantData = manager.GetComponent<GetPlantData>();
+        plantDB = _getPlantData.GETSinglePlant(kind);
+        this.lightVals = plantDB.light;
+        this.humidityVals = plantDB.humidity;
+        this.temperatureVals = plantDB.temperature;
+        Sp = new SerialPort("COM11", 9600);
     }
 }
 

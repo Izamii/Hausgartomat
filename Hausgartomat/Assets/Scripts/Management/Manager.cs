@@ -41,10 +41,13 @@ public class Manager : MonoBehaviour
     {
         int dashboardItems = Dashboard.transform.GetChildCount();
         GameObject item = Instantiate(prefabDashPlant, Dashboard.transform);
-        
+
+        item.AddComponent<PlantState>();
+        item.GetComponent<PlantState>().Kind = plant.Kind;
+        item.GetComponent<PlantState>().SetVariables();
         item.GetComponent<PlantItem>().Nickname = plant.Nickname;
         item.GetComponent<PlantItem>().Kind = plant.Kind;
-        item.GetComponent<PlantItem>().PlantState = plant.PlantState;
+        //item.GetComponent<PlantItem>().PlantState = plant.PlantState;
         item.GetComponent<PlantItem>().Manager = plant.Manager;
         item.GetComponent<PlantItem>().Icon = plant.Icon;
         item.transform.GetChild(0).GetComponent<Text>().text = plant.Nickname;
@@ -55,6 +58,8 @@ public class Manager : MonoBehaviour
         {
             Dashboard.transform.GetChild(dashboardItems-3).SetAsLastSibling();
         }
+
+        
     }
     private void InstatiateEmptys()
     {
@@ -88,19 +93,20 @@ public class Manager : MonoBehaviour
 
     public IEnumerator CheckStates()
     {
-        //PlantState s = new PlantState("Tomate");
-        //Debug.Log("Heres the error --> " + s + "<----- bitch");
-        PlantItem plantyThePlant = new PlantItem(testSprite, "Sandra", "Tomate");
-        InstantiateNewPlantItem(plantyThePlant);
         int j = 0;
+        yield return new WaitForSeconds(2);
         // Check States every X seconds for all plant items  
         while (true)
         {
             Debug.Log("Checking States");
             for (int i = 0; i < dashboard.transform.childCount - 3; i++)
             {
-                //Debug.Log(dashboard.transform.GetChild(i).GetComponent<PlantItem>().PlantState.LightVals[0]);
-                int test = dashboard.transform.GetChild(i).GetComponent<PlantItem>().PlantState.RequestStates();
+                //yield return new wait until child is finished checking all its values
+                dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.Open();
+
+                yield return new WaitUntil(() => dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
+                Debug.Log("Port is open: " + dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
+                int test = dashboard.transform.GetChild(i).GetComponent<PlantState>().RequestStates();
                 switch (test)
                 {
                     case 0:
@@ -113,10 +119,11 @@ public class Manager : MonoBehaviour
                         dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
                         break;
                 }
-                //dashboard.transform.GetChild(i).GetComponent<Image>().color = Random.ColorHSV();                          
+                //dashboard.transform.GetChild(i).GetComponent<Image>().color = Random.ColorHSV();
+                yield return new WaitUntil(() => !dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
             }
             //Debug.Log("States checked " + j++ + " times.");
-            yield return new WaitForSeconds(3);
+
         }
     }
 }
