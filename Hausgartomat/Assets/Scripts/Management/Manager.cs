@@ -243,4 +243,13 @@ public class Manager : MonoBehaviour
                 return;
         }
     }
+
+    public IEnumerable DashboardPlantUpdate()
+    {
+        //On Enable start, on disable stop
+        //get this plant´s calculated state, level of values and equipment state and adapt the screen
+        //On change of equipment... wait? yeaaaah
+
+        yield return new WaitForSeconds(3);
+    }
 }
