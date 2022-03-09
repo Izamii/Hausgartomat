@@ -27,10 +27,16 @@ public class Manager : MonoBehaviour
     [SerializeField] private float temp = 0;
     [SerializeField] private float humid = 0;
     private string messageType = "";
+
+    [Space]
+    [Header("Open Dashboard Plant")]
+    [SerializeField] private string activePlant = "";
+    [SerializeField] private Slider waterPump;
+    [SerializeField] private Slider fan;
+    [SerializeField] private Slider ledLamp;
     private bool equipmentONt = false;
     private bool equipmentONl = false;
     private bool equipmentONh = false;
-    [SerializeField] private string activePlant = "";
     private PlantState activePlantObject;
     private int activeWaterState = 4;
     private int activeLightState = 4;
@@ -121,7 +127,7 @@ public class Manager : MonoBehaviour
                             float timeout = float.PositiveInfinity, string requisite = "GETLIGHT", float value = 0f)*/
         //Pedir los tres numeros aqui, con una separacion de 1 segundo entre cada una y usar esos pa comparar todos
         int j = 0;
-        while (j < 25)
+        while (true)
         {
             StartCoroutine(
                 AsynchronousReadFromArduino(
@@ -219,6 +225,36 @@ public class Manager : MonoBehaviour
     //Send Signal to Arduino to turn on/off an equipment.
     public void SwitchArduinoEquipment(int i)
     {
+        Debug.Log(waterPump.value);
+
+        switch (i)
+        {
+            case 0:
+                if (waterPump.value==1)
+                {
+                    WriteToArduino("PUMPUP");
+                } else
+                {
+                    WriteToArduino("PUMPDOWN");
+                }
+                break;
+            case 1:
+                if (fan.value == 1)
+                {
+                    WriteToArduino("FANUP");
+                } else{
+                    WriteToArduino("FANDOWN");
+                }
+                break;
+            case 2:
+                if (ledLamp.value == 1)
+                {
+                    WriteToArduino("LEDUP");
+                } else{
+                    WriteToArduino("LEDDOWN");
+                }
+                break;
+        }
     }
 
     private void WriteToArduino(string message)
@@ -263,7 +299,7 @@ public class Manager : MonoBehaviour
             yield return new WaitForSeconds(3);
             Debug.Log("Dashboard Plant Update started");
             dashboardPlantScreen.GetComponent<DashboardPlant>().SetState(activePlant);
-            
+
         }
     }
 
