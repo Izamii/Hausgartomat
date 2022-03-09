@@ -25,7 +25,7 @@ public class PlantState : MonoBehaviour
     [SerializeField] private string kind;
     [SerializeField] private int lightState = 0;
     [SerializeField] private int waterState = 0;
-    [SerializeField] private int tempState;
+    [SerializeField] private int tempState = 0;
     [SerializeField] private GameObject manager;
 
     private GetPlantData _getPlantData;
@@ -169,7 +169,7 @@ public class PlantState : MonoBehaviour
                 }
                 else
                 //Mediocre low
-                if (amount >= lightVals[0] && amount < lightVals[0] - 50)
+                if (amount >= lightVals[0] - mediocreLight && amount < lightVals[0])
                 {
                     lightState = 1;
                 }
@@ -181,7 +181,7 @@ public class PlantState : MonoBehaviour
                 }
                 else
                 //Mediocre high
-                if (amount >= lightVals[2] && amount < lightVals[1] + mediocreLight)
+                if (amount >= lightVals[1] && amount < lightVals[1] + mediocreLight)
                 {
                     lightState = 3;
                 }

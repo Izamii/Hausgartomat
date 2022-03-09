@@ -10,6 +10,19 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private Text kind;
     [SerializeField] private Image icon;
     [SerializeField] private PlantState state;
+
+    [Header("Icons")]
+    [SerializeField] private Image faceW;
+    [SerializeField] private GameObject levelW;
+    [SerializeField] private Image faceT;
+    [SerializeField] private GameObject levelT;
+    [SerializeField] private Image faceL;
+    [SerializeField] private GameObject levelL;
+    [Space]
+    [SerializeField] private Sprite face0;
+    [SerializeField] private Sprite face1;
+    [SerializeField] private Sprite face2;
+
     [Space]
     [Header("Panel UI Parts")]
     /*[Space]
@@ -31,7 +44,18 @@ public class DashboardPlant : MonoBehaviour
         this.nickname.text = nickname;
         this.kind.text = kind;
         this.icon.sprite = icon;
+        this.state = states;
+        manager.GetComponent<Manager>().SetActivePlant(nickname);
         //Use state to determine color, faces and icons
+        SetState(nickname);
+
+    }
+    public void SetState(string nickname)
+    {
+        PlantState state = GameObject.Find(nickname).GetComponent<PlantState>();
+        SelectFaceAndLevel(state.WaterState, faceW, levelW);
+        SelectFaceAndLevel(state.TempState, faceT, levelT);
+        SelectFaceAndLevel(state.LightState, faceL, levelL);
     }
 
     //Update
@@ -116,5 +140,52 @@ public class DashboardPlant : MonoBehaviour
     public void OpenInfoEditor(bool on)
     {
         updatePanel.SetActive(on);
+    }
+
+
+    void OnEnable()
+    {
+        manager.GetComponent<Manager>().StartCoroutine(manager.GetComponent<Manager>().DashboardPlantUpdate());
+        //Debug.Log("Sup?");
+    }
+
+    void OnDisable()
+    {
+        manager.GetComponent<Manager>().StopCoroutine(manager.GetComponent<Manager>().DashboardPlantUpdate());
+        //Debug.Log("Bye");
+    }
+
+    private void SelectFaceAndLevel(int i, Image image, GameObject level)
+    {
+        RectTransform rt = level.GetComponent<RectTransform>();
+        Image img = level.GetComponent<Image>();
+        switch (i)
+        {
+            case 0: //Low
+                image.sprite = face2;
+                rt.sizeDelta = new Vector2(73, 15);
+                img.color = new Color32(0xFF, 0x10, 0x00, 0x88);//FF1000
+                break;
+            case 1:
+                image.sprite = face1;
+                rt.sizeDelta = new Vector2(73, 30);
+                img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);//FFD300
+                break;
+            case 2:
+                image.sprite = face0;
+                rt.sizeDelta = new Vector2(73, 45);
+                img.color = new Color32(0xFF, 0x10, 0x00, 0x00);
+                break;
+            case 3:
+                image.sprite = face1;
+                rt.sizeDelta = new Vector2(73, 60);
+                img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);
+                break;
+            case 4: //High
+                image.sprite = face2;
+                rt.sizeDelta = new Vector2(73, 75);
+                img.color = new Color32(0xFF, 0x10, 0x00, 0x88);
+                break;
+        }
     }
 }

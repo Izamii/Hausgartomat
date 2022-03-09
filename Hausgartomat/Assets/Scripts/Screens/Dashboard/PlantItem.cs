@@ -28,7 +28,7 @@ public class PlantItem:MonoBehaviour
         this.Kind = kind;
         //this.PlantState = plantState;
         this.Manager = GameObject.Find("Manager");
-        Debug.Log(plantState);
+        Debug.Log(plantState.LightState + " " + plantState.TempState + " " + plantState.WaterState);
     }
     public PlantItem(Sprite icon, string nickname, string kind)
     {
@@ -42,6 +42,7 @@ public class PlantItem:MonoBehaviour
     public void OpenPlantScreen()
     {
         GoToScreen _goToScreen = this.Manager.GetComponent<GoToScreen>();
+        //Debug.Log(gameObject.GetComponent<PlantState>().WaterState);
         _goToScreen.GoToPlantScreen(Icon, Nickname, Kind, gameObject.GetComponent<PlantState>());
     }
 }

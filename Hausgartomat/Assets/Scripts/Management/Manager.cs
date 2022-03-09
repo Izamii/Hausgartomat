@@ -12,20 +12,17 @@ using UnityEngine.UI;
  **/
 public class Manager : MonoBehaviour
 {
-
+    [Header("Main Components")]
     [SerializeField] private GameObject dashboard;
     [SerializeField] private GameObject prefabDashPlant;
     [SerializeField] private GameObject prefabDashAddBtn;
     [SerializeField] private Sprite testSprite;
     [SerializeField] private GameObject goToScreen;
+    [SerializeField] private GameObject dashboardPlantScreen;
     private GoToScreen _goToScreen;
-    [Space]
-    [Header("Test Area")]
-    [SerializeField] private GameObject testPlant;
-    private Plant plantDBTest;
-    private SerialPort sp;
-    private string arduinoByte = "";
 
+    [Space]
+    [Header("State information")]
     [SerializeField] private float light = 0;
     [SerializeField] private float temp = 0;
     [SerializeField] private float humid = 0;
@@ -33,6 +30,18 @@ public class Manager : MonoBehaviour
     private bool equipmentONt = false;
     private bool equipmentONl = false;
     private bool equipmentONh = false;
+    [SerializeField] private string activePlant = "";
+    private PlantState activePlantObject;
+    private int activeWaterState = 4;
+    private int activeLightState = 4;
+    private int activeTempState = 4;
+
+    [Space]
+    [Header("Test Area")]
+    [SerializeField] private GameObject testPlant;
+    private Plant plantDBTest;
+    private SerialPort sp;
+    private string arduinoByte = "";
 
     public GoToScreen GoTo { get => _goToScreen; set => _goToScreen = value; }
     public GameObject Dashboard { get => dashboard; set => dashboard = value; }
@@ -244,12 +253,27 @@ public class Manager : MonoBehaviour
         }
     }
 
-    public IEnumerable DashboardPlantUpdate()
+    public IEnumerator DashboardPlantUpdate()
     {
         //On Enable start, on disable stop
         //get this plant´s calculated state, level of values and equipment state and adapt the screen
         //On change of equipment... wait? yeaaaah
-
-        yield return new WaitForSeconds(3);
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            Debug.Log("Dashboard Plant Update started");
+            dashboardPlantScreen.GetComponent<DashboardPlant>().SetState(activePlant);
+            
+        }
     }
+
+    public void SetActivePlant(string nickname)
+    {
+        activePlant = nickname;
+        activePlantObject = GameObject.Find(nickname).GetComponent<PlantState>();
+        activeWaterState = activePlantObject.WaterState;
+        activeTempState = activePlantObject.TempState;
+        activeLightState = activePlantObject.LightState;
+    }
+
 }
