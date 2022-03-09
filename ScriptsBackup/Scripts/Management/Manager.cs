@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using System.IO.Ports;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,21 +22,9 @@ public class Manager : MonoBehaviour
     [Header("Test Area")]
     [SerializeField] private GameObject testPlant;
     private Plant plantDBTest;
-    private SerialPort sp;
-    private string arduinoByte = "";
-
-    [SerializeField] private float light = 0;
-    [SerializeField] private float temp = 0;
-    [SerializeField] private float humid = 0;
-    private string messageType = "";
-    private bool equipmentONt = false;
-    private bool equipmentONl = false;
-    private bool equipmentONh = false;
 
     public GoToScreen GoTo { get => _goToScreen; set => _goToScreen = value; }
     public GameObject Dashboard { get => dashboard; set => dashboard = value; }
-
-    public SerialPort Sp { get => sp; set => sp = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -47,9 +34,7 @@ public class Manager : MonoBehaviour
     private void Awake()
     {
         InstantiateBottom();
-        Sp = new SerialPort("COM11", 9600);
-        Sp.ReadTimeout = 500;
-        Sp.Open();
+
         StartCoroutine(CheckStates());
     }
     //Create
@@ -108,26 +93,31 @@ public class Manager : MonoBehaviour
     }
 
     public IEnumerator CheckStates()
-    {/*AsynchronousReadFromArduino(Action<string> callback, Action fail = null, 
-                            float timeout = float.PositiveInfinity, string requisite = "GETLIGHT", float value = 0f)*/
+    {
+
         //Pedir los tres numeros aqui, con una separacion de 1 segundo entre cada una y usar esos pa comparar todos
         int j = 0;
+        // Check States every X seconds for all plant items  
         while (j < 25)
         {
-            StartCoroutine(
-                AsynchronousReadFromArduino(
-                    (string msg) => ParseMessage(msg),
-                    () => Debug.Log("Error!"),
-                    3000f
-                    )
-                );
             //Debug.Log("Checking States");
             for (int i = 0; i < dashboard.transform.childCount - 3; i++)
             {
-                int test = dashboard.transform.GetChild(i).GetComponent<PlantState>()
-                    .RequestStates(temp, equipmentONt,
-                                    light, equipmentONl,
-                                    humid, equipmentONh);
+                //yield return new wait until child is finished checking all its values
+                if (!dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen)
+                {
+                    try
+                    {
+                        dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.Open();
+                    }
+                    catch (IOException)
+                    {
+                        
+                    }
+                }
+                //Debug.Log("Port is open: " + dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.IsOpen);
+
+                int test = dashboard.transform.GetChild(i).GetComponent<PlantState>().RequestStates();
                 switch (test)
                 {
                     case 0:
@@ -140,107 +130,14 @@ public class Manager : MonoBehaviour
                         dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
                         break;
                 }
+                dashboard.transform.GetChild(i).GetComponent<PlantState>().Sp.Close();
+                yield return new WaitUntil(() => dashboard.transform.GetChild(i).GetComponent<PlantState>().FinishedChecking);
+                //yield return new WaitForSeconds(2);
+                dashboard.transform.GetChild(i).GetComponent<PlantState>().FinishedChecking = false;
             }
             //Debug.Log("States checked " + j++ + " times.");
             j++;
-            yield return new WaitForSeconds(4);
-        }
-    }
-
-    //Run recursively 3 Times to avoid collisions
-    public IEnumerator AsynchronousReadFromArduino(Action<string> callback, Action fail = null,
-                            float timeout = float.PositiveInfinity,
-                            string requisite = "GETLIGHT", string next = "GETTEMP", string last = "GETHUMIDITY")
-    {
-        //Debug.Log("154 " + requisite + "  Corutine Started");
-        if (requisite == null)
-        {
-            //Debug.Log("Corutine finished ");
-            yield break;
-        }
-        DateTime initialTime = DateTime.Now;
-        DateTime nowTime;
-        TimeSpan diff = default(TimeSpan);
-
-        //Write to arduino
-        WriteToArduino(requisite);
-        yield return new WaitForSeconds(1);
-        string dataString = null;
-        do
-        {
-            try
-            {
-                dataString = Sp.ReadLine();
-                //Debug.Log(dataString);
-            }
-            catch (TimeoutException)
-            {
-                Debug.Log("In corutine: Got nothing 175");
-                dataString = null;
-            }
-
-            if (dataString != null)
-            {
-                //Debug.Log("182 In corutine: " + dataString);
-                callback(dataString);
-                StartCoroutine(
-                    AsynchronousReadFromArduino(
-                        (string msg) => ParseMessage(msg),
-                        () => Debug.Log("Error!"),
-                        3000f, next, last, null
-                        )
-                );
-                yield break;
-            }
-            else
-                yield return null; // Wait for next frame
-
-            nowTime = DateTime.Now;
-            diff = nowTime - initialTime;
-
-        } while (diff.Milliseconds < timeout);
-
-
-        if (fail != null)
-            fail();
-        yield return null;
-    }
-
-
-    //Send Signal to Arduino to turn on/off an equipment.
-    public void SwitchArduinoEquipment(int i)
-    {
-    }
-
-    private void WriteToArduino(string message)
-    {
-        Sp.WriteLine(message);
-        Sp.BaseStream.Flush();
-    }
-
-    private void ParseMessage(string message)
-    {
-        Debug.Log(message + "Parsing...");
-        string[] parts = message.Split(' ');
-        if (parts.Length != 3) return;
-        messageType = parts[0];
-        float value = float.Parse(parts[1]);
-        switch (messageType)
-        {
-            case "t":
-                equipmentONt = parts[2] == "1";
-                temp = value;
-                break;
-            case "l":
-                equipmentONl = parts[2] == "1";
-                light = value;
-                break;
-            case "h":
-                equipmentONh = parts[2] == "1";
-                humid = value;
-                break;
-            default:
-                return;
+            yield return new WaitForSeconds(5);
         }
     }
 }

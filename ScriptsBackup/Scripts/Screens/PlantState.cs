@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using System.IO;
+using System.IO.Ports;
 using UnityEngine;
 
 /**
@@ -36,6 +40,10 @@ public class PlantState : MonoBehaviour
     private float mediocreHumidity = 0.1f;
     private float mediocreLight = 50;
 
+    private SerialPort sp;
+    private string arduinoByte = "";
+
+    private bool finishedChecking = false;
 
     public PlantState(string kind)
     {
@@ -53,6 +61,8 @@ public class PlantState : MonoBehaviour
     public int WaterState { get => waterState; set => waterState = value; }
     public int TempState { get => tempState; set => tempState = value; }
     public string Kind { get => kind; set => kind = value; }
+    public SerialPort Sp { get => sp; set => sp = value; }
+    public bool FinishedChecking { get => finishedChecking; set => finishedChecking = value; }
 
     private void Awake()
     {
@@ -61,33 +71,63 @@ public class PlantState : MonoBehaviour
     }
 
 
-    public int RequestStates(float valueT, bool equimpentONT
-        , float valueL, bool equimpentONL
-        , float valueH, bool equimpentONH)
+    public int RequestStates()
     {
-        ManageResponse("t", valueT, equimpentONT);
-        ManageResponse("l", valueL, equimpentONL);
-        ManageResponse("h", valueH, equimpentONH);
-        return DetermineState(lightState, waterState, tempState);
+        
+        StartCoroutine(
+            AsynchronousReadFromArduino
+            (
+                (string s) => ManageResponse(s),     // Callback
+                () => Debug.LogError("Error!"), // Error callback
+                300f                          // Timeout (milliseconds)
+            )
+        );
+        FinishedChecking = true;
+        //Sp.Close();
+        return //DetermineState(lightState, waterState, tempState);
                //DetermineState(waterState);
-            //1;
+            1;
     }
 
 
 
+    //Send Signal to Arduino to turn on/off an equipment.
+    public void SwitchArduinoEquipment(int i)
+    {
+    }
 
+    private void WriteToArduino(string message)
+    {
+        Sp.WriteLine(message);
+        Sp.BaseStream.Flush();
+    }
 
     /**
-    * Responses: t### x, h### x, l### x
+    * Responses: t###, h###, l###
     * States: 0,1 = Low; 2 = good; 3,4 = High
     */
-    private void ManageResponse(string type, float value, bool equimpentON)
+    private void ManageResponse(string response)
     {
-        //Debug.Log(" PlantState 116:   " +type +  " " + value + "       On: " + gameObject.name);
-        float amount = value;
-        mediocreLight = 50;
-        mediocreHumidity = 0.1f;
-        mediocreLight = 50;
+        Debug.Log(response + " PlantState 116:   " + gameObject.name );
+        string[] split = response.Split(' ');
+        string type = split[0];
+        float amount = 0;
+        int equipmentON = 2;
+        try
+        {
+            amount = float.Parse(split[1]);
+            equipmentON = int.Parse(split[2]);
+        }
+        catch (FormatException)
+        {
+            Debug.Log("Format Error");
+            return;
+        }
+        catch (IndexOutOfRangeException)
+        {
+            Debug.Log("Format Error");
+            return;
+        }
         //Debug.Log(type);
         switch (type)
         {
@@ -191,10 +231,10 @@ public class PlantState : MonoBehaviour
                 {
                     lightState = 4;
                 }
-                 Debug.Log("Lightstate: " + lightState + ". Lightness: " + amount +
+                /* Debug.Log("Lightstate: " + lightState + ". Lightness: " + amount +
                      ". Vals: " + (lightVals[0] - mediocreLight) + ", " + lightVals[0]
                      + ", " + lightVals[1] + ", " + (lightVals[1] + mediocreLight));
-                
+                */
                 break;
         }
 
@@ -227,6 +267,135 @@ public class PlantState : MonoBehaviour
         return 4;
     }
 
+    public IEnumerator AsynchronousReadFromArduino(Action<string> callback, Action fail = null, float timeout = float.PositiveInfinity)
+    {
+        DateTime initialTime = DateTime.Now;
+        DateTime nowTime;
+        TimeSpan diff = default(TimeSpan);
+
+        string dataString = null;
+        int counter = 0;
+
+        for (int i = 0; i < 3; i++)
+        {
+            /*if (!Sp.IsOpen)
+            {
+                try
+                {
+                    Sp.Open();
+                }
+                catch (IOException)
+                {
+
+                }
+            }*/
+
+            switch (i)
+            {
+                case 0://Gimme light
+                    //WriteToArduino("GETLIGHT");
+                    WriteToArduino("GETTEMP");
+                    break;
+                case 1://Gimme Humidity
+                    //WriteToArduino("GETHUMIDITY");
+                    WriteToArduino("GETTEMP");
+                    break;
+                case 2://Gimme Temp
+                    WriteToArduino("GETTEMP");
+                    break;
+                case 3:
+                    yield break;
+            }
+            counter++;
+            do
+            {
+                try
+                {
+                    dataString = Sp.ReadLine();
+                }
+                catch (TimeoutException)
+                {
+                    dataString = null;
+                }
+                catch (InvalidOperationException)
+                {
+                    Sp.Open();
+                    try
+                    {
+                        dataString = Sp.ReadLine();
+                    }
+                    catch (TimeoutException)
+                    {
+                        dataString = null;
+                    }
+                }
+
+                if (dataString != null)
+                {
+                    callback(dataString);
+                    if(counter >= 3)
+                    {
+                        yield break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                else
+                    yield return null; // Wait for next frame
+                //yield return new WaitUntil(() => true);
+
+                nowTime = DateTime.Now;
+                diff = nowTime - initialTime;
+
+            } while (diff.Milliseconds < timeout);
+        }
+
+        if (fail != null)
+            fail();
+        yield return null;
+    }
+
+    public int testState()
+    {
+        return 1;
+    }
+
+    IEnumerator CheckStates()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            //if (!Sp.IsOpen) Sp.Open();
+            switch (i)
+            {
+                case 0://Gimme light
+                    WriteToArduino("GETLIGHT");
+                    break;
+                case 1://Gimme Humidity
+                    WriteToArduino("GETHUMIDITY");
+                    break;
+                case 2://Gimme Temp
+                    WriteToArduino("GETTEMP");
+                    break;
+                case 3:
+                    yield break;
+            }
+            yield return new WaitForSeconds(1);
+            try
+            {
+                arduinoByte = Sp.ReadLine();
+                Debug.Log(arduinoByte + " " + gameObject.name);
+                ManageResponse(arduinoByte);
+            }
+            catch
+            {
+                Debug.Log("Error:");
+            }
+
+            Sp.Close();
+        }
+    }
 
     public void SetVariables()
     {
@@ -236,7 +405,8 @@ public class PlantState : MonoBehaviour
         this.lightVals = plantDB.light;
         this.humidityVals = plantDB.humidity;
         this.temperatureVals = plantDB.temperature;
-
+        Sp = new SerialPort("COM11", 9600);
+        Sp.ReadTimeout = 500;
     }
 }
 
