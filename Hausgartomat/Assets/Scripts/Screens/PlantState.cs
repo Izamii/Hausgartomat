@@ -125,7 +125,7 @@ public class PlantState : MonoBehaviour
                     ". Vals: " + (temperatureVals[0] - mediocreTemp)  + ", " + temperatureVals[0]
                       + ", " + temperatureVals[2] + ", "  + (temperatureVals[2] + mediocreTemp));*/
                 break;
-            case "h":
+            case "h"://150 = 100% 20==0%
                 amount *= 0.01f;
                 //Too low, risky
                 if (amount < humidityVals[0] - mediocreHumidity)

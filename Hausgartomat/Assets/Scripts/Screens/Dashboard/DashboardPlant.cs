@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,12 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private InputField nameField;
     [SerializeField] private Button confirmBtn;
     [Space]
+    [Header("Sliders")]
+    [SerializeField] private Slider waterPump;
+    [SerializeField] private Slider fan;
+    [SerializeField] private Slider ledLamp;
+    private bool CheckWaterpump = true;
+    [Space]
     [Header("General")]
     [SerializeField] private GameObject manager;
 
@@ -56,6 +63,46 @@ public class DashboardPlant : MonoBehaviour
         SelectFaceAndLevel(state.WaterState, faceW, levelW);
         SelectFaceAndLevel(state.TempState, faceT, levelT);
         SelectFaceAndLevel(state.LightState, faceL, levelL);
+        if(CheckWaterpump) MayInteract(waterPump, state.WaterState, true);
+        MayInteract(ledLamp, state.LightState, true);
+        MayInteract(fan, state.TempState, false);
+    }
+
+    public void StartWaterPumpLock()
+    {
+        StartCoroutine(LockWaterPump());
+    }
+    private IEnumerator LockWaterPump()
+    {
+        CheckWaterpump = false;
+        Debug.Log("Locking waterpump");
+        yield return new WaitForSeconds(3);//10
+        waterPump.interactable = false;
+        waterPump.value = 0;
+        Debug.Log("Waterpump Locked");
+        yield return new WaitForSeconds(5);//20
+        Debug.Log("Unlicking Waterpump");
+        CheckWaterpump = true;
+        yield break;
+    }
+
+    private void MayInteract(Slider slider, int state, bool whenLow)
+    {
+        int[] mayTurnOnStates = { 0, 1 };
+        if (!whenLow)
+        {
+            mayTurnOnStates[0] += 3;
+            mayTurnOnStates[1] += 3;
+        }
+        if((state == mayTurnOnStates[0] || state == mayTurnOnStates[1]) || 
+            (slider.value == 1))
+        {
+            slider.interactable = true;
+        }
+        else
+        {
+            slider.interactable = false;
+        }
     }
 
     //Update

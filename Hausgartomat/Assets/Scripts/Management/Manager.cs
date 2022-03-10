@@ -265,7 +265,7 @@ public class Manager : MonoBehaviour
 
     private void ParseMessage(string message)
     {
-        Debug.Log(message + "Parsing...");
+        
         string[] parts = message.Split(' ');
         if (parts.Length != 3) return;
         messageType = parts[0];
@@ -273,14 +273,17 @@ public class Manager : MonoBehaviour
         switch (messageType)
         {
             case "t":
+                Debug.Log(message + "Parsing...");
                 equipmentONt = parts[2] == "1";
                 temp = value;
                 break;
             case "l":
+                Debug.Log(message + "Parsing...");
                 equipmentONl = parts[2] == "1";
                 light = value;
                 break;
             case "h":
+                Debug.Log(parts[0] + value*.01 + "Parsing...");
                 equipmentONh = parts[2] == "1";
                 humid = value;
                 break;
