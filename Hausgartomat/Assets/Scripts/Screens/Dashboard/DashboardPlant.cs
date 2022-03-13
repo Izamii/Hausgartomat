@@ -63,6 +63,7 @@ public class DashboardPlant : MonoBehaviour
         SelectFaceAndLevel(state.WaterState, faceW, levelW);
         SelectFaceAndLevel(state.TempState, faceT, levelT);
         SelectFaceAndLevel(state.LightState, faceL, levelL);
+
         if(CheckWaterpump) MayInteract(waterPump, state.WaterState, true);
         MayInteract(ledLamp, state.LightState, true);
         MayInteract(fan, state.TempState, false);
@@ -81,7 +82,7 @@ public class DashboardPlant : MonoBehaviour
         waterPump.value = 0;
         Debug.Log("Waterpump Locked");
         yield return new WaitForSeconds(5);//20
-        Debug.Log("Unlicking Waterpump");
+        Debug.Log("Unlocking Waterpump");
         CheckWaterpump = true;
         yield break;
     }

@@ -26,6 +26,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private float light = 0;
     [SerializeField] private float temp = 0;
     [SerializeField] private float humid = 0;
+    // t ### x
+    // t,h,l      0,1 :Zustand der Gerät
     private string messageType = "";
 
     [Space]
@@ -46,6 +48,9 @@ public class Manager : MonoBehaviour
     [Header("Test Area")]
     [SerializeField] private GameObject testPlant;
     private Plant plantDBTest;
+
+    [Space]
+    [Header("Serial Port to Arduino")]
     private SerialPort sp;
     private string arduinoByte = "";
 
@@ -133,7 +138,7 @@ public class Manager : MonoBehaviour
                 AsynchronousReadFromArduino(
                     (string msg) => ParseMessage(msg),
                     () => Debug.Log("Error!"),
-                    3000f
+                    2000f
                     )
                 );
             //Debug.Log("Checking States");
@@ -156,9 +161,9 @@ public class Manager : MonoBehaviour
                         break;
                 }
             }
-            //Debug.Log("States checked " + j++ + " times.");
+            //Debug.Log("States checked " + j + " times.");
             j++;
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(5);
         }
     }
 
@@ -193,6 +198,10 @@ public class Manager : MonoBehaviour
                 Debug.Log("In corutine: Got nothing 175");
                 dataString = null;
             }
+            catch (InvalidOperationException)
+            {
+                Debug.Log("No arduino connected");
+            }
 
             if (dataString != null)
             {
@@ -225,7 +234,7 @@ public class Manager : MonoBehaviour
     //Send Signal to Arduino to turn on/off an equipment.
     public void SwitchArduinoEquipment(int i)
     {
-        Debug.Log(waterPump.value);
+        //Debug.Log(waterPump.value);
 
         switch (i)
         {
@@ -259,8 +268,15 @@ public class Manager : MonoBehaviour
 
     private void WriteToArduino(string message)
     {
-        Sp.WriteLine(message);
-        Sp.BaseStream.Flush();
+        try
+        {
+            Sp.WriteLine(message);
+            Sp.BaseStream.Flush();
+        }
+        catch(InvalidOperationException)
+        {
+            Debug.Log("No arduino connected");
+        }
     }
 
     private void ParseMessage(string message)
@@ -296,10 +312,9 @@ public class Manager : MonoBehaviour
     {
         //On Enable start, on disable stop
         //get this plant´s calculated state, level of values and equipment state and adapt the screen
-        //On change of equipment... wait? yeaaaah
         while (true)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(5);
             Debug.Log("Dashboard Plant Update started");
             dashboardPlantScreen.GetComponent<DashboardPlant>().SetState(activePlant);
 
