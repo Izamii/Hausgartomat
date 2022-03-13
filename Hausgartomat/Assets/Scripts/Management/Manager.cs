@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 /**
  * This class organizes how the application works with the DB and Arduino.
- * Makes each plantItem in the Dashboard check it´s state with arduino periodically
+ * Makes each plantItem in the Dashboard check itï¿½s state with arduino periodically
  * It adds,deletes,modifies Plants to the Dashboard.
  * 
  **/
@@ -61,11 +61,18 @@ public class Manager : MonoBehaviour
     }
     private void Awake()
     {
-        InstantiateBottom();
-        Sp = new SerialPort("COM11", 9600);
-        Sp.ReadTimeout = 500;
-        Sp.Open();
-        StartCoroutine(CheckStates());
+        try
+        {
+            InstantiateBottom();
+            Sp = new SerialPort("COM11", 9600);
+            Sp.ReadTimeout = 500;
+            Sp.Open();
+            StartCoroutine(CheckStates());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
     //Create
     public void InstantiateNewPlantItem(PlantItem plant)
@@ -188,10 +195,13 @@ public class Manager : MonoBehaviour
                 dataString = Sp.ReadLine();
                 //Debug.Log(dataString);
             }
-            catch (TimeoutException)
+            catch (Exception ex )
             {
-                Debug.Log("In corutine: Got nothing 175");
-                dataString = null;
+                if (ex is TimeoutException || ex is InvalidOperationException) 
+                {
+                    Debug.Log("In corutine: Got nothing 175");
+                    dataString = null;
+                }
             }
 
             if (dataString != null)
@@ -259,8 +269,19 @@ public class Manager : MonoBehaviour
 
     private void WriteToArduino(string message)
     {
-        Sp.WriteLine(message);
-        Sp.BaseStream.Flush();
+        try
+        {
+            Sp.WriteLine(message);
+            Sp.BaseStream.Flush();
+        }
+        catch (Exception e)
+        {
+            if (e is InvalidOperationException)
+            {
+                Console.WriteLine(e);
+                //More Descriptive Error Message
+            }
+        }
     }
 
     private void ParseMessage(string message)
@@ -295,7 +316,7 @@ public class Manager : MonoBehaviour
     public IEnumerator DashboardPlantUpdate()
     {
         //On Enable start, on disable stop
-        //get this plant´s calculated state, level of values and equipment state and adapt the screen
+        //get this plantï¿½s calculated state, level of values and equipment state and adapt the screen
         //On change of equipment... wait? yeaaaah
         while (true)
         {
