@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 /**
  * This class organizes how the application works with the DB and Arduino.
- * Makes each plantItem in the Dashboard check it´s state with arduino periodically
+ * Makes each plantItem in the Dashboard check itï¿½s state with arduino periodically
  * It adds,deletes,modifies Plants to the Dashboard.
  * 
  **/
@@ -66,11 +66,18 @@ public class Manager : MonoBehaviour
     }
     private void Awake()
     {
-        InstantiateBottom();
-        Sp = new SerialPort("COM11", 9600);
-        Sp.ReadTimeout = 500;
-        Sp.Open();
-        StartCoroutine(CheckStates());
+        try
+        {
+            InstantiateBottom();
+            Sp = new SerialPort("COM11", 9600);
+            Sp.ReadTimeout = 500;
+            Sp.Open();
+            StartCoroutine(CheckStates());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
     }
     //Create
     public void InstantiateNewPlantItem(PlantItem plant)
@@ -193,10 +200,13 @@ public class Manager : MonoBehaviour
                 dataString = Sp.ReadLine();
                 //Debug.Log(dataString);
             }
-            catch (TimeoutException)
+            catch (Exception ex )
             {
-                Debug.Log("In corutine: Got nothing 175");
-                dataString = null;
+                if (ex is TimeoutException || ex is InvalidOperationException) 
+                {
+                    Debug.Log("In corutine: Got nothing 175");
+                    dataString = null;
+                }
             }
             catch (InvalidOperationException)
             {
@@ -273,9 +283,19 @@ public class Manager : MonoBehaviour
             Sp.WriteLine(message);
             Sp.BaseStream.Flush();
         }
+<<<<<<< HEAD
         catch(InvalidOperationException)
         {
             Debug.Log("No arduino connected");
+=======
+        catch (Exception e)
+        {
+            if (e is InvalidOperationException)
+            {
+                Console.WriteLine(e);
+                //More Descriptive Error Message
+            }
+>>>>>>> 846efb353cbff91d8819243fc73ad0a1b4ccb2ad
         }
     }
 
@@ -311,7 +331,12 @@ public class Manager : MonoBehaviour
     public IEnumerator DashboardPlantUpdate()
     {
         //On Enable start, on disable stop
+<<<<<<< HEAD
         //get this plant´s calculated state, level of values and equipment state and adapt the screen
+=======
+        //get this plantï¿½s calculated state, level of values and equipment state and adapt the screen
+        //On change of equipment... wait? yeaaaah
+>>>>>>> 846efb353cbff91d8819243fc73ad0a1b4ccb2ad
         while (true)
         {
             yield return new WaitForSeconds(5);
