@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 /**
  * This class organizes how the application works with the DB and Arduino.
- * Makes each plantItem in the Dashboard check itï¿½s state with arduino periodically
+ * Makes each plantItem in the Dashboard check its state with arduino periodically
  * It adds,deletes,modifies Plants to the Dashboard.
  * 
  **/
@@ -26,9 +26,8 @@ public class Manager : MonoBehaviour
     [SerializeField] private float light = 0;
     [SerializeField] private float temp = 0;
     [SerializeField] private float humid = 0;
-    // t ### x
-    // t,h,l      0,1 :Zustand der Gerät
     private string messageType = "";
+
 
     [Space]
     [Header("Open Dashboard Plant")]
@@ -126,6 +125,7 @@ public class Manager : MonoBehaviour
         InstantiateAddPlant();
         InstatiateEmptys();
     }
+
     //Delete
     public void DeletePlant(Text nickname)
     {
@@ -134,10 +134,13 @@ public class Manager : MonoBehaviour
         Destroy(dashboard.transform.Find(nickname.text).gameObject);
     }
 
+    /**
+     * Corutine to periodically request the state of the greenhouse conditions
+     * and compare it to the Database information of each saved Plant 
+     * to determine their appropiate state (Shown by the color).
+     */
     public IEnumerator CheckStates()
-    {/*AsynchronousReadFromArduino(Action<string> callback, Action fail = null, 
-                            float timeout = float.PositiveInfinity, string requisite = "GETLIGHT", float value = 0f)*/
-        //Pedir los tres numeros aqui, con una separacion de 1 segundo entre cada una y usar esos pa comparar todos
+    {
         int j = 0;
         while (true)
         {
@@ -169,12 +172,16 @@ public class Manager : MonoBehaviour
                 }
             }
             //Debug.Log("States checked " + j + " times.");
-            j++;
+            //j++;
             yield return new WaitForSeconds(5);
         }
     }
 
-    //Run recursively 3 Times to avoid collisions
+    /**
+     * Recursive Corutine to request sensor information from the Arduino.
+     * Run recursively 3 Times to avoid collisions.
+     * 
+     */
     public IEnumerator AsynchronousReadFromArduino(Action<string> callback, Action fail = null,
                             float timeout = float.PositiveInfinity,
                             string requisite = "GETLIGHT", string next = "GETTEMP", string last = "GETHUMIDITY")
@@ -189,9 +196,10 @@ public class Manager : MonoBehaviour
         DateTime nowTime;
         TimeSpan diff = default(TimeSpan);
 
-        //Write to arduino
         WriteToArduino(requisite);
         yield return new WaitForSeconds(1);
+
+        //Read From Arduino
         string dataString = null;
         do
         {
@@ -208,14 +216,11 @@ public class Manager : MonoBehaviour
                     dataString = null;
                 }
             }
-            catch (InvalidOperationException)
-            {
-                Debug.Log("No arduino connected");
-            }
+
 
             if (dataString != null)
             {
-                //Debug.Log("182 In corutine: " + dataString);
+                //Parse and start next corutine
                 callback(dataString);
                 StartCoroutine(
                     AsynchronousReadFromArduino(
@@ -283,11 +288,7 @@ public class Manager : MonoBehaviour
             Sp.WriteLine(message);
             Sp.BaseStream.Flush();
         }
-<<<<<<< HEAD
-        catch(InvalidOperationException)
-        {
-            Debug.Log("No arduino connected");
-=======
+
         catch (Exception e)
         {
             if (e is InvalidOperationException)
@@ -295,10 +296,17 @@ public class Manager : MonoBehaviour
                 Console.WriteLine(e);
                 //More Descriptive Error Message
             }
->>>>>>> 846efb353cbff91d8819243fc73ad0a1b4ccb2ad
         }
     }
 
+    /**
+     * Method to process a message from arduino. 
+     *
+     * Format from arduino message: (t,h,l) ### (0,1)
+     * t,h,l: Type of Information
+     * 0,1: State of the corresponding equipment
+     * ###: Value read by the sensor
+    */
     private void ParseMessage(string message)
     {
         
@@ -328,21 +336,18 @@ public class Manager : MonoBehaviour
         }
     }
 
+    /**
+     * Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen
+     * (The screen that details the state of a Plant)
+     * Also called periodically.
+     */
     public IEnumerator DashboardPlantUpdate()
     {
-        //On Enable start, on disable stop
-<<<<<<< HEAD
-        //get this plant´s calculated state, level of values and equipment state and adapt the screen
-=======
-        //get this plantï¿½s calculated state, level of values and equipment state and adapt the screen
-        //On change of equipment... wait? yeaaaah
->>>>>>> 846efb353cbff91d8819243fc73ad0a1b4ccb2ad
         while (true)
         {
             yield return new WaitForSeconds(5);
             Debug.Log("Dashboard Plant Update started");
             dashboardPlantScreen.GetComponent<DashboardPlant>().SetState(activePlant);
-
         }
     }
 
