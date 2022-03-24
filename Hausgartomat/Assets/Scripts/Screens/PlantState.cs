@@ -1,22 +1,8 @@
 using UnityEngine;
 
 /**
- * This class connects the arduino to the
- * database to determine the state of a plant
- * It can also give instructions to the arduino, 
- * to modify the state of a plant.
- * 
- * DB
- * 1. Get DB Information for this plant
- * 
- * A. Each x Seconds 
- * 1. Get arduino info
- * 2. Compare with DB info
- * 3. Determine State
- * 
- * Equipment instructions.
- * 1. Deliver instruction to Arduino
- * 2. Go to A
+ * This class gets the current sensor values from the manager
+ * to give back the state of a plant.
  */
 public class PlantState : MonoBehaviour
 {
@@ -37,6 +23,11 @@ public class PlantState : MonoBehaviour
     private float mediocreLight = 50;
 
 
+    /**
+     * Constructor for PlantState.
+     * When created, the value ranges for the specified kind of plant
+     * are retrieved from the database.
+     * */
     public PlantState(string kind)
     {
         this.Kind = kind;
@@ -60,28 +51,28 @@ public class PlantState : MonoBehaviour
         _getPlantData = manager.GetComponent<GetPlantData>();
     }
 
-
-    public int RequestStates(float valueT, bool equimpentONT
-        , float valueL, bool equimpentONL
-        , float valueH, bool equimpentONH)
+    /**
+     * When called, it compares the given values to the plant´s range of values
+     * and gives back the individual state of each of the three conditions.
+     * */
+    public int RequestStates(float valueT, float valueL , float valueH)
     {
-        ManageResponse("t", valueT, equimpentONT);
-        ManageResponse("l", valueL, equimpentONL);
-        ManageResponse("h", valueH, equimpentONH);
+        ManageResponse("t", valueT);
+        ManageResponse("l", valueL);
+        ManageResponse("h", valueH);
         return DetermineState(lightState, waterState, tempState);
-               //DetermineState(waterState);
-            //1;
     }
 
 
-
-
-
     /**
-    * Responses: t### x, h### x, l### x
-    * States: 0,1 = Low; 2 = good; 3,4 = High
+     * Based on the type of message, this method compares the given value with the corresponding
+     * paramter of this plant and sets it´s corresponding state to one of the following:
+     * Possible states: 0,1 = to low; 2 = good; 3,4 = to high
+     * 
+     * Type of Information: t,h,l
+     * Value read by the sensor: float
     */
-    private void ManageResponse(string type, float value, bool equimpentON)
+    private void ManageResponse(string type, float value)
     {
         //Debug.Log(" PlantState 116:   " +type +  " " + value + "       On: " + gameObject.name);
         float amount = value;
@@ -203,6 +194,9 @@ public class PlantState : MonoBehaviour
 
     /**
      * The general state of the plant is determined by the worst state.
+     * This method weights the state of each condition and returns the general
+     * state of the plant.
+     * 
      */
     private int DetermineState(int state1, int state2, int state3)
     {
@@ -219,15 +213,11 @@ public class PlantState : MonoBehaviour
             return 0; //Green, good
     }
 
-    private int DetermineState(int state)
-    {
-        if (state == 0 || state == 4) { return 2; }
-        if (state == 1 || state == 3) { return 1; }
-        if (state == 2) { return 0; }
-        return 4;
-    }
-
-
+    /**
+     * This method sets the appropiate value ranges for this plant, 
+     * according to the data retrieved from the database for this kind
+     * of plant.
+     * */
     public void SetVariables()
     {
         manager = GameObject.Find("Manager");
