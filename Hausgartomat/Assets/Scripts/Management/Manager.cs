@@ -20,6 +20,7 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject goToScreen;
     [SerializeField] private GameObject dashboardPlantScreen;
     private GoToScreen _goToScreen;
+    private GetPlantData database;
 
     [Space]
     [Header("State information")]
@@ -60,13 +61,22 @@ public class Manager : MonoBehaviour
 
     private void Awake()
     {
+        database = GameObject.Find("Firebase").GetComponent<GetPlantData>();
         try
         {
             InstantiateBottom();
             Sp = new SerialPort("COM11", 9600);
             Sp.ReadTimeout = 500;
             Sp.Open();
-            StartCoroutine(CheckStates());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            StartCoroutine(WaitForDatabase());
         }
         catch (Exception e)
         {
@@ -98,6 +108,14 @@ public class Manager : MonoBehaviour
         {
             Dashboard.transform.GetChild(dashboardItems - 3).SetAsLastSibling();
         }
+
+
+    }
+
+    private IEnumerator WaitForDatabase()
+    {
+        yield return new WaitUntil(() => database.read);
+        StartCoroutine(CheckStates());
     }
 
     /**
@@ -165,21 +183,30 @@ public class Manager : MonoBehaviour
                 );
             for (int i = 0; i < dashboard.transform.childCount - 3; i++)
             {
-                int test = dashboard.transform.GetChild(i).GetComponent<PlantState>()
-                    .RequestStates(temp, light, humid);
-                switch (test)
+                if (Sp.IsOpen)
                 {
-                    case 0:
-                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.green;
-                        break;
-                    case 1:
-                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
-                        break;
-                    case 2:
-                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
-                        break;
+                    int test = dashboard.transform.GetChild(i).GetComponent<PlantState>()
+                        .RequestStates(temp, light, humid);
+                    switch (test)
+                    {
+                        case 0:
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.green;
+                            break;
+                        case 1:
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
+                            break;
+                        case 2:
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
+                            break;
+                    }
+                }
+                else
+                {
+                    dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.magenta;
                 }
             }
+            //Debug.Log("States checked " + j + " times.");
+            //j++;
             yield return new WaitForSeconds(5);
         }
     }
@@ -219,11 +246,11 @@ public class Manager : MonoBehaviour
                 if (ex is TimeoutException || ex is InvalidOperationException)
                 {
                     Debug.Log("In corutine: Got nothing 175");
-                    dataString = null;
+                    yield break;
+                    //dataString = null;
                 }
             }
-
-
+            
             if (dataString != null)
             {
                 //Parse and start next corutine
@@ -239,7 +266,8 @@ public class Manager : MonoBehaviour
             }
             else
                 yield return null;
-
+            
+            
             nowTime = DateTime.Now;
             diff = nowTime - initialTime;
 

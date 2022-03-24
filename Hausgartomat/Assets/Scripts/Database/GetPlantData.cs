@@ -11,15 +11,11 @@ using UnityEngine.Assertions;
 
 public class GetPlantData : MonoBehaviour
 {
-    [SerializeField] private string plantname = "Tomate";
-    
     private QuerySnapshot databaseSnapshot;
     private List<Plant> plantList = new List<Plant>();
-    private Manager manager;
-    
+    public bool read = false;
     public void Start()
     {
-        manager = GameObject.Find("Manager").GetComponent<Manager>();
         CheckDependencies();
     }
 
@@ -51,17 +47,19 @@ public class GetPlantData : MonoBehaviour
         }
 
         databaseSnapshot = plantpediaTask.Result;
+        plantList.Clear();
         foreach (DocumentSnapshot plant in databaseSnapshot.Documents)
         {
             plantList.Add(plant.ConvertTo<Plant>());
             //Debug.Log(plant.ConvertTo<Plant>().name);
         }
         Debug.Log("Done");
-        manager.StartCoroutine(manager.CheckStates());
+        read = true;
     }
 
     public void UpdatePlantData()
     {
+        read = false;
         StartCoroutine(Plantpedia());
     }
 
@@ -81,20 +79,5 @@ public class GetPlantData : MonoBehaviour
             }
         }
         return plantreturn;
-    }
-    
-    
-    //Test-Function for Output
-    public void buttonClick()
-    {
-        Plant returnval = GETSinglePlant(plantname);
-        if (returnval != null)
-        {
-            returnval.printData();
-        }
-        else
-        {
-            Debug.Log(String.Format("Couldn't find plant named: {0}", plantname));
-        }
     }
 }

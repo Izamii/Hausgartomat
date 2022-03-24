@@ -34,9 +34,9 @@ public class PlantState : MonoBehaviour
         manager = GameObject.Find("Manager");
         _getPlantData = manager.GetComponent<GetPlantData>();
         plantDB = _getPlantData.GETSinglePlant(kind);
-        this.lightVals = plantDB.light;
-        this.humidityVals = plantDB.humidity;
-        this.temperatureVals = plantDB.temperature;
+        this.lightVals = PlantDB.light;
+        this.humidityVals = PlantDB.humidity;
+        this.temperatureVals = PlantDB.temperature;
     }
 
     public float[] LightVals { get => lightVals; set => lightVals = value; }
@@ -44,6 +44,7 @@ public class PlantState : MonoBehaviour
     public int WaterState { get => waterState; set => waterState = value; }
     public int TempState { get => tempState; set => tempState = value; }
     public string Kind { get => kind; set => kind = value; }
+    public Plant PlantDB { get => plantDB; }
 
     private void Awake()
     {
@@ -223,9 +224,9 @@ public class PlantState : MonoBehaviour
         manager = GameObject.Find("Manager");
         _getPlantData = manager.GetComponent<GetPlantData>();
         plantDB = _getPlantData.GETSinglePlant(kind);
-        this.lightVals = plantDB.light;
-        this.humidityVals = plantDB.humidity;
-        this.temperatureVals = plantDB.temperature;
+        this.lightVals = PlantDB.light;
+        this.humidityVals = PlantDB.humidity;
+        this.temperatureVals = PlantDB.temperature;
 
     }
 }
