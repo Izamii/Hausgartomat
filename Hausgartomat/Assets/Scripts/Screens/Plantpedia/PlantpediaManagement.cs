@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class PlantpediaManagement : MonoBehaviour
 {
-    [SerializeField] private GameObject Drawer;
+    [SerializeField] private GameObject drawer;
 
-    [SerializeField] private GameObject ButtonPrefab;
+    [SerializeField] private GameObject buttonPrefab;
 
-    [SerializeField] private int numberToCreate;
+    [SerializeField] private GameObject plantpediaMainScreen;
+    
+    [SerializeField] private GameObject planpediaDetailScreen;
 
     private GetPlantData database;
 
@@ -21,11 +23,13 @@ public class PlantpediaManagement : MonoBehaviour
         StartCoroutine(GETData());
     }
 
-    void Populate()
+    private void Populate()
     {
         foreach (var plant in database.GETAllPlants())
         {
-            GameObject button = Instantiate(ButtonPrefab, Drawer.transform, false);
+            GameObject button = Instantiate(buttonPrefab, drawer.transform, false);
+            button.GetComponent<PlantpediaButtonUtility>().SetPlantpediaScreen(plantpediaMainScreen);
+            button.GetComponent<PlantpediaButtonUtility>().SetDetailScreen(planpediaDetailScreen);
             button.SetActive(true);
             button.GetComponent<PlantpediaButtonUtility>().SetFromPlantData(plant);
         }    

@@ -13,11 +13,9 @@ public class GetPlantData : MonoBehaviour
 {
     private QuerySnapshot databaseSnapshot;
     private List<Plant> plantList = new List<Plant>();
-    private Manager manager;
     public bool read = false;
     public void Start()
     {
-        //manager = GameObject.Find("Manager").GetComponent<Manager>();
         CheckDependencies();
     }
 
@@ -57,7 +55,6 @@ public class GetPlantData : MonoBehaviour
         }
         Debug.Log("Done");
         read = true;
-        //manager.StartCoroutine(manager.CheckStates());
     }
 
     public void UpdatePlantData()

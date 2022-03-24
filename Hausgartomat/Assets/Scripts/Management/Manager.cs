@@ -20,6 +20,7 @@ public class Manager : MonoBehaviour
     [SerializeField] private GameObject goToScreen;
     [SerializeField] private GameObject dashboardPlantScreen;
     private GoToScreen _goToScreen;
+    private GetPlantData database;
 
     [Space]
     [Header("State information")]
@@ -65,13 +66,22 @@ public class Manager : MonoBehaviour
     }
     private void Awake()
     {
+        database = GameObject.Find("Firebase").GetComponent<GetPlantData>();
         try
         {
             InstantiateBottom();
             Sp = new SerialPort("COM11", 9600);
             Sp.ReadTimeout = 500;
             Sp.Open();
-            StartCoroutine(CheckStates());
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+        try
+        {
+            StartCoroutine(WaitForDatabase());
         }
         catch (Exception e)
         {
@@ -104,6 +114,13 @@ public class Manager : MonoBehaviour
 
 
     }
+
+    private IEnumerator WaitForDatabase()
+    {
+        yield return new WaitUntil(() => database.read);
+        StartCoroutine(CheckStates());
+    }
+    
     private void InstatiateEmptys()
     {
         for (int i = 0; i < 2; i++)
@@ -154,21 +171,28 @@ public class Manager : MonoBehaviour
             //Debug.Log("Checking States");
             for (int i = 0; i < dashboard.transform.childCount - 3; i++)
             {
-                int test = dashboard.transform.GetChild(i).GetComponent<PlantState>()
-                    .RequestStates(temp, equipmentONt,
-                                    light, equipmentONl,
-                                    humid, equipmentONh);
-                switch (test)
+                if (Sp.IsOpen)
                 {
-                    case 0:
-                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.green;
-                        break;
-                    case 1:
-                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
-                        break;
-                    case 2:
-                        dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
-                        break;
+                    int test = dashboard.transform.GetChild(i).GetComponent<PlantState>()
+                        .RequestStates(temp, equipmentONt,
+                            light, equipmentONl,
+                            humid, equipmentONh);
+                    switch (test)
+                    {
+                        case 0:
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.green;
+                            break;
+                        case 1:
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
+                            break;
+                        case 2:
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
+                            break;
+                    }
+                }
+                else
+                {
+                    dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.magenta;
                 }
             }
             //Debug.Log("States checked " + j + " times.");
@@ -213,11 +237,11 @@ public class Manager : MonoBehaviour
                 if (ex is TimeoutException || ex is InvalidOperationException) 
                 {
                     Debug.Log("In corutine: Got nothing 175");
-                    dataString = null;
+                    yield break;
+                    //dataString = null;
                 }
             }
-
-
+            
             if (dataString != null)
             {
                 //Parse and start next corutine
@@ -232,8 +256,10 @@ public class Manager : MonoBehaviour
                 yield break;
             }
             else
+            {
                 yield return null; // Wait for next frame
-
+            }
+            
             nowTime = DateTime.Now;
             diff = nowTime - initialTime;
 

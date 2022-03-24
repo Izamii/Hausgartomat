@@ -19,10 +19,25 @@ public class PlantpediaButtonUtility : MonoBehaviour
 
     [SerializeField] private Image thumbnail;
 
+    [SerializeField] private GameObject detailScreen;
+
+    [SerializeField] private GameObject plantpediaScreen;
+
+    [SerializeField] private PlantpediaDetailUtility detailUtility;
+
     private Plant plant;
 
-    
 
+    public void SetPlantpediaScreen(GameObject screen)
+    {
+        plantpediaScreen = screen;
+    }
+
+    public void SetDetailScreen(GameObject screen)
+    {
+        detailScreen = screen;
+    }
+    
     public void SetPlantName(string nameString)
     {
         plantName.text = nameString;
@@ -69,7 +84,8 @@ public class PlantpediaButtonUtility : MonoBehaviour
         scientificPlantName.text = data.scientificname;
         tempValue.text = data.temperature[0] + "-" + data.temperature[2] + "°C";
         humValue.text = (data.humidity[0]*100) + "-" + (data.humidity[2]*100) + "%";
-        lightValue.text = data.light[2] + "-" + (data.light[2] + 2) + "h";
+        lightValue.text = (data.light[2]-2) + "-" + (data.light[2]) + "h";
         plant = data;
+        detailUtility.SetUpUtility(plant, plantpediaScreen, detailScreen);
     }
 }

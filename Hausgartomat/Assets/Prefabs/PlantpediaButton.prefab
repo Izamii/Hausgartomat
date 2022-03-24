@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 6918918622034242061}
   - component: {fileID: 5523832150620993029}
   - component: {fileID: 3968524203967726088}
+  - component: {fileID: -1243596164096402791}
   m_Layer: 5
   m_Name: PlantpediaButton
   m_TagString: Untagged
@@ -728,9 +729,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3968524203967726088}
-        m_TargetAssemblyTypeName: Test, Assembly-CSharp
-        m_MethodName: Clicked
+      - m_Target: {fileID: -1243596164096402791}
+        m_TargetAssemblyTypeName: PlantpediaDetailUtility, Assembly-CSharp
+        m_MethodName: GoToDetailScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -758,6 +759,9 @@ MonoBehaviour:
   humValue: {fileID: 8967511102217113307}
   lightValue: {fileID: 66810230594812990}
   thumbnail: {fileID: 6918918623449608699}
+  detailScreen: {fileID: 0}
+  plantpediaScreen: {fileID: 0}
+  detailUtility: {fileID: -1243596164096402791}
 --- !u!114 &3968524203967726088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -768,6 +772,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22deb36211a5224d99861f2c3a38805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1243596164096402791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918918622034242063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63f1f22dc4a1944caedc78af13d236c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6918918623357283710
