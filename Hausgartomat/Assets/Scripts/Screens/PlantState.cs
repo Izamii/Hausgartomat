@@ -12,7 +12,6 @@ public class PlantState : MonoBehaviour
     [SerializeField] private int lightState = 0;
     [SerializeField] private int waterState = 0;
     [SerializeField] private int tempState = 0;
-    [SerializeField] private GameObject manager;
 
     private GetPlantData _getPlantData;
     [SerializeField] private float[] lightVals;
@@ -31,8 +30,7 @@ public class PlantState : MonoBehaviour
     public PlantState(string kind)
     {
         this.Kind = kind;
-        manager = GameObject.Find("Manager");
-        _getPlantData = manager.GetComponent<GetPlantData>();
+        _getPlantData = GameObject.Find("Firebase").GetComponent<GetPlantData>();;
         plantDB = _getPlantData.GETSinglePlant(kind);
         this.lightVals = PlantDB.light;
         this.humidityVals = PlantDB.humidity;
@@ -48,12 +46,11 @@ public class PlantState : MonoBehaviour
 
     private void Awake()
     {
-        manager = GameObject.Find("Manager");
-        _getPlantData = manager.GetComponent<GetPlantData>();
+        _getPlantData = GameObject.Find("Firebase").GetComponent<GetPlantData>();;
     }
 
     /**
-     * When called, it compares the given values to the plant´s range of values
+     * When called, it compares the given values to the plantï¿½s range of values
      * and gives back the individual state of each of the three conditions.
      * */
     public int RequestStates(float valueT, float valueL , float valueH)
@@ -67,7 +64,7 @@ public class PlantState : MonoBehaviour
 
     /**
      * Based on the type of message, this method compares the given value with the corresponding
-     * paramter of this plant and sets it´s corresponding state to one of the following:
+     * paramter of this plant and sets itï¿½s corresponding state to one of the following:
      * Possible states: 0,1 = to low; 2 = good; 3,4 = to high
      * 
      * Type of Information: t,h,l
@@ -221,8 +218,7 @@ public class PlantState : MonoBehaviour
      * */
     public void SetVariables()
     {
-        manager = GameObject.Find("Manager");
-        _getPlantData = manager.GetComponent<GetPlantData>();
+        _getPlantData = GameObject.Find("Firebase").GetComponent<GetPlantData>();;
         plantDB = _getPlantData.GETSinglePlant(kind);
         this.lightVals = PlantDB.light;
         this.humidityVals = PlantDB.humidity;
