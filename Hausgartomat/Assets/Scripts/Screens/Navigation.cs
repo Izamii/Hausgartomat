@@ -7,7 +7,6 @@ public class Navigation : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels;
     [SerializeField] private Button[] menu;
-    private Color pressed = new Color32(176,209,169,255);
 
     public GameObject[] Panels { get => panels; set => panels = value; }
 
@@ -21,7 +20,7 @@ public class Navigation : MonoBehaviour
         activePanel.SetActive(true);
         foreach (Button btn in menu)
         {
-            btn.GetComponent<Image>().color = Color.white;
+            btn.GetComponent<Image>().color = new Color32(186,209,180,255);
         }
         switch (activePanel.name.Split('_')[0])
         {
@@ -44,7 +43,7 @@ public class Navigation : MonoBehaviour
 
     public void SetButtonPressed(Button button)
     {
-        button.GetComponent<Image>().color = pressed;
+        button.GetComponent<Image>().color = Color.white;
     }
 
 
