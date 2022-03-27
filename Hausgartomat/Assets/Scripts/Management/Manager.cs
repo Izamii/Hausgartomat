@@ -157,11 +157,11 @@ public class Manager : MonoBehaviour
      * Method to eliminate a Plant from the System.
      * When called, it loads the updated dashboard screen.
      * */
-    public void DeletePlant(Text nickname)
+    public void DeletePlant(GameObject plantItem)
     {
         Navigation _navi = GoTo.Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(GoTo.Navi.GetComponent<Navigation>().Panels[0]);
-        Destroy(dashboard.transform.Find(nickname.text).gameObject);
+        Destroy(plantItem);
     }
 
     /**

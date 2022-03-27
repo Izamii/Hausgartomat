@@ -6,7 +6,7 @@ using UnityEngine;
  */
 public class PlantState : MonoBehaviour
 {
-    private Plant plantDB;
+    [SerializeField] private Plant plantDB;
 
     [SerializeField] private string kind;
     [SerializeField] private int lightState = 0;
@@ -29,12 +29,13 @@ public class PlantState : MonoBehaviour
      * */
     public PlantState(string kind)
     {
+        UpdateKind(kind);
+    }
+
+    public void UpdateKind(string kind)
+    {
         this.Kind = kind;
-        _getPlantData = GameObject.Find("Firebase").GetComponent<GetPlantData>();;
-        plantDB = _getPlantData.GETSinglePlant(kind);
-        this.lightVals = PlantDB.light;
-        this.humidityVals = PlantDB.humidity;
-        this.temperatureVals = PlantDB.temperature;
+        SetVariables();
     }
 
     public float[] LightVals { get => lightVals; set => lightVals = value; }

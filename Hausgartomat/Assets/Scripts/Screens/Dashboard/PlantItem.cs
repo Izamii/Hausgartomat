@@ -37,6 +37,6 @@ public class PlantItem:MonoBehaviour
     public void OpenPlantScreen()
     {
         GoToScreen _goToScreen = this.Manager.GetComponent<GoToScreen>();
-        _goToScreen.GoToPlantScreen(Icon, Nickname, Kind, gameObject.GetComponent<PlantState>());
+        _goToScreen.GoToPlantScreen(Icon, Nickname, Kind, gameObject.GetComponent<PlantState>(), this.gameObject);
     }
 }

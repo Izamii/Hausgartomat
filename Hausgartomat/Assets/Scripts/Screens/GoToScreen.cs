@@ -13,12 +13,12 @@ public class GoToScreen : MonoBehaviour
 
 
     //Go to Plant State Screen
-    public void GoToPlantScreen(Sprite icon, string nickname, string kind, PlantState state)
+    public void GoToPlantScreen(Sprite icon, string nickname, string kind, PlantState state, GameObject plantItem)
     {
         Navigation _navi = Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(planes[1]);
         _dashboardPlant = planes[1].GetComponent<DashboardPlant>();
-        _dashboardPlant.SetScreen(icon, nickname, kind, state);
+        _dashboardPlant.SetScreen(icon, nickname, kind, state, plantItem);
     }
 
     //Go to Add Plant

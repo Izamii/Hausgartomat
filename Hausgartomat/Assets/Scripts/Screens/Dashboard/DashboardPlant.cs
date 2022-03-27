@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,8 +49,12 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private GameObject plantpediaButton;
     [SerializeField] private GameObject thisScreen;
     [SerializeField] private GameObject plantpediaDetailScreen;
-    public void SetScreen(Sprite icon, string nickname, string kind, PlantState states)
-    {   
+    [SerializeField] private Dropdown plantKinds;
+    private GameObject plantItem;
+    private GetPlantData _database;
+    private List<Plant> plants;
+    public void SetScreen(Sprite icon, string nickname, string kind, PlantState states, GameObject plantItem)
+    {
         this.nickname.text = nickname;
         this.kind.text = kind;
         this.icon.sprite = icon;
@@ -59,7 +62,25 @@ public class DashboardPlant : MonoBehaviour
         manager.GetComponent<Manager>().SetActivePlant(nickname);
         //Use state to determine color, faces and icons
         SetState(nickname);
+        this.plantItem = plantItem;
         plantpediaButton.GetComponent<PlantpediaDetailUtility>().SetUpUtility(state.PlantDB, thisScreen, plantpediaDetailScreen);
+
+    }
+
+    private void Awake()
+    {
+        _database = GameObject.Find("Firebase").GetComponent<GetPlantData>();
+        StartCoroutine(WaitForDatabase());
+    }
+    private IEnumerator WaitForDatabase()
+    {
+        yield return new WaitUntil(() => _database.read);
+        plants = _database.GETAllPlants();
+        plantKinds.options.Add(new Dropdown.OptionData("Pflanze auswählen"));
+        foreach (Plant plant in plants)
+        {
+            plantKinds.options.Add(new Dropdown.OptionData(plant.name));
+        }
 
     }
     public void SetState(string nickname)
@@ -69,7 +90,7 @@ public class DashboardPlant : MonoBehaviour
         SelectFaceAndLevel(state.TempState, faceT, levelT);
         SelectFaceAndLevel(state.LightState, faceL, levelL);
 
-        if(CheckWaterpump) MayInteract(waterPump, state.WaterState, true);
+        if (CheckWaterpump) MayInteract(waterPump, state.WaterState, true);
         MayInteract(ledLamp, state.LightState, true);
         MayInteract(fan, state.TempState, false);
     }
@@ -100,7 +121,7 @@ public class DashboardPlant : MonoBehaviour
             mayTurnOnStates[0] += 3;
             mayTurnOnStates[1] += 3;
         }
-        if((state == mayTurnOnStates[0] || state == mayTurnOnStates[1]) || 
+        if ((state == mayTurnOnStates[0] || state == mayTurnOnStates[1]) ||
             (slider.value == 1))
         {
             slider.interactable = true;
@@ -119,23 +140,28 @@ public class DashboardPlant : MonoBehaviour
         {
             nickname.text = nameField.text;
             confirmBtn.interactable = true;
+            plantItem.GetComponent<PlantItem>().Nickname = nameField.text;
 
+            plantItem.GetComponentInChildren<Text>().text = nameField.text;
         }
         else
         {
             Debug.Log("Muss mind. eine Buchstabe haben");
             confirmBtn.interactable = false;
         }
+        nameField.text = "";
     }
     public void ChangePlantKind()
     {
         string kindChanged = kindDropdown.transform.GetChild(0).GetComponent<Text>().text;
         //Icon = icon from DB for new Plant kind
-        if (!kindChanged.Equals("Pflanze Auswählen"))
+        if (!kindChanged.Equals("Pflanze auswählen"))
         {
             kind.text = kindChanged;
             confirmBtn.interactable = true;
-
+            state.UpdateKind(kindChanged);
+            plantItem.GetComponent<PlantItem>().Kind = kindChanged;
+            plantpediaButton.GetComponent<PlantpediaDetailUtility>().SetUpUtility(kindChanged, thisScreen, plantpediaDetailScreen);
         }
         else
         {
@@ -187,7 +213,7 @@ public class DashboardPlant : MonoBehaviour
     {
         confirmationPanel.SetActive(false);
         optionsPanel.SetActive(false);
-        manager.GetComponent<Manager>().DeletePlant(nickname);
+        manager.GetComponent<Manager>().DeletePlant(plantItem);
     }
 
     public void OpenInfoEditor(bool on)
@@ -241,7 +267,7 @@ public class DashboardPlant : MonoBehaviour
                     rt.sizeDelta = new Vector2(73, 75);
                     img.color = new Color32(0xFF, 0x10, 0x00, 0x88); //RED
                     break;
-            } 
+            }
         }
         else
         {
@@ -250,6 +276,6 @@ public class DashboardPlant : MonoBehaviour
             rt.sizeDelta = new Vector2(71, 75);
             img.color = new Color32(0xDB, 0x8B, 0xDD, 0xFF);
         }
-        
+
     }
 }
