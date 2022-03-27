@@ -28,7 +28,7 @@ public class GoToScreen : MonoBehaviour
         _navi.NavigationBarClick(planes[2]);
     }
 
-    //Go to Plantpedia
+
     public void GoBack(GameObject lastScreen)
     {
         Navigation _navi = Navi.GetComponent<Navigation>();

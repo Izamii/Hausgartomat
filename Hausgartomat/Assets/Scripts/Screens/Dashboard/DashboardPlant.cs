@@ -23,6 +23,7 @@ public class DashboardPlant : MonoBehaviour
     [SerializeField] private Sprite face0;
     [SerializeField] private Sprite face1;
     [SerializeField] private Sprite face2;
+    [SerializeField] private Sprite disconnected;
 
     [Space]
     [Header("Panel UI Parts")]
@@ -46,6 +47,9 @@ public class DashboardPlant : MonoBehaviour
     [Header("General")]
     [SerializeField] private GameObject manager;
 
+    [SerializeField] private GameObject plantpediaButton;
+    [SerializeField] private GameObject thisScreen;
+    [SerializeField] private GameObject plantpediaDetailScreen;
     public void SetScreen(Sprite icon, string nickname, string kind, PlantState states)
     {   
         this.nickname.text = nickname;
@@ -55,6 +59,7 @@ public class DashboardPlant : MonoBehaviour
         manager.GetComponent<Manager>().SetActivePlant(nickname);
         //Use state to determine color, faces and icons
         SetState(nickname);
+        plantpediaButton.GetComponent<PlantpediaDetailUtility>().SetUpUtility(state.PlantDB, thisScreen, plantpediaDetailScreen);
 
     }
     public void SetState(string nickname)
@@ -63,6 +68,7 @@ public class DashboardPlant : MonoBehaviour
         SelectFaceAndLevel(state.WaterState, faceW, levelW);
         SelectFaceAndLevel(state.TempState, faceT, levelT);
         SelectFaceAndLevel(state.LightState, faceL, levelL);
+
         if(CheckWaterpump) MayInteract(waterPump, state.WaterState, true);
         MayInteract(ledLamp, state.LightState, true);
         MayInteract(fan, state.TempState, false);
@@ -81,7 +87,7 @@ public class DashboardPlant : MonoBehaviour
         waterPump.value = 0;
         Debug.Log("Waterpump Locked");
         yield return new WaitForSeconds(5);//20
-        Debug.Log("Unlicking Waterpump");
+        Debug.Log("Unlocking Waterpump");
         CheckWaterpump = true;
         yield break;
     }
@@ -125,7 +131,7 @@ public class DashboardPlant : MonoBehaviour
     {
         string kindChanged = kindDropdown.transform.GetChild(0).GetComponent<Text>().text;
         //Icon = icon from DB for new Plant kind
-        if (!kindChanged.Equals("Pflanze Ausw‰hlen"))
+        if (!kindChanged.Equals("Pflanze Ausw√§hlen"))
         {
             kind.text = kindChanged;
             confirmBtn.interactable = true;
@@ -206,33 +212,44 @@ public class DashboardPlant : MonoBehaviour
     {
         RectTransform rt = level.GetComponent<RectTransform>();
         Image img = level.GetComponent<Image>();
-        switch (i)
+        if (manager.GetComponent<Manager>().Sp.IsOpen)
         {
-            case 0: //Low
-                image.sprite = face2;
-                rt.sizeDelta = new Vector2(73, 15);
-                img.color = new Color32(0xFF, 0x10, 0x00, 0x88);//FF1000
-                break;
-            case 1:
-                image.sprite = face1;
-                rt.sizeDelta = new Vector2(73, 30);
-                img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);//FFD300
-                break;
-            case 2:
-                image.sprite = face0;
-                rt.sizeDelta = new Vector2(73, 45);
-                img.color = new Color32(0xFF, 0x10, 0x00, 0x00);
-                break;
-            case 3:
-                image.sprite = face1;
-                rt.sizeDelta = new Vector2(73, 60);
-                img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);
-                break;
-            case 4: //High
-                image.sprite = face2;
-                rt.sizeDelta = new Vector2(73, 75);
-                img.color = new Color32(0xFF, 0x10, 0x00, 0x88);
-                break;
+            switch (i)
+            {
+                case 0: //Low
+                    image.sprite = face2;
+                    rt.sizeDelta = new Vector2(73, 15);
+                    img.color = new Color32(0xFF, 0x10, 0x00, 0x88);//FF1000
+                    break;
+                case 1:
+                    image.sprite = face1;
+                    rt.sizeDelta = new Vector2(73, 30);
+                    img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);//FFD300
+                    break;
+                case 2:
+                    image.sprite = face0;
+                    rt.sizeDelta = new Vector2(73, 45);
+                    img.color = new Color32(0xFF, 0x10, 0x00, 0x00);
+                    break;
+                case 3:
+                    image.sprite = face1;
+                    rt.sizeDelta = new Vector2(73, 60);
+                    img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);
+                    break;
+                case 4: //High
+                    image.sprite = face2;
+                    rt.sizeDelta = new Vector2(73, 75);
+                    img.color = new Color32(0xFF, 0x10, 0x00, 0x88);
+                    break;
+            } 
         }
+        else
+        {
+            image.sprite = disconnected; //Find new Sprite here for not connected
+            image.rectTransform.localScale = new Vector3(0.9f, 0.9f, 1f);
+            rt.sizeDelta = new Vector2(71, 75);
+            img.color = new Color32(0xcc, 0x60, 0xcc, 0x88);
+        }
+        
     }
 }
