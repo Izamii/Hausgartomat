@@ -190,19 +190,21 @@ public class Manager : MonoBehaviour
                     switch (test)
                     {
                         case 0:
-                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.green;
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color = new Color32(0x97, 0xBB, 0x8F, 0xFF);
                             break;
                         case 1:
-                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.yellow;
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color =
+                                new Color32(0xDD, 0xCA, 0x8B, 0xFF);
                             break;
                         case 2:
-                            dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.red;
+                            dashboard.transform.GetChild(i).GetComponent<Image>().color =
+                                new Color32(0xDE, 0x88, 0x88, 0xFF);
                             break;
                     }
                 }
                 else
                 {
-                    dashboard.transform.GetChild(i).GetComponent<Image>().color = Color.magenta;
+                    dashboard.transform.GetChild(i).GetComponent<Image>().color = new Color32(0xDB, 0x8B, 0xDD, 0xFF);
                 }
             }
             //Debug.Log("States checked " + j + " times.");

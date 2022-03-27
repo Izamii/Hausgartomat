@@ -72,7 +72,7 @@ public class AddPlantScript : MonoBehaviour
         {
             confirmationBtn.interactable = true;
             nicknameConfirmScreen.text = nameField.text;
-            Debug.Log(nameField.text);
+            //Debug.Log(nameField.text);
         }
         else
         {
