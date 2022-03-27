@@ -802,7 +802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &53005459
 RectTransform:
   m_ObjectHideFlags: 0
@@ -900,7 +900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 13.815613}
+  m_AnchoredPosition: {x: 0, y: 13.815674}
   m_SizeDelta: {x: 0, y: -215.8147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53902131
@@ -4500,6 +4500,7 @@ GameObject:
   - component: {fileID: 298012665}
   - component: {fileID: 298012664}
   - component: {fileID: 298012663}
+  - component: {fileID: 298012666}
   m_Layer: 5
   m_Name: ConfirmButton
   m_TagString: Untagged
@@ -4570,7 +4571,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 298012664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 298012666}
+        m_TargetAssemblyTypeName: AddPlantStepBtn, Assembly-CSharp
+        m_MethodName: GoToNextStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 709504314}
+        m_TargetAssemblyTypeName: AddPlantScript, Assembly-CSharp
+        m_MethodName: SetLastScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &298012664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4609,6 +4634,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298012661}
   m_CullTransparentMesh: 1
+--- !u!114 &298012666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298012661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b173785b11fe0a34e8753f77f806e0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreen: {fileID: 1928871572}
+  firstScreen: {fileID: 0}
 --- !u!1001 &298783266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8922,6 +8961,10 @@ MonoBehaviour:
   manager: {fileID: 524291085}
   dashboard: {fileID: 53005458}
   confirmationBtn: {fileID: 711039948}
+  screen1: {fileID: 1492068355}
+  screen2: {fileID: 1928871572}
+  screen3: {fileID: 1105003204}
+  lastScreen: {fileID: 53005458}
 --- !u!114 &709504315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9970,6 +10013,7 @@ GameObject:
   - component: {fileID: 773302779}
   - component: {fileID: 773302778}
   - component: {fileID: 773302777}
+  - component: {fileID: 773302780}
   m_Layer: 5
   m_Name: Planpedia Detail Button
   m_TagString: Untagged
@@ -10040,7 +10084,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 773302778}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 773302780}
+        m_TargetAssemblyTypeName: PlantpediaDetailUtility, Assembly-CSharp
+        m_MethodName: GoToDetailScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &773302778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10079,6 +10135,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773302775}
   m_CullTransparentMesh: 1
+--- !u!114 &773302780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773302775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e63f1f22dc4a1944caedc78af13d236c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &783217692
 GameObject:
   m_ObjectHideFlags: 0
@@ -19062,6 +19130,7 @@ GameObject:
   - component: {fileID: 1538907196}
   - component: {fileID: 1538907198}
   - component: {fileID: 1538907197}
+  - component: {fileID: 1538907199}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -19130,6 +19199,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538907195}
   m_CullTransparentMesh: 1
+--- !u!114 &1538907199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538907195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b173785b11fe0a34e8753f77f806e0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreen: {fileID: 1928871572}
+  firstScreen: {fileID: 0}
 --- !u!1 &1539913989
 GameObject:
   m_ObjectHideFlags: 0
@@ -19410,7 +19493,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -22509,6 +22592,7 @@ GameObject:
   - component: {fileID: 1774564451}
   - component: {fileID: 1774564450}
   - component: {fileID: 1774564449}
+  - component: {fileID: 1774564452}
   m_Layer: 5
   m_Name: ConfirmButton
   m_TagString: Untagged
@@ -22579,7 +22663,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1774564450}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1774564452}
+        m_TargetAssemblyTypeName: AddPlantStepBtn, Assembly-CSharp
+        m_MethodName: GoToNextStep
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 709504314}
+        m_TargetAssemblyTypeName: AddPlantScript, Assembly-CSharp
+        m_MethodName: SetLastScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1774564450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22618,6 +22726,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774564447}
   m_CullTransparentMesh: 1
+--- !u!114 &1774564452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774564447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b173785b11fe0a34e8753f77f806e0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreen: {fileID: 1105003204}
+  firstScreen: {fileID: 0}
 --- !u!1 &1775745939
 GameObject:
   m_ObjectHideFlags: 0
@@ -23853,6 +23975,7 @@ GameObject:
   - component: {fileID: 1882076493}
   - component: {fileID: 1882076495}
   - component: {fileID: 1882076494}
+  - component: {fileID: 1882076496}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -23921,6 +24044,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882076492}
   m_CullTransparentMesh: 1
+--- !u!114 &1882076496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882076492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b173785b11fe0a34e8753f77f806e0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreen: {fileID: 1105003204}
+  firstScreen: {fileID: 0}
 --- !u!1001 &1882770087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24299,9 +24436,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1934292105
 MonoBehaviour:
@@ -24696,6 +24833,7 @@ GameObject:
   - component: {fileID: 1949679703}
   - component: {fileID: 1949679702}
   - component: {fileID: 1949679701}
+  - component: {fileID: 1949679704}
   m_Layer: 5
   m_Name: Back Dashboard
   m_TagString: Untagged
@@ -24766,13 +24904,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 130184004}
-        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
-        m_MethodName: NavigationBarClick
-        m_Mode: 2
+      - m_Target: {fileID: 1949679704}
+        m_TargetAssemblyTypeName: AddPlantBackBtn, Assembly-CSharp
+        m_MethodName: BackBtn
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 53005458}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -24816,6 +24954,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949679699}
   m_CullTransparentMesh: 1
+--- !u!114 &1949679704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949679699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd3d7c6bf3a8cb48bec4fef1e744bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashboard: {fileID: 53005458}
+  screen1: {fileID: 1492068355}
+  screen2: {fileID: 1928871572}
+  screen3: {fileID: 1105003204}
 --- !u!1 &1965492996
 GameObject:
   m_ObjectHideFlags: 0
@@ -25843,6 +25997,7 @@ GameObject:
   - component: {fileID: 2058053837}
   - component: {fileID: 2058053836}
   - component: {fileID: 2058053835}
+  - component: {fileID: 2058053838}
   m_Layer: 5
   m_Name: Dashboard Button
   m_TagString: Untagged
@@ -25913,7 +26068,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2058053836}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2058053838}
+        m_TargetAssemblyTypeName: AddPlantStepBtn, Assembly-CSharp
+        m_MethodName: FinishProcess
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 130184004}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: NavigationBarClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 53005458}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 709504314}
+        m_TargetAssemblyTypeName: AddPlantScript, Assembly-CSharp
+        m_MethodName: ResetLastScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2058053836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25952,6 +26143,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058053833}
   m_CullTransparentMesh: 1
+--- !u!114 &2058053838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058053833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b173785b11fe0a34e8753f77f806e0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreen: {fileID: 0}
+  firstScreen: {fileID: 1492068355}
 --- !u!1 &2059682395
 GameObject:
   m_ObjectHideFlags: 0

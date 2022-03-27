@@ -16,9 +16,17 @@ public class AddPlantScript : MonoBehaviour
     [SerializeField] private Manager manager;
     [SerializeField] private GameObject dashboard;
     [SerializeField] private Button confirmationBtn;
+
+    [Header("Screens")]
+    [SerializeField] private GameObject screen1;
+    [SerializeField] private GameObject screen2;
+    [SerializeField] private GameObject screen3;
+    [SerializeField] private GameObject lastScreen;
+
     public Image PlantImg { get => plantImg; set => plantImg = value; }
     public Dropdown PlantSelection { get => plantSelection; set => plantSelection = value; }
     public Text Nickname { get => nickname; set => nickname = value; }
+    public GameObject LastScreen { get => lastScreen; set => lastScreen = value; }
 
     private void Start()
     {
@@ -65,5 +73,25 @@ public class AddPlantScript : MonoBehaviour
         {
             confirmationBtn.interactable = false;
         }
+    }
+
+    public void SetLastScreen()
+    {
+        if (screen1)
+        {
+            LastScreen = dashboard;
+        }
+        if (screen2)
+        {
+            LastScreen = screen1;
+        }
+        if (screen3)
+        {
+            LastScreen = screen2;
+        }
+    }
+    public void ResetLastScreen()
+    {
+        LastScreen = dashboard;
     }
 }

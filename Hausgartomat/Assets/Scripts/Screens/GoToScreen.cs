@@ -34,4 +34,10 @@ public class GoToScreen : MonoBehaviour
         Navigation _navi = Navi.GetComponent<Navigation>();
         _navi.NavigationBarClick(lastScreen);
     }
+
+    public void GoBackAddPlant(GameObject lastScreen, GameObject thisScreen)
+    {
+        thisScreen.SetActive(false);
+        lastScreen.SetActive(true);
+    }
 }
