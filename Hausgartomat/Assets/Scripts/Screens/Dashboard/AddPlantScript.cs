@@ -79,16 +79,15 @@ public class AddPlantScript : MonoBehaviour
 
     public void SetLastScreen()
     {
-        backBtn.SetActive(true);
-        if (screen1)
+        if (screen1.activeSelf)
         {
             LastScreen = dashboard;
         }
-        if (screen2)
+        if (screen2.activeSelf)
         {
             LastScreen = screen1;
         }
-        if (screen3)
+        if (screen3.activeSelf)
         {
             LastScreen = screen2;
             backBtn.SetActive(false);
@@ -99,5 +98,10 @@ public class AddPlantScript : MonoBehaviour
         LastScreen = dashboard;
         screen1.SetActive(true);
         screen3.SetActive(false);
+        backBtn.SetActive(true);
+    }
+    public void EmptyField()
+    {
+        nameField.text = "";
     }
 }
