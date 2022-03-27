@@ -9,7 +9,7 @@ using Image = UnityEngine.UI.Image;
 public class AddPlantScript : MonoBehaviour
 {
     [SerializeField] private Image plantImg;
-    [SerializeField] private Dropdown plantSelection;
+    [SerializeField] private Text plantKind;
     [SerializeField] private Text nickname;
     [SerializeField] private Text nicknameConfirmScreen;
     [SerializeField] private InputField nameField;
@@ -25,7 +25,6 @@ public class AddPlantScript : MonoBehaviour
     [SerializeField] private GameObject lastScreen;
 
     public Image PlantImg { get => plantImg; set => plantImg = value; }
-    public Dropdown PlantSelection { get => plantSelection; set => plantSelection = value; }
     public Text Nickname { get => nickname; set => nickname = value; }
     public GameObject LastScreen { get => lastScreen; set => lastScreen = value; }
 
@@ -54,13 +53,13 @@ public class AddPlantScript : MonoBehaviour
 
     public void CreateNewPlant()
     {
-        string selected = plantSelection.transform.GetChild(0).GetComponent<Text>().text;
+        string selected = plantKind.text;
         if (selected.Length < 1) return;
         PlantState state = new PlantState(selected);
         PlantItem newPlantItem = 
-            new PlantItem(plantImg.sprite, nickname.text, selected , state);
+            new PlantItem(plantImg.sprite, nicknameConfirmScreen.text, selected , state);
         manager.InstantiateNewPlantItem(newPlantItem);
-        manager.GoTo.GoBack(dashboard);
+        //manager.GoTo.GoBack(dashboard);
     }
 
     public void TurnAddButtonOn()
