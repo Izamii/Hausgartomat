@@ -6857,8 +6857,8 @@ MonoBehaviour:
   humid: 0
   activePlant: 
   waterPump: {fileID: 1367051120}
-  fan: {fileID: 0}
-  ledLamp: {fileID: 0}
+  fan: {fileID: 1391593150}
+  ledLamp: {fileID: 1531524214}
   testPlant: {fileID: 0}
 --- !u!1 &532610271
 GameObject:
@@ -23362,13 +23362,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1934279933}
-        m_TargetAssemblyTypeName: AddPlantBackBtn, Assembly-CSharp
-        m_MethodName: BackBtn
-        m_Mode: 1
+      - m_Target: {fileID: 130184004}
+        m_TargetAssemblyTypeName: Navigation, Assembly-CSharp
+        m_MethodName: NavigationBarClick
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 53005458}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -24495,8 +24495,8 @@ MonoBehaviour:
   nameField: {fileID: 165846505}
   confirmBtn: {fileID: 1352604662}
   waterPump: {fileID: 1367051120}
-  fan: {fileID: 0}
-  ledLamp: {fileID: 0}
+  fan: {fileID: 1391593150}
+  ledLamp: {fileID: 1531524214}
   manager: {fileID: 524291082}
   plantpediaButton: {fileID: 1634341088}
   thisScreen: {fileID: 1989497996}
