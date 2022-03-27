@@ -17,6 +17,7 @@ public class AddPlantScript : MonoBehaviour
     [SerializeField] private Manager manager;
     [SerializeField] private GameObject dashboard;
     [SerializeField] private Button confirmationBtn;
+    [SerializeField] private GameObject backBtn;
 
     [Header("Screens")]
     [SerializeField] private GameObject screen1;
@@ -78,6 +79,7 @@ public class AddPlantScript : MonoBehaviour
 
     public void SetLastScreen()
     {
+        backBtn.SetActive(true);
         if (screen1)
         {
             LastScreen = dashboard;
@@ -89,10 +91,13 @@ public class AddPlantScript : MonoBehaviour
         if (screen3)
         {
             LastScreen = screen2;
+            backBtn.SetActive(false);
         }
     }
     public void ResetLastScreen()
     {
         LastScreen = dashboard;
+        screen1.SetActive(true);
+        screen3.SetActive(false);
     }
 }
