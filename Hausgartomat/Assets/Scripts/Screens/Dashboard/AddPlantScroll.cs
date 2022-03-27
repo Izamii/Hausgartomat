@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class AddPlantScroll : MonoBehaviour
 {
     [SerializeField] private Text plantNameBox;
+    [SerializeField] private Text plantNameNextScreen;
+    [SerializeField] private Text plantNameConfirmScreen;
     [SerializeField] private Button nextPlantButton;
     [SerializeField] private Button previousPlantButton;
     private List<Plant> plantList;
@@ -27,6 +29,8 @@ public class AddPlantScroll : MonoBehaviour
         
         currentPlant += 1;
         plantNameBox.text = plantList[currentPlant].name;
+        plantNameNextScreen.text = plantList[currentPlant].name;
+        plantNameConfirmScreen.text = plantList[currentPlant].name;
         UpdateButtons(); 
     }
     
@@ -39,6 +43,8 @@ public class AddPlantScroll : MonoBehaviour
         
         currentPlant -= 1;
         plantNameBox.text = plantList[currentPlant].name;
+        plantNameNextScreen.text = plantList[currentPlant].name;
+        plantNameConfirmScreen.text = plantList[currentPlant].name;
         UpdateButtons();
     }
     
@@ -49,6 +55,8 @@ public class AddPlantScroll : MonoBehaviour
         if (plantList.Count != 0)
         {
             plantNameBox.text = plantList[currentPlant].name;
+            plantNameNextScreen.text = plantList[currentPlant].name;
+            plantNameConfirmScreen.text = plantList[currentPlant].name;
             UpdateButtons();
         }
         else

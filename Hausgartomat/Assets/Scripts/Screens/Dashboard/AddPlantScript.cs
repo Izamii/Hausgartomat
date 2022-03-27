@@ -11,6 +11,7 @@ public class AddPlantScript : MonoBehaviour
     [SerializeField] private Image plantImg;
     [SerializeField] private Dropdown plantSelection;
     [SerializeField] private Text nickname;
+    [SerializeField] private Text nicknameConfirmScreen;
     [SerializeField] private InputField nameField;
     [SerializeField] private Sprite plantSprite;
     [SerializeField] private Manager manager;
@@ -67,7 +68,8 @@ public class AddPlantScript : MonoBehaviour
         if (nameField.text.Length > 0)
         {
             confirmationBtn.interactable = true;
-            //Debug.Log(nameField.text);
+            nicknameConfirmScreen.text = nameField.text;
+            Debug.Log(nameField.text);
         }
         else
         {
