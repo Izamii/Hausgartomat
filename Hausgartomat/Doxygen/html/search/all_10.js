@@ -1,6 +1,26 @@
 var searchData=
 [
-  ['temperature_0',['temperature',['../class_plant.html#ae42f3288644ae7ef6bf53245b68510d9',1,'Plant']]],
-  ['tempstate_1',['TempState',['../class_plant_state.html#a7a7687a99251fadca8fbf4547ef139de',1,'PlantState']]],
-  ['turnaddbuttonon_2',['TurnAddButtonOn',['../class_add_plant_script.html#a0dd14e7ab8afe09ac6a55efc2471e4ac',1,'AddPlantScript']]]
+  ['scientificname_0',['scientificname',['../class_plant.html#a7c3676a0ce1b8f9e6ab3e9e913343fe7',1,'Plant']]],
+  ['setactiveplant_1',['SetActivePlant',['../class_manager.html#a3d92f8ce7c59c1ab3b4481bb1e3ceeb4',1,'Manager']]],
+  ['setbuttonpressed_2',['SetButtonPressed',['../class_navigation.html#a009b68edcf32df14750a3b0dd1ecba70',1,'Navigation']]],
+  ['setdetailscreen_3',['SetDetailScreen',['../class_plantpedia_button_utility.html#a90b8f9a9e95c6fdda40bddee06542323',1,'PlantpediaButtonUtility']]],
+  ['setfromplantdata_4',['SetFromPlantData',['../class_plantpedia_button_utility.html#ac8474611e3cfc552582fc336ed77cccc',1,'PlantpediaButtonUtility']]],
+  ['sethumidity_5',['SetHumidity',['../class_plantpedia_button_utility.html#a70415ec4137194289ed6d206f81bbb06',1,'PlantpediaButtonUtility']]],
+  ['setlastscreen_6',['SetLastScreen',['../class_add_plant_script.html#a4c798946687c1ed2dcc8c82230cc8057',1,'AddPlantScript']]],
+  ['setlight_7',['SetLight',['../class_plantpedia_button_utility.html#af16f3477dc5bf28afc5863bf8114c052',1,'PlantpediaButtonUtility']]],
+  ['setplant_8',['SetPlant',['../class_plantpedia_button_utility.html#a46bff4fb50c0c40bd78f8e651593b4e6',1,'PlantpediaButtonUtility']]],
+  ['setplantname_9',['SetPlantName',['../class_plantpedia_button_utility.html#a87847856fd379a7e86fcf793ae09b125',1,'PlantpediaButtonUtility']]],
+  ['setplantpediascreen_10',['SetPlantpediaScreen',['../class_plantpedia_button_utility.html#a67eeb01b08525f21ba04874566f237b6',1,'PlantpediaButtonUtility']]],
+  ['setscientificplantname_11',['SetScientificPlantName',['../class_plantpedia_button_utility.html#a6870a9cb42bc4440a2f4747a510fa60c',1,'PlantpediaButtonUtility']]],
+  ['setscreen_12',['SetScreen',['../class_dashboard_plant.html#a2b19ccc2001688242f645a791d5e3346',1,'DashboardPlant']]],
+  ['setstate_13',['SetState',['../class_dashboard_plant.html#a89f2ab4e86708618fd2ad49b0c5dc2ab',1,'DashboardPlant']]],
+  ['settemperature_14',['SetTemperature',['../class_plantpedia_button_utility.html#a9bc6fb069c6199451195ea02052b7a91',1,'PlantpediaButtonUtility']]],
+  ['setthumbnail_15',['SetThumbnail',['../class_plantpedia_button_utility.html#a8f583085483a1a3f7d94371473c14b6a',1,'PlantpediaButtonUtility']]],
+  ['setuputility_16',['SetUpUtility',['../class_plantpedia_detail_utility.html#a556ab95fd1529ab2e1083614d189008e',1,'PlantpediaDetailUtility.SetUpUtility(Plant plantData, GameObject mainScreen, GameObject infoScreen)'],['../class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921',1,'PlantpediaDetailUtility.SetUpUtility(string kind, GameObject mainScreen, GameObject infoScreen)']]],
+  ['setvariables_17',['SetVariables',['../class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1',1,'PlantState']]],
+  ['sp_18',['Sp',['../class_manager.html#aa1389558e9ae0d8a7c952d8e536121cd',1,'Manager']]],
+  ['spacerequirements_19',['spacerequirements',['../class_plant.html#adce279ccf563cf483e4d603f7ddbf0d7',1,'Plant']]],
+  ['start_20',['Start',['../class_get_plant_data.html#a299db6eee1201c3e073b5368c0d3543b',1,'GetPlantData']]],
+  ['startwaterpumplock_21',['StartWaterPumpLock',['../class_dashboard_plant.html#ab1ac314ac33450d949e385217755c991',1,'DashboardPlant']]],
+  ['switcharduinoequipment_22',['SwitchArduinoEquipment',['../class_manager.html#a75212d80861b8e865f783dfc5c99f68e',1,'Manager']]]
 ];

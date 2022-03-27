@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dashboardplant_0',['DashboardPlant',['../class_dashboard_plant.html',1,'']]]
+  ['backbuttonpedia_0',['BackButtonPedia',['../class_back_button_pedia.html',1,'']]]
 ];

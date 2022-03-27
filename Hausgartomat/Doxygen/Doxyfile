@@ -52,7 +52,7 @@ PROJECT_LOGO           =
 # If a relative path is entered, it will be relative to the location 
 # where doxygen was started. If left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryTwo/Hausgartomat/Doxygen" 
+OUTPUT_DIRECTORY       = "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryThree/Hausgartomat/Doxygen" 
 
 # If the CREATE_SUBDIRS tag is set to YES, then doxygen will create 
 # 4096 sub-directories (in 2 levels) under the output directory of each output 
@@ -616,7 +616,7 @@ WARN_LOGFILE           =
 # directories like "/usr/src/myproject". Separate the files or directories 
 # with spaces.
 
-INPUT                  = "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryTwo/Hausgartomat/Assets/Scripts" 
+INPUT                  = "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryThree/Hausgartomat/Assets/Scripts" 
 
 # This tag can be used to specify the character encoding of the source files 
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is 
@@ -891,7 +891,7 @@ HTML_STYLESHEET        =
 
 HTML_EXTRA_FILES       = 
 
-HTML_EXTRA_STYLESHEET  = "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryTwo/Hausgartomat/Doxygen/html/doxygen-awesome.css" "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryTwo/Hausgartomat/Doxygen/html/doxygen-awesome-sidebar-only.css" 
+HTML_EXTRA_STYLESHEET  = "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryThree/Hausgartomat/Doxygen/html/doxygen-awesome.css" "C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryThree/Hausgartomat/Doxygen/html/doxygen-awesome-sidebar-only.css" 
 
 # The HTML_COLORSTYLE_HUE tag controls the color of the HTML output. 
 # Doxygen will adjust the colors in the stylesheet and background images 

@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
+/**
+ * 
+ * */
 public class AddPlantScript : MonoBehaviour
 {
     [SerializeField] private Image plantImg;

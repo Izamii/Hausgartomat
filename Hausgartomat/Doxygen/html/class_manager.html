@@ -104,8 +104,10 @@ Inheritance diagram for Manager:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae620f72f84e525d425c9ca44fbc3f342"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#ae620f72f84e525d425c9ca44fbc3f342">InstantiateNewPlantItem</a> (<a class="el" href="class_plant_item.html">PlantItem</a> plant)</td></tr>
+<tr class="memdesc:ae620f72f84e525d425c9ca44fbc3f342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method that adds a new plant to the system, instatiating a new item in the dashboard.  <a href="class_manager.html#ae620f72f84e525d425c9ca44fbc3f342">More...</a><br /></td></tr>
 <tr class="separator:ae620f72f84e525d425c9ca44fbc3f342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25d52598c26a9c46439bd359c9c60e42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a25d52598c26a9c46439bd359c9c60e42">DeletePlant</a> (Text nickname)</td></tr>
+<tr class="memdesc:a25d52598c26a9c46439bd359c9c60e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to eliminate a <a class="el" href="class_plant.html">Plant</a> from the System.  <a href="class_manager.html#a25d52598c26a9c46439bd359c9c60e42">More...</a><br /></td></tr>
 <tr class="separator:a25d52598c26a9c46439bd359c9c60e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74306e8c676c12a054a2e3e7406ae552"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552">CheckStates</a> ()</td></tr>
 <tr class="memdesc:a74306e8c676c12a054a2e3e7406ae552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to periodically request the state of the greenhouse conditions and compare it to the Database information of each saved <a class="el" href="class_plant.html">Plant</a> to determine their appropiate state (Shown by the color).  <a href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552">More...</a><br /></td></tr>
@@ -114,11 +116,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a783e71a1c1da71e6f6cbad01fea5da5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursive Corutine to request sensor information from the Arduino.  <a href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d">More...</a><br /></td></tr>
 <tr class="separator:a783e71a1c1da71e6f6cbad01fea5da5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a75212d80861b8e865f783dfc5c99f68e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a75212d80861b8e865f783dfc5c99f68e">SwitchArduinoEquipment</a> (int i)</td></tr>
+<tr class="memdesc:a75212d80861b8e865f783dfc5c99f68e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to send commands to Arduino to turn on/off an equipment.  <a href="class_manager.html#a75212d80861b8e865f783dfc5c99f68e">More...</a><br /></td></tr>
 <tr class="separator:a75212d80861b8e865f783dfc5c99f68e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abccc4f76372162a4bcc5c520cdb14ebb"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb">DashboardPlantUpdate</a> ()</td></tr>
-<tr class="memdesc:abccc4f76372162a4bcc5c520cdb14ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen (The screen that details the state of a <a class="el" href="class_plant.html">Plant</a>) Also called periodically.  <a href="class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb">More...</a><br /></td></tr>
+<tr class="memdesc:abccc4f76372162a4bcc5c520cdb14ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen (The screen that details the state of a <a class="el" href="class_plant.html">Plant</a>) Also called periodically, when Dashboar_Plant Screen is enabled.  <a href="class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb">More...</a><br /></td></tr>
 <tr class="separator:abccc4f76372162a4bcc5c520cdb14ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d92f8ce7c59c1ab3b4481bb1e3ceeb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a3d92f8ce7c59c1ab3b4481bb1e3ceeb4">SetActivePlant</a> (string nickname)</td></tr>
+<tr class="memdesc:a3d92f8ce7c59c1ab3b4481bb1e3ceeb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the activePlant as the nickname of the <a class="el" href="class_plant.html">Plant</a> whose Dashboard_Plant Screen has been open.  <a href="class_manager.html#a3d92f8ce7c59c1ab3b4481bb1e3ceeb4">More...</a><br /></td></tr>
 <tr class="separator:a3d92f8ce7c59c1ab3b4481bb1e3ceeb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
@@ -132,7 +136,7 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This class organizes how the application works with the DB and Arduino. </p>
-<p >Makes each plantItem in the Dashboard check its state with arduino periodically It adds,deletes,modifies Plants to the Dashboard. </p>
+<p >Makes each plantItem in the Dashboard check its state with arduino periodically It adds, deletes, modifies Plants to the Dashboard. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a783e71a1c1da71e6f6cbad01fea5da5d" name="a783e71a1c1da71e6f6cbad01fea5da5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a783e71a1c1da71e6f6cbad01fea5da5d">&#9670;&nbsp;</a></span>AsynchronousReadFromArduino()</h2>
@@ -185,7 +189,7 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Recursive Corutine to request sensor information from the Arduino. </p>
-<p >Run recursively 3 Times to avoid collisions. </p>
+<p >Runs 3 times, one for each kind of sensor. </p>
 
 </div>
 </div>
@@ -223,7 +227,7 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen (The screen that details the state of a <a class="el" href="class_plant.html">Plant</a>) Also called periodically. </p>
+<p>Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen (The screen that details the state of a <a class="el" href="class_plant.html">Plant</a>) Also called periodically, when Dashboar_Plant Screen is enabled. </p>
 
 </div>
 </div>
@@ -243,6 +247,9 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Method to eliminate a <a class="el" href="class_plant.html">Plant</a> from the System. </p>
+<p >When called, it loads the updated dashboard screen. </p>
+
 </div>
 </div>
 <a id="ae620f72f84e525d425c9ca44fbc3f342" name="ae620f72f84e525d425c9ca44fbc3f342"></a>
@@ -260,6 +267,8 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Method that adds a new plant to the system, instatiating a new item in the dashboard. </p>
 
 </div>
 </div>
@@ -279,6 +288,8 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets the activePlant as the nickname of the <a class="el" href="class_plant.html">Plant</a> whose Dashboard_Plant Screen has been open. </p>
+
 </div>
 </div>
 <a id="a75212d80861b8e865f783dfc5c99f68e" name="a75212d80861b8e865f783dfc5c99f68e"></a>
@@ -296,6 +307,8 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Method to send commands to Arduino to turn on/off an equipment. </p>
 
 </div>
 </div>
@@ -367,7 +380,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryTwo/Hausgartomat/Assets/Scripts/Management/<a class="el" href="_manager_8cs.html">Manager.cs</a></li>
+<li>C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryThree/Hausgartomat/Assets/Scripts/Management/<a class="el" href="_manager_8cs.html">Manager.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -375,7 +388,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_manager.html">Manager</a></li>
-    <li class="footer">Generated on Wed Mar 16 2022 14:50:10 for Scripts by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun Mar 27 2022 16:09:48 for Scripts by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

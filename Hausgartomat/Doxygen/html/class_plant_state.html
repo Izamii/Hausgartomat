@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('class_plant_state.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
-<p>This class connects the arduino to the database to determine the state of a plant It can also give instructions to the arduino, to modify the state of a plant.  
+<p>This class gets the current sensor values from the manager to give back the state of a plant.  
  <a href="class_plant_state.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PlantState:</div>
@@ -104,10 +104,13 @@ Inheritance diagram for PlantState:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a11225d0aefa3de7e19102e0716f53686"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plant_state.html#a11225d0aefa3de7e19102e0716f53686">PlantState</a> (string kind)</td></tr>
+<tr class="memdesc:a11225d0aefa3de7e19102e0716f53686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_plant_state.html" title="This class gets the current sensor values from the manager to give back the state of a plant.">PlantState</a>.  <a href="class_plant_state.html#a11225d0aefa3de7e19102e0716f53686">More...</a><br /></td></tr>
 <tr class="separator:a11225d0aefa3de7e19102e0716f53686"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f9e6291b5a6478f42e2a51324198423"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plant_state.html#a8f9e6291b5a6478f42e2a51324198423">RequestStates</a> (float valueT, bool equimpentONT, float valueL, bool equimpentONL, float valueH, bool equimpentONH)</td></tr>
-<tr class="separator:a8f9e6291b5a6478f42e2a51324198423"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad10fb1f7c942daaa6b6ca1e362f3c525"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plant_state.html#ad10fb1f7c942daaa6b6ca1e362f3c525">RequestStates</a> (float valueT, float valueL, float valueH)</td></tr>
+<tr class="memdesc:ad10fb1f7c942daaa6b6ca1e362f3c525"><td class="mdescLeft">&#160;</td><td class="mdescRight">When called, it compares the given values to the plant�s range of values and gives back the individual state of each of the three conditions.  <a href="class_plant_state.html#ad10fb1f7c942daaa6b6ca1e362f3c525">More...</a><br /></td></tr>
+<tr class="separator:ad10fb1f7c942daaa6b6ca1e362f3c525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d19416c1107708f8436fdf9efc05f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1">SetVariables</a> ()</td></tr>
+<tr class="memdesc:af7d19416c1107708f8436fdf9efc05f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method sets the appropiate value ranges for this plant, according to the data retrieved from the database for this kind of plant.  <a href="class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1">More...</a><br /></td></tr>
 <tr class="separator:af7d19416c1107708f8436fdf9efc05f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
@@ -122,21 +125,11 @@ Properties</h2></td></tr>
 <tr class="separator:a7a7687a99251fadca8fbf4547ef139de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0545143444e49f22b32814c6685283e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plant_state.html#ad0545143444e49f22b32814c6685283e">Kind</a><code> [get, set]</code></td></tr>
 <tr class="separator:ad0545143444e49f22b32814c6685283e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7085236988845fab7dda45b3f64edd6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plant.html">Plant</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plant_state.html#a7085236988845fab7dda45b3f64edd6f">PlantDB</a><code> [get]</code></td></tr>
+<tr class="separator:a7085236988845fab7dda45b3f64edd6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >This class connects the arduino to the database to determine the state of a plant It can also give instructions to the arduino, to modify the state of a plant. </p>
-<p >DB</p><ol type="1">
-<li>Get DB Information for this plant</li>
-</ol>
-<p >A. Each x Seconds</p><ol type="1">
-<li>Get arduino info</li>
-<li>Compare with DB info</li>
-<li>Determine State</li>
-</ol>
-<p >Equipment instructions.</p><ol type="1">
-<li>Deliver instruction to Arduino</li>
-<li>Go to A </li>
-</ol>
+<div class="textblock"><p >This class gets the current sensor values from the manager to give back the state of a plant. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a11225d0aefa3de7e19102e0716f53686" name="a11225d0aefa3de7e19102e0716f53686"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a11225d0aefa3de7e19102e0716f53686">&#9670;&nbsp;</a></span>PlantState()</h2>
@@ -154,11 +147,14 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor for <a class="el" href="class_plant_state.html" title="This class gets the current sensor values from the manager to give back the state of a plant.">PlantState</a>. </p>
+<p >When created, the value ranges for the specified kind of plant are retrieved from the database. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8f9e6291b5a6478f42e2a51324198423" name="a8f9e6291b5a6478f42e2a51324198423"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f9e6291b5a6478f42e2a51324198423">&#9670;&nbsp;</a></span>RequestStates()</h2>
+<a id="ad10fb1f7c942daaa6b6ca1e362f3c525" name="ad10fb1f7c942daaa6b6ca1e362f3c525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad10fb1f7c942daaa6b6ca1e362f3c525">&#9670;&nbsp;</a></span>RequestStates()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,32 +168,14 @@ Properties</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>equimpentONT</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>valueL</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>equimpentONL</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>valueH</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>equimpentONH</em>&#160;</td>
+          <td class="paramname"><em>valueH</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -206,6 +184,8 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>When called, it compares the given values to the plant�s range of values and gives back the individual state of each of the three conditions. </p>
 
 </div>
 </div>
@@ -223,6 +203,8 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This method sets the appropiate value ranges for this plant, according to the data retrieved from the database for this kind of plant. </p>
 
 </div>
 </div>
@@ -293,6 +275,28 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a7085236988845fab7dda45b3f64edd6f" name="a7085236988845fab7dda45b3f64edd6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7085236988845fab7dda45b3f64edd6f">&#9670;&nbsp;</a></span>PlantDB</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_plant.html">Plant</a> PlantState.PlantDB</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7a7687a99251fadca8fbf4547ef139de" name="a7a7687a99251fadca8fbf4547ef139de"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7a7687a99251fadca8fbf4547ef139de">&#9670;&nbsp;</a></span>TempState</h2>
 
@@ -338,7 +342,7 @@ Properties</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryTwo/Hausgartomat/Assets/Scripts/Screens/<a class="el" href="_plant_state_8cs.html">PlantState.cs</a></li>
+<li>C:/Users/richa/Documents/Universidad/AngewandteInformatik/4.Semester/MM Gestaltung von M/tryThree/Hausgartomat/Assets/Scripts/Screens/<a class="el" href="_plant_state_8cs.html">PlantState.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -346,7 +350,7 @@ Properties</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_plant_state.html">PlantState</a></li>
-    <li class="footer">Generated on Wed Mar 16 2022 14:50:10 for Scripts by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
+    <li class="footer">Generated on Sun Mar 27 2022 16:09:48 for Scripts by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
 </body>

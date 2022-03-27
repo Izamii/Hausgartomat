@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['updatenickname_0',['UpdateNickname',['../class_add_plant_script.html#a21e7bf513b6fd72f0e0544c7520bf05c',1,'AddPlantScript']]],
-  ['updateplantdata_1',['UpdatePlantData',['../class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35',1,'GetPlantData']]],
-  ['updateplantinfo_2',['UpdatePlantInfo',['../class_dashboard_plant.html#af54ad09ecd85e6a9af632717a889d24a',1,'DashboardPlant']]],
-  ['updateplantoption_3',['UpdatePlantOption',['../class_dashboard_plant.html#a2c513b2ce7cc3bce14028f26b419325e',1,'DashboardPlant']]],
-  ['updateselection_4',['UpdateSelection',['../class_add_plant_script.html#a5b3a43b8d09b14e81ad3927456f5a897',1,'AddPlantScript']]]
+  ['temperature_0',['temperature',['../class_plant.html#ae42f3288644ae7ef6bf53245b68510d9',1,'Plant']]],
+  ['tempstate_1',['TempState',['../class_plant_state.html#a7a7687a99251fadca8fbf4547ef139de',1,'PlantState']]],
+  ['turnaddbuttonon_2',['TurnAddButtonOn',['../class_add_plant_script.html#a0dd14e7ab8afe09ac6a55efc2471e4ac',1,'AddPlantScript']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['icon_0',['Icon',['../class_plant_item.html#a06eb4302af9a46df43e50889a7954fc6',1,'PlantItem']]],
-  ['image_1',['Image',['../_add_plant_script_8cs.html#a608db096452b7c3af254e6770ebfdc88',1,'AddPlantScript.cs']]],
-  ['instantiatenewplantitem_2',['InstantiateNewPlantItem',['../class_manager.html#ae620f72f84e525d425c9ca44fbc3f342',1,'Manager']]]
+  ['harvesthints_0',['harvesthints',['../class_plant.html#a78477640d59e000fe65c85582b2edb58',1,'Plant']]],
+  ['humidity_1',['humidity',['../class_plant.html#a90e49a37d2b44579f45f02ce7f320388',1,'Plant']]]
 ];

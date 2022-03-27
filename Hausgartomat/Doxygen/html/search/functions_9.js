@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['requeststates_0',['RequestStates',['../class_plant_state.html#a8f9e6291b5a6478f42e2a51324198423',1,'PlantState']]]
+  ['navigationbarclick_0',['NavigationBarClick',['../class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19',1,'Navigation']]]
 ];
