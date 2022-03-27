@@ -219,27 +219,27 @@ public class DashboardPlant : MonoBehaviour
                 case 0: //Low
                     image.sprite = face2;
                     rt.sizeDelta = new Vector2(73, 15);
-                    img.color = new Color32(0xFF, 0x10, 0x00, 0x88);//FF1000
+                    img.color = new Color32(0xFF, 0x10, 0x00, 0x88);//RED
                     break;
                 case 1:
                     image.sprite = face1;
                     rt.sizeDelta = new Vector2(73, 30);
-                    img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);//FFD300
+                    img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);//YELLOW
                     break;
                 case 2:
                     image.sprite = face0;
                     rt.sizeDelta = new Vector2(73, 45);
-                    img.color = new Color32(0xFF, 0x10, 0x00, 0x00);
+                    img.color = new Color32(0xFF, 0x10, 0x00, 0x00); //GREEN
                     break;
                 case 3:
                     image.sprite = face1;
                     rt.sizeDelta = new Vector2(73, 60);
-                    img.color = new Color32(0xFF, 0xD3, 0x00, 0x88);
+                    img.color = new Color32(0xFF, 0xD3, 0x00, 0x88); //YELLOW
                     break;
                 case 4: //High
                     image.sprite = face2;
                     rt.sizeDelta = new Vector2(73, 75);
-                    img.color = new Color32(0xFF, 0x10, 0x00, 0x88);
+                    img.color = new Color32(0xFF, 0x10, 0x00, 0x88); //RED
                     break;
             } 
         }
@@ -248,7 +248,7 @@ public class DashboardPlant : MonoBehaviour
             image.sprite = disconnected; //Find new Sprite here for not connected
             image.rectTransform.localScale = new Vector3(0.9f, 0.9f, 1f);
             rt.sizeDelta = new Vector2(71, 75);
-            img.color = new Color32(0xcc, 0x60, 0xcc, 0x88);
+            img.color = new Color32(0xDB, 0x8B, 0xDD, 0xFF);
         }
         
     }
