@@ -236,7 +236,7 @@ public class DashboardPlant : MonoBehaviour
             {
                 case 0: //Low
                     image.sprite = face2;
-                    stateSprite.color = new Color32(0xDE, 0x88, 0x88, 0xFF);//RED
+                    stateSprite.color = new Color32(0xb3, 0x52, 0x52, 0xFF);;//RED
                     break;
                 case 1:
                     image.sprite = face1;
@@ -252,7 +252,7 @@ public class DashboardPlant : MonoBehaviour
                     break;
                 case 4: //High
                     image.sprite = face2;
-                    stateSprite.color = new Color32(0xC4, 0x4a, 0x4a, 0xFF); //RED
+                    stateSprite.color = new Color32(0xb3, 0x52, 0x52, 0xFF); //RED
                     break;
             }
         }

@@ -1684,7 +1684,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Edit Name
+  m_Text: Name bearbeiten
 --- !u!222 &120406699
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4200,7 +4200,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Edit Kind
+  m_Text: "Pflanzenart \xE4ndern"
 --- !u!222 &282200142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14141,7 +14141,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Plantname..
+  m_Text: Pflanzenname..
 --- !u!222 &1205789817
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14541,7 +14541,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Delete
+  m_Text: Pflanze entfernen
 --- !u!222 &1275548993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15109,7 +15109,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cancel
+  m_Text: Abbrechen
 --- !u!222 &1340045084
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -183,7 +183,7 @@ public class Manager : MonoBehaviour
                             break;
                         case 2:
                             dashboard.transform.GetChild(i).GetComponent<Image>().color =
-                                new Color32(0xDE, 0x88, 0x88, 0xFF);
+                                new Color32(0xb3, 0x52, 0x52, 0xFF);;
                             break;
                     }
                 }
