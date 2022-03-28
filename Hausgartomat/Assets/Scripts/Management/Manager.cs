@@ -43,7 +43,8 @@ public class Manager : MonoBehaviour
     private int activeWaterState = 4;
     private int activeLightState = 4;
     private int activeTempState = 4;
-
+    private int indexOffset = 1;
+    
     [Space]
     [Header("Test Area")]
     [SerializeField] private GameObject testPlant;
@@ -106,7 +107,7 @@ public class Manager : MonoBehaviour
         //Reorganize the items in Dashboard
         for (int i = 1; i < 4; i++)
         {
-            Dashboard.transform.GetChild(dashboardItems - 3).SetAsLastSibling();
+            Dashboard.transform.GetChild(dashboardItems - indexOffset).SetAsLastSibling();
         }
 
 
@@ -116,21 +117,6 @@ public class Manager : MonoBehaviour
     {
         yield return new WaitUntil(() => database.read);
         StartCoroutine(CheckStates());
-    }
-
-    /**
-     * Creates two empty Items on the dashboard.
-     * They are meant to be placed at the end of the dashboard to create more space.
-     * */
-    private void InstatiateEmptys()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            GameObject item = Instantiate(prefabDashPlant, Dashboard.transform);
-            item.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
-            item.transform.GetChild(0).GetComponent<Text>().text = "";
-            item.GetComponent<Image>().color = Color.clear;
-        }
     }
 
     /**
@@ -150,7 +136,6 @@ public class Manager : MonoBehaviour
     private void InstantiateBottom()
     {
         InstantiateAddPlant();
-        InstatiateEmptys();
     }
 
     /**
@@ -181,7 +166,7 @@ public class Manager : MonoBehaviour
                     2000f
                     )
                 );
-            for (int i = 0; i < dashboard.transform.childCount - 3; i++)
+            for (int i = 0; i < dashboard.transform.childCount - indexOffset; i++)
             {
                 if (Sp.IsOpen)
                 {
@@ -394,7 +379,7 @@ public class Manager : MonoBehaviour
         {
             yield return new WaitForSeconds(5);
             Debug.Log("Dashboard Plant Update started");
-            dashboardPlantScreen.GetComponent<DashboardPlant>().SetState(activePlant);
+            dashboardPlantScreen.GetComponent<DashboardPlant>().SetState(activePlantObject);
         }
     }
 
@@ -402,10 +387,10 @@ public class Manager : MonoBehaviour
      * Sets the activePlant as the nickname of the Plant whose Dashboard_Plant Screen
      * has been open.
      * */
-    public void SetActivePlant(string nickname)
+    public void SetActivePlant(string nickname, PlantState state)
     {
         activePlant = nickname;
-        activePlantObject = GameObject.Find(nickname).GetComponent<PlantState>();
+        activePlantObject = state;
         activeWaterState = activePlantObject.WaterState;
         activeTempState = activePlantObject.TempState;
         activeLightState = activePlantObject.LightState;
