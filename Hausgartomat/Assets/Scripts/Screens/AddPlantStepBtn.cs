@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * <summary>
+ * This class helps with the navigation inside the Form to add a new plant.
+ * </summary>
+ */
 public class AddPlantStepBtn : MonoBehaviour
 {
     [SerializeField] private GameObject nextScreen;
@@ -14,10 +18,6 @@ public class AddPlantStepBtn : MonoBehaviour
         this.gameObject.transform.parent.gameObject.SetActive(false);
     }
 
-    /*private void OnEnable()
-    {
-        
-    }*/
    public void FinishProcess()
     {
         firstScreen.SetActive(true);

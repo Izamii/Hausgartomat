@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ *<summary>
+ * Class to manage the list of plant kinds in the Add Plant´s first screen.
+ *</summary>
+ *
+ */
 public class AddPlantScroll : MonoBehaviour
 {
     [SerializeField] private Text plantNameBox;
@@ -14,12 +20,21 @@ public class AddPlantScroll : MonoBehaviour
     private List<Plant> plantList;
     private GetPlantData database;
     private int currentPlant;
+    /**
+     * On Start, get the actual list of plant kinds in the database.
+     */
     private void Start()
     {
         database = GameObject.Find("Firebase").GetComponent<GetPlantData>();
         StartCoroutine(WaitForDatabase());
     }
 
+    /**
+     * <summary>
+     * Navigate the list of plant kinds.
+     * </summary>
+     *
+     */
     public void RightButtonClick()
     {
         if (plantList.Count == 0 || (plantList.Count-1) < (currentPlant+1))
@@ -48,6 +63,15 @@ public class AddPlantScroll : MonoBehaviour
         UpdateButtons();
     }
     
+    /**
+     * <summary>
+     * Corrutine that waits for the Databse to be ready to be read
+     * and, when ready, fills the plant list in this class with a list
+     * of all available kinds of plant.
+     * If the Database is empty, the plant navigation buttons
+     * are disabled.
+     * </summary>
+     */
     private IEnumerator WaitForDatabase()
     {
         yield return new WaitUntil(() => database.read);
@@ -71,6 +95,12 @@ public class AddPlantScroll : MonoBehaviour
         return plantList[currentPlant];
     }
 
+    /**
+     * <summary>
+     * Checks if there is still a next or previous plant on the list.
+     * If there isn´t, block the corresponding button.
+     * </summary>
+     */
     private void UpdateButtons()
     {
         previousPlantButton.interactable = currentPlant != 0;

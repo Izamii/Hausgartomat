@@ -1,8 +1,11 @@
 using UnityEngine;
 
 /**
- * This class gets the current sensor values from the manager
- * to give back the state of a plant.
+ * <summary>This class delivers upon request, the states in
+ * which the different conditions find themselves.
+ * It weights the state of a plant comparing the actual
+ * sensor values with the values from the Database for this
+ * kind of plant.</summary>
  */
 public class PlantState : MonoBehaviour
 {
@@ -23,15 +26,21 @@ public class PlantState : MonoBehaviour
 
 
     /**
+     * <summary>
      * Constructor for PlantState.
      * When created, the value ranges for the specified kind of plant
      * are retrieved from the database.
+     * </summary>
      * */
     public PlantState(string kind)
     {
         UpdateKind(kind);
     }
 
+    /**
+     * <summary> Updates the kind of plant this plant is</summary>
+     * <param name="kind"> New kind for this plant </param>
+     */
     public void UpdateKind(string kind)
     {
         this.Kind = kind;
@@ -47,13 +56,18 @@ public class PlantState : MonoBehaviour
 
     private void Awake()
     {
-        _getPlantData = GameObject.Find("Firebase").GetComponent<GetPlantData>();;
+        _getPlantData = GameObject.Find("Firebase").GetComponent<GetPlantData>();
     }
 
     /**
-     * When called, it compares the given values to the plant�s range of values
+     * <summary>
+     * It calls for the evaluation of the sensor values
      * and gives back the individual state of each of the three conditions.
-     * */
+     * </summary>
+     * <param name="valueH"> Humidity value </param>
+     * <param name="valueL"> Light amount value </param>
+     * <param name="valueT"> Temperature value </param>
+     */
     public int RequestStates(float valueT, float valueL , float valueH)
     {
         ManageResponse("t", valueT);
@@ -64,12 +78,14 @@ public class PlantState : MonoBehaviour
 
 
     /**
+     * <summary>
      * Based on the type of message, this method compares the given value with the corresponding
      * paramter of this plant and sets it�s corresponding state to one of the following:
      * Possible states: 0,1 = to low; 2 = good; 3,4 = to high
      * 
      * Type of Information: t,h,l
      * Value read by the sensor: float
+     * </summary>
     */
     private void ManageResponse(string type, float value)
     {
@@ -192,9 +208,16 @@ public class PlantState : MonoBehaviour
     }
 
     /**
-     * The general state of the plant is determined by the worst state.
-     * This method weights the state of each condition and returns the general
-     * state of the plant.
+     * <summary>
+     * This method weights the state of each condition against the
+     * values obtained from the database and returns the general
+     * state of the plant.    
+     * States:
+     *  2: Risky
+     *  1: Mediocre
+     *  0: Good
+     * The general state of the plant is determined by the worst state of all of them.
+     * </summary>
      * 
      */
     private int DetermineState(int state1, int state2, int state3)
@@ -213,9 +236,11 @@ public class PlantState : MonoBehaviour
     }
 
     /**
+     * <summary>
      * This method sets the appropiate value ranges for this plant, 
      * according to the data retrieved from the database for this kind
-     * of plant.
+     * of plant. 
+     * </summary>
      * */
     public void SetVariables()
     {

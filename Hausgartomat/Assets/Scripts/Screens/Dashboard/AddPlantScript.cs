@@ -7,7 +7,7 @@ using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 /**
- * 
+ * Class to manage the addition of new Plants
  * */
 public class AddPlantScript : MonoBehaviour
 {
@@ -36,6 +36,10 @@ public class AddPlantScript : MonoBehaviour
     {
         confirmationBtn.interactable = false;
     }
+
+    /**
+     * Update the sprite for the selected plant kind 
+     */
     public void ChangeAddPlantImage(Sprite sprite)
     {
         PlantImg.sprite = sprite;
@@ -54,7 +58,11 @@ public class AddPlantScript : MonoBehaviour
         //ChangeAddPlantImage(plantSprite);
     }
 
-
+    /**
+     * <summary>
+     * Calls the manager to instatiate a new plant.
+     * </summary>
+     */
     public void CreateNewPlant()
     {
         string selected = plantKind.text;
@@ -66,6 +74,11 @@ public class AddPlantScript : MonoBehaviour
         //manager.GoTo.GoBack(dashboard);
     }
 
+    /**
+     * <summary>
+     * Enable/Disable the confirmation button.
+     * </summary>
+     */
     public void TurnAddButtonOn()
     {
         if (nameField.text.Length > 0)
@@ -80,6 +93,12 @@ public class AddPlantScript : MonoBehaviour
         }
     }
 
+    /**
+     * <summary>
+     * Update what the last screen of the form is.
+     * If the plant has been instatiated, the back button is deactivated.
+     * </summary>
+     */
     public void SetLastScreen()
     {
         if (screen1.activeSelf)
@@ -96,6 +115,11 @@ public class AddPlantScript : MonoBehaviour
             backBtn.SetActive(false);
         }
     }
+    /**
+     * <summary>
+     * After leaving the form, the initial state of the form is reset.
+     * </summary>
+     */
     public void ResetLastScreen()
     {
         LastScreen = dashboard;
@@ -103,6 +127,11 @@ public class AddPlantScript : MonoBehaviour
         screen3.SetActive(false);
         backBtn.SetActive(true);
     }
+    /**
+     * <summary>
+     * Empty the field where the name of the plant is set.
+     * </summary>
+     */
     public void EmptyField()
     {
         nameField.text = "";

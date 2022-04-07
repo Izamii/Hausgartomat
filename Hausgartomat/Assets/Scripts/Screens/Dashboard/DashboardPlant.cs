@@ -2,7 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/**
+ * <summary>
+ * Class that manages the Plant Details Screen,
+ * managing it´s corresponding equipments in the green house,
+ * showing the state of the displayed plant and
+ * allowing update and delition of the plant.
+ * </summary>
+ */
 public class DashboardPlant : MonoBehaviour
 {
     [Header("Plant Item Information")]
@@ -53,6 +60,17 @@ public class DashboardPlant : MonoBehaviour
     private GameObject plantItem;
     private GetPlantData _database;
     private List<Plant> plants;
+    /**
+     * <summary>
+     * Sets the UI components of the Plant Details Screen to the information
+     * of the selected plant.
+     * </summary>
+     * <param name="nickname"> Nickname of the plant</param>
+     * <param name="plantItem"> Game object containing more details of the selected plant</param>
+     * <param name="icon"> Image that represents the selected plant</param>
+     * <param name="kind"> Type of plant </param>
+     * <param name="states"> State of the selected plant </param>
+     */
     public void SetScreen(Sprite icon, string nickname, string kind, PlantState states, GameObject plantItem)
     {
         this.nickname.text = nickname;
@@ -67,11 +85,21 @@ public class DashboardPlant : MonoBehaviour
 
     }
 
+    /**
+     * <summary> On Awake, wait for the Database to be readable </summary>
+     */
     private void Awake()
     {
         _database = GameObject.Find("Firebase").GetComponent<GetPlantData>();
         StartCoroutine(WaitForDatabase());
     }
+    /**
+     *<summary>
+     * Corutine that pauses a process until the Database is readable.
+     * When the database becomes readable, the list of available plant kinds
+     * gets filled with the most actual values.
+     *</summary>
+     */
     private IEnumerator WaitForDatabase()
     {
         yield return new WaitUntil(() => _database.read);
@@ -83,6 +111,13 @@ public class DashboardPlant : MonoBehaviour
         }
 
     }
+
+    /**
+     * <summary>
+     * Set the UI components accordingly to the states of the
+     * displayed plant.
+     * </summary>
+     */
     public void SetState(PlantState states)
     {
         SelectFaceAndLevel(states.WaterState, faceW, levelW);
@@ -94,10 +129,25 @@ public class DashboardPlant : MonoBehaviour
         MayInteract(fan, states.TempState, false);
     }
 
+    /**
+     * <summary>
+     * Initiate the corrutine to temporarily lock the waterpump.
+     * </summary>
+     */
     public void StartWaterPumpLock()
     {
         StartCoroutine(LockWaterPump());
     }
+
+    /**
+     * <summary>
+     * Corutine that locks the waterpump switch, to give the water pump time to
+     * push water into the green house and the moisture sensor to update the
+     * humidity level, as this takes a little while.
+     * This is done to prevent the user from excesively watering the plant by error.
+     * </summary>
+     * 
+     */
     private IEnumerator LockWaterPump()
     {
         CheckWaterpump = false;
@@ -112,6 +162,13 @@ public class DashboardPlant : MonoBehaviour
         yield break;
     }
 
+    /**
+     * <summary>
+     * Sets a switch as interactable or not, according to the
+     * state of the plant in the respective value.
+     * </summary>
+     * 
+     */
     private void MayInteract(Slider slider, int state, bool whenLow)
     {
         int[] mayTurnOnStates = { 0, 1 };
@@ -132,7 +189,11 @@ public class DashboardPlant : MonoBehaviour
     }
 
     //Update
-
+    /**
+     * <summary>
+     * Update the nickname of the displayed plant.
+     * </summary>
+     */
     public void ChangePlantNickname()
     {
         if (nameField.text.Length != 0)
@@ -150,6 +211,12 @@ public class DashboardPlant : MonoBehaviour
         }
         nameField.text = "";
     }
+
+    /**
+     * <summary>
+     * Update the kind of the displayed plant.
+     * </summary>
+     */
     public void ChangePlantKind()
     {
         string kindChanged = kindDropdown.transform.GetChild(0).GetComponent<Text>().text;
@@ -163,6 +230,12 @@ public class DashboardPlant : MonoBehaviour
         kindDropdown.value = 0;
     }
 
+    /**
+     * <summary>
+     * Depending on which property is being updated, call
+     * the corresponding method.
+     * </summary>
+     */
     public void UpdatePlantInfo()
     {
         if (kindDropdown.IsActive())
@@ -174,6 +247,13 @@ public class DashboardPlant : MonoBehaviour
             ChangePlantNickname();
         }
     }
+
+    /**
+     * <summary>
+     * Sets active the corresponding fields to 
+     * be able to update the selected option.
+     * </summary>
+     */
     public void UpdatePlantOption(int option)
     {
         switch (option)
@@ -185,23 +265,37 @@ public class DashboardPlant : MonoBehaviour
             case 2:
                 nameField.gameObject.SetActive(false);
                 kindDropdown.gameObject.SetActive(true);
-
                 break;
             default:
-
                 break;
         }
     }
 
+    /**
+     * <summary>
+     * Activate the confirmation Panel.
+     * </summary>
+     */
     public void ConfirmationPanelPopUp(bool on)
     {
         optionsPanel.SetActive(false);
         confirmationPanel.SetActive(on);
     }
+    /**
+     * <summary>
+     * Activate the Options Panel.
+     * </summary>
+     */
     public void OptionsPanelPopUp(bool on)
     {
         optionsPanel.SetActive(on);
     }
+    /**
+     * <summary>
+     * Deactivates the confirmation and options panels.
+     * Gets the manager to delete the displayed plant.
+     * </summary>
+     */
     public void DeletePlant()
     {
         confirmationPanel.SetActive(false);
@@ -209,24 +303,51 @@ public class DashboardPlant : MonoBehaviour
         manager.GetComponent<Manager>().DeletePlant(plantItem);
     }
 
+    /**
+     * <summary>
+     * Enables/Disables the panel for editing the displayed plant´s information.
+     * </summary>
+     */
     public void OpenInfoEditor(bool on)
     {
         updatePanel.SetActive(on);
     }
 
-
+    /**
+     * <summary>
+     * Start the corutine to update the information displayed on the screen
+     * </summary>
+     */
     void OnEnable()
     {
         manager.GetComponent<Manager>().StartCoroutine(manager.GetComponent<Manager>().DashboardPlantUpdate());
-        //Debug.Log("Sup?");
     }
 
+    /**
+     * <summary>
+     * Stop the corutine to update the information displayed on the screen
+     * </summary>
+     */
     void OnDisable()
     {
         manager.GetComponent<Manager>().StopCoroutine(manager.GetComponent<Manager>().DashboardPlantUpdate());
-        //Debug.Log("Bye");
     }
 
+    /**
+     * <summary>
+     * Sets the corresponding smiley and color of a condition of this plant.
+     * </summary>
+     * <param name="i"> State of this condition 
+     * 0: Too low
+     * 1: Low
+     * 2: Good
+     * 3: High
+     * 4: Too High
+     * </param>
+     * <param name="image">Image component of the placeholder for the smiley</param>
+     * <exception> If the case does not fit the switch, the color is set to purple and 
+     * the arduino is considered dissconnected</exception>
+     */
     private void SelectFaceAndLevel(int i, Image image, GameObject level)
     {
         Image stateSprite = level.GetComponent<Image>();

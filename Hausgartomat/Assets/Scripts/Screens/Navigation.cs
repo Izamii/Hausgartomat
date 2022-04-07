@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * <summary>
+ * Class to manage the basic navigation inside the app.
+ * </summary>
+ */
 public class Navigation : MonoBehaviour
 {
     [SerializeField] private GameObject[] panels;
@@ -10,6 +15,12 @@ public class Navigation : MonoBehaviour
 
     public GameObject[] Panels { get => panels; set => panels = value; }
 
+    /**
+     * <summary>
+     * Enable the selected panel and disable the rest.
+     * Except for the dashboard, which is set to always be active in the background.
+     * </summary>
+     */
     public void NavigationBarClick(GameObject activePanel)
     {
         for (int i = 0; i < Panels.Length; i++)

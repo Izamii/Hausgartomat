@@ -5,9 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /**
- * This class organizes how the application works with the DB and Arduino.
- * Makes each plantItem in the Dashboard check its state with arduino periodically
- * It adds, deletes, modifies Plants to the Dashboard.
+ * This class organizes how the application works with the database and Arduino.
+ * Makes each plantItem in the Dashboard check its state with the values sent by the
+ * Arduino periodically
+ * It adds and deletes Plants to the Dashboard.
  * 
  **/
 public class Manager : MonoBehaviour
@@ -60,6 +61,12 @@ public class Manager : MonoBehaviour
 
     public SerialPort Sp { get => sp; set => sp = value; }
 
+    /**
+     *On Awake:
+     * - The default dashboard is filled.
+     * - The Serial Port to Arduino is opened.
+     * - Waits until the Database is readable.
+     */
     private void Awake()
     {
         database = GameObject.Find("Firebase").GetComponent<GetPlantData>();
@@ -86,7 +93,11 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Method that adds a new plant to the system, instatiating a new item in the dashboard
+     * and placing it in the correct place.
+     * </summary>
+     * <param name="plant">Plant Item with the details for the new item</param>
      */
     public void InstantiateNewPlantItem(PlantItem plant)
     {
@@ -113,6 +124,11 @@ public class Manager : MonoBehaviour
 
     }
 
+    /**
+     * <summary>
+     * Corrutine to pause a process, until the Database is readable.
+     * </summary>
+     */
     private IEnumerator WaitForDatabase()
     {
         yield return new WaitUntil(() => database.read);
@@ -120,8 +136,10 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Method to add an item to the dashboard that, when pressed, takes
      * the user to the AddPlant screen.
+     * </summary>
      * */
     private void InstantiateAddPlant()
     {
@@ -131,17 +149,22 @@ public class Manager : MonoBehaviour
     }
 
     /**
-     * Method that puts the "Add Plant button" and the empty spaces on the dashboard.
-     * */
+     * <summary>
+     * Method that loads the default bottom part of the dashboard
+     * </summary>
+     */
     private void InstantiateBottom()
     {
         InstantiateAddPlant();
     }
 
     /**
+     * <summary>
      * Method to eliminate a Plant from the System.
-     * When called, it loads the updated dashboard screen.
-     * */
+     * When called, it navigates to the updated dashboard screen.
+     * </summary>
+     * <param name="plantItem"> Game Object to be destroyed</param>
+     */
     public void DeletePlant(GameObject plantItem)
     {
         Navigation _navi = GoTo.Navi.GetComponent<Navigation>();
@@ -150,9 +173,10 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Corutine to periodically request the state of the greenhouse conditions
      * and compare it to the Database information of each saved Plant 
-     * to determine their appropiate state (Shown by the color).
+     * to determine their appropiate state (Shown by the color).</summary>
      */
     public IEnumerator CheckStates()
     {
@@ -199,8 +223,10 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Recursive Corutine to request sensor information from the Arduino.
      * Runs 3 times, one for each kind of sensor.
+     * </summary>
      */
     public IEnumerator AsynchronousReadFromArduino(Action<string> callback, Action fail = null,
                             float timeout = float.PositiveInfinity,
@@ -268,7 +294,9 @@ public class Manager : MonoBehaviour
 
 
     /**
+     * <summary>
      * Method to send commands to Arduino to turn on/off an equipment.
+     * </summary>
      * */
     public void SwitchArduinoEquipment(int i)
     {
@@ -310,7 +338,9 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Method to write a message to the Arduino, through the Serial Port
+     * </summary>
      * */
     private void WriteToArduino(string message)
     {
@@ -331,6 +361,7 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Method to process a message from arduino. 
      *
      * Format from arduino message: (t,h,l) (###) (0,1)
@@ -338,6 +369,9 @@ public class Manager : MonoBehaviour
      * ###: Value read by the sensor
      * 0,1: State of the corresponding equipment
      *      0: Off, 1: On
+     * </summary>
+     * <param name="message"> What is sent from Arduino</param>
+     * <example>"t 25 1" (Temperature 25°C, fan is on)</example>
     */
     private void ParseMessage(string message)
     {
@@ -369,9 +403,11 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen
      * (The screen that details the state of a Plant)
      * Also called periodically, when Dashboar_Plant Screen is enabled.
+     * </summary>
      */
     public IEnumerator DashboardPlantUpdate()
     {
@@ -384,9 +420,13 @@ public class Manager : MonoBehaviour
     }
 
     /**
+     * <summary>
      * Sets the activePlant as the nickname of the Plant whose Dashboard_Plant Screen
      * has been open.
-     * */
+     * </summary
+     * <param name="nickname"> Name of the selected plant </param>
+     * <param name="state"> State of the selected plant </param>
+     */
     public void SetActivePlant(string nickname, PlantState state)
     {
         activePlant = nickname;
