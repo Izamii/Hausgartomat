@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
-
+/**
+ * <summary>Utility class to control the behavior of the Plantpedia Detail screen.</summary>
+ */
 public class PlantpediaInfoUtility : MonoBehaviour
 {
     [SerializeField] private Image thumbnail;
@@ -19,7 +21,10 @@ public class PlantpediaInfoUtility : MonoBehaviour
     [SerializeField] private GameObject lastScreen;
 
     public GameObject LastScreen { get => lastScreen; set => lastScreen = value; }
-
+    /**
+     * <summary>Method to fill in the preset Labels and Images of the details screen by a given instance of <c>Plant</c>.</summary>
+     * <param name="plant">Plant data that represents a single plant.</param>
+     */
     public void FillInfoScreen(Plant plant)
     {
         plantName.text = plant.name;
