@@ -1,4 +1,4 @@
 <map id="PlantpediaDetailUtility.SetUpUtility" name="PlantpediaDetailUtility.SetUpUtility">
-<area shape="rect" id="node1" title=" " alt="" coords="212,5,365,47"/>
-<area shape="rect" id="node2" href="$class_plantpedia_button_utility.html#ac8474611e3cfc552582fc336ed77cccc" title=" " alt="" coords="5,5,164,47"/>
+<area shape="rect" id="node1" title="Sets up the utility functionality through a given Plant object." alt="" coords="212,5,365,47"/>
+<area shape="rect" id="node2" href="$class_plantpedia_button_utility.html#ac8474611e3cfc552582fc336ed77cccc" title="Method to fill prefab labels and images to represent a single instance of Plant." alt="" coords="5,5,164,47"/>
 </map>

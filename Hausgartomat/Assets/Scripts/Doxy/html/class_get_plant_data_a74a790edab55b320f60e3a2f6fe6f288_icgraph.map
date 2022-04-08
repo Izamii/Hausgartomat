@@ -1,6 +1,6 @@
 <map id="GetPlantData.Plantpedia" name="GetPlantData.Plantpedia">
-<area shape="rect" id="node1" title=" " alt="" coords="456,31,621,57"/>
-<area shape="rect" id="node2" href="$class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title=" " alt="" coords="185,5,408,32"/>
-<area shape="rect" id="node4" href="$class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35" title=" " alt="" coords="195,56,398,83"/>
+<area shape="rect" id="node1" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="456,31,621,57"/>
+<area shape="rect" id="node2" href="$class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="185,5,408,32"/>
+<area shape="rect" id="node4" href="$class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35" title="Updates the currently saved data by calling Plantpedia asynchronously." alt="" coords="195,56,398,83"/>
 <area shape="rect" id="node3" href="$class_get_plant_data.html#a299db6eee1201c3e073b5368c0d3543b" title=" " alt="" coords="5,5,137,32"/>
 </map>

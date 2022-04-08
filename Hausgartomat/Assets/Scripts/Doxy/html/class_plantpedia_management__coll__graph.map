@@ -1,5 +1,5 @@
 <map id="PlantpediaManagement" name="PlantpediaManagement">
-<area shape="rect" id="node1" title=" " alt="" coords="5,375,164,525"/>
+<area shape="rect" id="node1" title="Management class for the Plantpedia screen, used to populate the list of plants in the Plantpedia vie..." alt="" coords="5,375,164,525"/>
 <area shape="rect" id="node2" title=" " alt="" coords="24,5,135,83"/>
-<area shape="rect" id="node3" href="$class_get_plant_data.html" title=" " alt="" coords="101,132,258,312"/>
+<area shape="rect" id="node3" href="$class_get_plant_data.html" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database...." alt="" coords="101,132,258,312"/>
 </map>

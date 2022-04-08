@@ -1,5 +1,5 @@
 <map id="Manager.InstantiateNewPlantItem" name="Manager.InstantiateNewPlantItem">
 <area shape="rect" id="node1" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="5,5,221,32"/>
 <area shape="rect" id="node2" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="269,5,431,32"/>
-<area shape="rect" id="node3" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="479,5,675,32"/>
+<area shape="rect" id="node3" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="479,5,675,32"/>
 </map>

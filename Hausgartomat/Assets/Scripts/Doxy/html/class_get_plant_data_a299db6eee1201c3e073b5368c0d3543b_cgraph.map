@@ -1,5 +1,5 @@
 <map id="GetPlantData.Start" name="GetPlantData.Start">
 <area shape="rect" id="node1" title=" " alt="" coords="5,5,137,32"/>
-<area shape="rect" id="node2" href="$class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title=" " alt="" coords="185,5,408,32"/>
-<area shape="rect" id="node3" href="$class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title=" " alt="" coords="456,5,621,32"/>
+<area shape="rect" id="node2" href="$class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="185,5,408,32"/>
+<area shape="rect" id="node3" href="$class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="456,5,621,32"/>
 </map>

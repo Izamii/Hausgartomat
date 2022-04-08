@@ -1,6 +1,6 @@
 <map id="GetPlantData.GETSinglePlant" name="GetPlantData.GETSinglePlant">
-<area shape="rect" id="node1" title=" " alt="" coords="1003,42,1199,69"/>
-<area shape="rect" id="node2" href="$class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921" title=" " alt="" coords="797,5,951,47"/>
+<area shape="rect" id="node1" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="1003,42,1199,69"/>
+<area shape="rect" id="node2" href="$class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921" title="Sets up the utility functionality by getting the plant data from the Firebase GameObject through a gi..." alt="" coords="797,5,951,47"/>
 <area shape="rect" id="node3" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="793,71,955,98"/>
 <area shape="rect" id="node4" href="$class_manager.html#ae620f72f84e525d425c9ca44fbc3f342" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="529,42,745,69"/>
 <area shape="rect" id="node6" href="$class_plant_state.html#ad508b918f8195e09d4221b6ee42450bb" title="Updates the kind of plant this plant is." alt="" coords="560,97,715,123"/>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: PlantpediaDetailUtility Class Reference</title>
+<title>Hausgartomat: PlantpediaDetailUtility Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Hausgartomat
    </div>
   </td>
  </tr>
@@ -69,12 +69,15 @@ $(function() {
 <div class="title">PlantpediaDetailUtility Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utility class to handle the transfers from various screens to the Plantpedia Detail screen.  
+ <a href="class_plantpedia_detail_utility.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PlantpediaDetailUtility:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_plantpedia_detail_utility__inherit__graph.png" border="0" usemap="#a_plantpedia_detail_utility_inherit__map" alt="Inheritance graph"/></div>
 <map name="_plantpedia_detail_utility_inherit__map" id="_plantpedia_detail_utility_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,131,155,281"/>
+<area shape="rect" title="Utility class to handle the transfers from various screens to the Plantpedia Detail screen." alt="" coords="5,131,155,281"/>
 <area shape="rect" title=" " alt="" coords="25,5,135,83"/>
 </map>
 </div>
@@ -83,20 +86,23 @@ Collaboration diagram for PlantpediaDetailUtility:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_plantpedia_detail_utility__coll__graph.png" border="0" usemap="#a_plantpedia_detail_utility_coll__map" alt="Collaboration graph"/></div>
 <map name="_plantpedia_detail_utility_coll__map" id="_plantpedia_detail_utility_coll__map">
-<area shape="rect" title=" " alt="" coords="86,419,235,540"/>
+<area shape="rect" title="Utility class to handle the transfers from various screens to the Plantpedia Detail screen." alt="" coords="86,419,235,540"/>
 <area shape="rect" title=" " alt="" coords="5,5,116,83"/>
-<area shape="rect" href="class_get_plant_data.html" title=" " alt="" coords="82,154,239,334"/>
-<area shape="rect" href="class_plant.html" title=" " alt="" coords="263,132,407,356"/>
+<area shape="rect" href="class_get_plant_data.html" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database...." alt="" coords="82,154,239,334"/>
+<area shape="rect" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data." alt="" coords="263,132,407,356"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a310522a78b8ac503fc22705176465d65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plantpedia_detail_utility.html#a310522a78b8ac503fc22705176465d65">GoToDetailScreen</a> ()</td></tr>
+<tr class="memdesc:a310522a78b8ac503fc22705176465d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to swap the current screen with the Plantpedia Detail screen. Only swaps views if utility has been initially set up.  <a href="class_plantpedia_detail_utility.html#a310522a78b8ac503fc22705176465d65">More...</a><br /></td></tr>
 <tr class="separator:a310522a78b8ac503fc22705176465d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a556ab95fd1529ab2e1083614d189008e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plantpedia_detail_utility.html#a556ab95fd1529ab2e1083614d189008e">SetUpUtility</a> (<a class="el" href="class_plant.html">Plant</a> plantData, GameObject mainScreen, GameObject infoScreen)</td></tr>
+<tr class="memdesc:a556ab95fd1529ab2e1083614d189008e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the utility functionality through a given <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> object.  <a href="class_plantpedia_detail_utility.html#a556ab95fd1529ab2e1083614d189008e">More...</a><br /></td></tr>
 <tr class="separator:a556ab95fd1529ab2e1083614d189008e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a567f555416f6d50920668e26063921"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921">SetUpUtility</a> (string kind, GameObject mainScreen, GameObject infoScreen)</td></tr>
+<tr class="memdesc:a0a567f555416f6d50920668e26063921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the utility functionality by getting the plant data from the Firebase GameObject through a given plant name.  <a href="class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921">More...</a><br /></td></tr>
 <tr class="separator:a0a567f555416f6d50920668e26063921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -110,7 +116,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:afdc3c469805f924ae6483b681615cec3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_get_plant_data.html">GetPlantData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_plantpedia_detail_utility.html#afdc3c469805f924ae6483b681615cec3">_getPlantData</a></td></tr>
 <tr class="separator:afdc3c469805f924ae6483b681615cec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utility class to handle the transfers from various screens to the Plantpedia Detail screen. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a310522a78b8ac503fc22705176465d65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a310522a78b8ac503fc22705176465d65">&#9670;&nbsp;</a></span>GoToDetailScreen()</h2>
 
@@ -125,6 +133,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Method to swap the current screen with the Plantpedia Detail screen. Only swaps views if utility has been initially set up. </p>
 
 </div>
 </div>
@@ -159,13 +169,23 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets up the utility functionality through a given <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plantData</td><td><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> data as an instance of <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code></td></tr>
+    <tr><td class="paramname">mainScreen</td><td>The screen that the utility is triggered from. (Used to set up the returnButton in the detail view.)</td></tr>
+    <tr><td class="paramname">infoScreen</td><td>Plantpedia Detail screen that is activated by the utility.</td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_plantpedia_detail_utility_a556ab95fd1529ab2e1083614d189008e_icgraph.png" border="0" usemap="#aclass_plantpedia_detail_utility_a556ab95fd1529ab2e1083614d189008e_icgraph" alt=""/></div>
 <map name="class_plantpedia_detail_utility_a556ab95fd1529ab2e1083614d189008e_icgraph" id="class_plantpedia_detail_utility_a556ab95fd1529ab2e1083614d189008e_icgraph">
-<area shape="rect" title=" " alt="" coords="212,5,365,47"/>
-<area shape="rect" href="class_plantpedia_button_utility.html#ac8474611e3cfc552582fc336ed77cccc" title=" " alt="" coords="5,5,164,47"/>
+<area shape="rect" title="Sets up the utility functionality through a given Plant object." alt="" coords="212,5,365,47"/>
+<area shape="rect" href="class_plantpedia_button_utility.html#ac8474611e3cfc552582fc336ed77cccc" title="Method to fill prefab labels and images to represent a single instance of Plant." alt="" coords="5,5,164,47"/>
 </map>
 </div>
 
@@ -202,13 +222,23 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets up the utility functionality by getting the plant data from the Firebase GameObject through a given plant name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kind</td><td><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> name as a string in order to retrieve plant data</td></tr>
+    <tr><td class="paramname">mainScreen</td><td>The screen that the utility is triggered from. (Used to set up the returnButton in the detail view.)</td></tr>
+    <tr><td class="paramname">infoScreen</td><td>Plantpedia Detail screen that is activated by the utility.</td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_plantpedia_detail_utility_a0a567f555416f6d50920668e26063921_cgraph.png" border="0" usemap="#aclass_plantpedia_detail_utility_a0a567f555416f6d50920668e26063921_cgraph" alt=""/></div>
 <map name="class_plantpedia_detail_utility_a0a567f555416f6d50920668e26063921_cgraph" id="class_plantpedia_detail_utility_a0a567f555416f6d50920668e26063921_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,159,47"/>
-<area shape="rect" href="class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="207,13,403,39"/>
+<area shape="rect" title="Sets up the utility functionality by getting the plant data from the Firebase GameObject through a gi..." alt="" coords="5,5,159,47"/>
+<area shape="rect" href="class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="207,13,403,39"/>
 </map>
 </div>
 

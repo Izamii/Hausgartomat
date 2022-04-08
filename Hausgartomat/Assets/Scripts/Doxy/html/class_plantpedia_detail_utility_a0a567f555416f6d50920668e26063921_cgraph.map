@@ -1,4 +1,4 @@
 <map id="PlantpediaDetailUtility.SetUpUtility" name="PlantpediaDetailUtility.SetUpUtility">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,159,47"/>
-<area shape="rect" id="node2" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="207,13,403,39"/>
+<area shape="rect" id="node1" title="Sets up the utility functionality by getting the plant data from the Firebase GameObject through a gi..." alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="207,13,403,39"/>
 </map>

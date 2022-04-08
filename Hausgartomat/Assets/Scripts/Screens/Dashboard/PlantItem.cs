@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /**
+* <summary>
 * This class contains the information of one plant that 
 * Dashboard and Plant Information require to display it.
+* </summary>
 * */
 public class PlantItem:MonoBehaviour
 {

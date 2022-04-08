@@ -2,5 +2,5 @@
 <area shape="rect" id="node1" title="Update the kind of the displayed plant." alt="" coords="5,5,224,32"/>
 <area shape="rect" id="node2" href="$class_plant_state.html#ad508b918f8195e09d4221b6ee42450bb" title="Updates the kind of plant this plant is." alt="" coords="272,5,427,32"/>
 <area shape="rect" id="node3" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="475,5,636,32"/>
-<area shape="rect" id="node4" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="684,5,880,32"/>
+<area shape="rect" id="node4" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="684,5,880,32"/>
 </map>

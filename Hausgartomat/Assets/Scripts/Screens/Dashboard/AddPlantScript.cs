@@ -7,7 +7,7 @@ using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 
 /**
- * Class to manage the addition of new Plants
+ * <summary> Class to manage the addition of new Plants </summary>
  * */
 public class AddPlantScript : MonoBehaviour
 {

@@ -1,4 +1,4 @@
 <map id="GetPlantData.CheckDependencies" name="GetPlantData.CheckDependencies">
-<area shape="rect" id="node1" title=" " alt="" coords="185,5,408,32"/>
+<area shape="rect" id="node1" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="185,5,408,32"/>
 <area shape="rect" id="node2" href="$class_get_plant_data.html#a299db6eee1201c3e073b5368c0d3543b" title=" " alt="" coords="5,5,137,32"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="GetPlantData.UpdatePlantData" name="GetPlantData.UpdatePlantData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,208,32"/>
-<area shape="rect" id="node2" href="$class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title=" " alt="" coords="256,5,421,32"/>
+<area shape="rect" id="node1" title="Updates the currently saved data by calling Plantpedia asynchronously." alt="" coords="5,5,208,32"/>
+<area shape="rect" id="node2" href="$class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="256,5,421,32"/>
 </map>

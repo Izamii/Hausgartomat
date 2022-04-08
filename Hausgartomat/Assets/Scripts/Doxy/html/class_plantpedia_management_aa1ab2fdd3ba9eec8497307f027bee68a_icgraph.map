@@ -1,4 +1,4 @@
 <map id="PlantpediaManagement.GETData" name="PlantpediaManagement.GETData">
-<area shape="rect" id="node1" title=" " alt="" coords="244,5,459,32"/>
+<area shape="rect" id="node1" title="Method that waits for the database to be read to then populate the view in order to avoid NullPointer..." alt="" coords="244,5,459,32"/>
 <area shape="rect" id="node2" href="$class_plantpedia_management.html#a5a7a1d6f3f1f80c8ed3646f9eba25eb1" title=" " alt="" coords="5,5,196,32"/>
 </map>

@@ -1,6 +1,6 @@
 <map id="AddPlantScroll" name="AddPlantScroll">
 <area shape="rect" id="node1" title="Class to manage the list of plant kinds in the Add Plant´s first screen." alt="" coords="72,389,249,599"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,5,116,83"/>
-<area shape="rect" id="node4" href="$class_get_plant_data.html" title=" " alt="" coords="82,132,239,312"/>
+<area shape="rect" id="node4" href="$class_get_plant_data.html" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database...." alt="" coords="82,132,239,312"/>
 <area shape="rect" id="node3" title=" " alt="" coords="264,183,356,261"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="PlantpediaManagement.GETData" name="PlantpediaManagement.GETData">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,220,32"/>
-<area shape="rect" id="node2" href="$class_plantpedia_management.html#a1fcd7dc2eb2b66caf803313f671d735d" title=" " alt="" coords="268,5,481,32"/>
-<area shape="rect" id="node3" href="$class_get_plant_data.html#a8f754f2c4830746eb2b3e3249a284128" title=" " alt="" coords="529,5,712,32"/>
+<area shape="rect" id="node1" title="Method that waits for the database to be read to then populate the view in order to avoid NullPointer..." alt="" coords="5,5,220,32"/>
+<area shape="rect" id="node2" href="$class_plantpedia_management.html#a1fcd7dc2eb2b66caf803313f671d735d" title="Populates the view of the Plantpedia screen with GameObjects that represent a single plant each...." alt="" coords="268,5,481,32"/>
+<area shape="rect" id="node3" href="$class_get_plant_data.html#a8f754f2c4830746eb2b3e3249a284128" title="Returns a list of all saved instances of Plant.&gt;" alt="" coords="529,5,712,32"/>
 </map>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Manager Class Reference</title>
+<title>Hausgartomat: Manager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Hausgartomat
    </div>
   </td>
  </tr>
@@ -78,7 +78,7 @@ $(function() {
 Inheritance diagram for Manager:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager__inherit__graph.png" border="0" usemap="#a_manager_inherit__map" alt="Inheritance graph"/></div>
-<map name="_manager_inherit__map" id="a_manager_inherit__map">
+<map name="_manager_inherit__map" id="_manager_inherit__map">
 <area shape="rect" title="Organizes how the application works with the database and Arduino. Makes each plantItem in the Dashbo..." alt="" coords="5,131,235,575"/>
 <area shape="rect" title=" " alt="" coords="65,5,175,83"/>
 </map>
@@ -87,14 +87,14 @@ Inheritance diagram for Manager:</div>
 Collaboration diagram for Manager:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager__coll__graph.png" border="0" usemap="#a_manager_coll__map" alt="Collaboration graph"/></div>
-<map name="_manager_coll__map" id="a_manager_coll__map">
+<map name="_manager_coll__map" id="_manager_coll__map">
 <area shape="rect" title="Organizes how the application works with the database and Arduino. Makes each plantItem in the Dashbo..." alt="" coords="111,1675,340,2119"/>
 <area shape="rect" title=" " alt="" coords="326,5,437,83"/>
-<area shape="rect" href="class_get_plant_data.html" title=" " alt="" coords="303,154,460,334"/>
+<area shape="rect" href="class_get_plant_data.html" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database...." alt="" coords="303,154,460,334"/>
 <area shape="rect" href="class_plant_state.html" title="This class delivers upon request, the states in which the different conditions find themselves...." alt="" coords="155,419,298,804"/>
 <area shape="rect" href="class_go_to_screen.html" title="Class with multiple navigation methods to open specific screens and provide them with required parame..." alt="" coords="469,1461,613,1612"/>
 <area shape="rect" href="class_dashboard_plant.html" title="Class that manages the Plant Details Screen, managing it´s corresponding equipments in the green hous..." alt="" coords="448,925,635,1399"/>
-<area shape="rect" href="class_plant.html" title=" " alt="" coords="45,132,189,356"/>
+<area shape="rect" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data." alt="" coords="45,132,189,356"/>
 <area shape="rect" title=" " alt="" coords="510,573,602,650"/>
 </map>
 </div>
@@ -105,10 +105,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae620f72f84e525d425c9ca44fbc3f342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it in the correct place.  <a href="class_manager.html#ae620f72f84e525d425c9ca44fbc3f342">More...</a><br /></td></tr>
 <tr class="separator:ae620f72f84e525d425c9ca44fbc3f342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59ba6292b2c0afed985ab9b136d598d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a59ba6292b2c0afed985ab9b136d598d9">DeletePlant</a> (GameObject plantItem)</td></tr>
-<tr class="memdesc:a59ba6292b2c0afed985ab9b136d598d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to eliminate a <a class="el" href="class_plant.html">Plant</a> from the System. When called, it navigates to the updated dashboard screen.  <a href="class_manager.html#a59ba6292b2c0afed985ab9b136d598d9">More...</a><br /></td></tr>
+<tr class="memdesc:a59ba6292b2c0afed985ab9b136d598d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to eliminate a <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> from the System. When called, it navigates to the updated dashboard screen.  <a href="class_manager.html#a59ba6292b2c0afed985ab9b136d598d9">More...</a><br /></td></tr>
 <tr class="separator:a59ba6292b2c0afed985ab9b136d598d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74306e8c676c12a054a2e3e7406ae552"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552">CheckStates</a> ()</td></tr>
-<tr class="memdesc:a74306e8c676c12a054a2e3e7406ae552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to periodically request the state of the greenhouse conditions and compare it to the Database information of each saved <a class="el" href="class_plant.html">Plant</a> to determine their appropiate state (Shown by the color).  <a href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552">More...</a><br /></td></tr>
+<tr class="memdesc:a74306e8c676c12a054a2e3e7406ae552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to periodically request the state of the greenhouse conditions and compare it to the Database information of each saved <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> to determine their appropiate state (Shown by the color).  <a href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552">More...</a><br /></td></tr>
 <tr class="separator:a74306e8c676c12a054a2e3e7406ae552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a783e71a1c1da71e6f6cbad01fea5da5d"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d">AsynchronousReadFromArduino</a> (Action&lt; string &gt; callback, Action fail=null, float timeout=float.PositiveInfinity, string requisite=&quot;GETLIGHT&quot;, string next=&quot;GETTEMP&quot;, string last=&quot;GETHUMIDITY&quot;)</td></tr>
 <tr class="memdesc:a783e71a1c1da71e6f6cbad01fea5da5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times, one for each kind of sensor.  <a href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d">More...</a><br /></td></tr>
@@ -117,10 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a32577bd91fff79effc92999d1607c4bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method to send commands to Arduino to turn on/off an equipment.  <a href="class_manager.html#a32577bd91fff79effc92999d1607c4bd">More...</a><br /></td></tr>
 <tr class="separator:a32577bd91fff79effc92999d1607c4bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abccc4f76372162a4bcc5c520cdb14ebb"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb">DashboardPlantUpdate</a> ()</td></tr>
-<tr class="memdesc:abccc4f76372162a4bcc5c520cdb14ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to Update the state of each of the conditions on a Dashboard <a class="el" href="class_plant.html">Plant</a> Screen (The screen that details the state of a <a class="el" href="class_plant.html">Plant</a>) Called periodically, when Dashboar <a class="el" href="class_plant.html">Plant</a> Screen is enabled.  <a href="class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb">More...</a><br /></td></tr>
+<tr class="memdesc:abccc4f76372162a4bcc5c520cdb14ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Corutine to Update the state of each of the conditions on a Dashboard <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Screen (The screen that details the state of a <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a>) Called periodically, when Dashboar <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Screen is enabled.  <a href="class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb">More...</a><br /></td></tr>
 <tr class="separator:abccc4f76372162a4bcc5c520cdb14ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a600ad08f2c61d58dc81075d0ac397b34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a600ad08f2c61d58dc81075d0ac397b34">SetActivePlant</a> (string nickname, <a class="el" href="class_plant_state.html">PlantState</a> state)</td></tr>
-<tr class="memdesc:a600ad08f2c61d58dc81075d0ac397b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <em>nickname</em>  as the nickname of the <a class="el" href="class_plant.html">Plant</a> whose Dashboard <a class="el" href="class_plant.html">Plant</a> Screen has been open. &lt;/summary </p><dl class="params"><dt>Parameters</dt><dd>
+<tr class="memdesc:a600ad08f2c61d58dc81075d0ac397b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <em>nickname</em>  as the nickname of the <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> whose Dashboard <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Screen has been open. &lt;/summary </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nickname</td><td>Name of the selected plant </td></tr>
     <tr><td class="paramname">state</td><td>State of the selected plant </td></tr>
@@ -288,7 +288,7 @@ Private Attributes</h2></td></tr>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_cgraph.png" border="0" usemap="#aclass_manager_a783e71a1c1da71e6f6cbad01fea5da5d_cgraph" alt=""/></div>
-<map name="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_cgraph" id="aclass_manager_a783e71a1c1da71e6f6cbad01fea5da5d_cgraph">
+<map name="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_cgraph" id="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_cgraph">
 <area shape="rect" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="5,23,195,65"/>
 <area shape="rect" href="class_manager.html#aa4bed3b281902993e78e526bb9894247" title="Method to process a message incoming from arduino." alt="" coords="244,5,407,32"/>
 <area shape="rect" href="class_manager.html#aff8a94962f15b6d23d86238f7c5b7de2" title="Method to write a message to the Arduino, through the Serial Port" alt="" coords="243,56,408,83"/>
@@ -298,7 +298,7 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_icgraph.png" border="0" usemap="#aclass_manager_a783e71a1c1da71e6f6cbad01fea5da5d_icgraph" alt=""/></div>
-<map name="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_icgraph" id="aclass_manager_a783e71a1c1da71e6f6cbad01fea5da5d_icgraph">
+<map name="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_icgraph" id="class_manager_a783e71a1c1da71e6f6cbad01fea5da5d_icgraph">
 <area shape="rect" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="592,5,781,47"/>
 <area shape="rect" href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="393,13,544,39"/>
 <area shape="rect" href="class_manager.html#a6bc2c56fa1f8ee2cac139b7ee28d14f9" title="Corrutine to pause a process, until the Database is readable." alt="" coords="168,13,345,39"/>
@@ -341,7 +341,7 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_af811202f2435cafd1900161911fbd344_cgraph.png" border="0" usemap="#aclass_manager_af811202f2435cafd1900161911fbd344_cgraph" alt=""/></div>
-<map name="class_manager_af811202f2435cafd1900161911fbd344_cgraph" id="aclass_manager_af811202f2435cafd1900161911fbd344_cgraph">
+<map name="class_manager_af811202f2435cafd1900161911fbd344_cgraph" id="class_manager_af811202f2435cafd1900161911fbd344_cgraph">
 <area shape="rect" title="On Awake:" alt="" coords="5,38,120,65"/>
 <area shape="rect" href="class_manager.html#abdb9c16cbe3ddc7dbceb93d5d493f11d" title="Method that loads the default bottom part of the dashboard." alt="" coords="168,13,347,39"/>
 <area shape="rect" href="class_manager.html#a6bc2c56fa1f8ee2cac139b7ee28d14f9" title="Corrutine to pause a process, until the Database is readable." alt="" coords="169,63,346,90"/>
@@ -373,12 +373,12 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Corutine to periodically request the state of the greenhouse conditions and compare it to the Database information of each saved <a class="el" href="class_plant.html">Plant</a> to determine their appropiate state (Shown by the color). </p>
+<p>Corutine to periodically request the state of the greenhouse conditions and compare it to the Database information of each saved <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> to determine their appropiate state (Shown by the color). </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a74306e8c676c12a054a2e3e7406ae552_cgraph.png" border="0" usemap="#aclass_manager_a74306e8c676c12a054a2e3e7406ae552_cgraph" alt=""/></div>
-<map name="class_manager_a74306e8c676c12a054a2e3e7406ae552_cgraph" id="aclass_manager_a74306e8c676c12a054a2e3e7406ae552_cgraph">
+<map name="class_manager_a74306e8c676c12a054a2e3e7406ae552_cgraph" id="class_manager_a74306e8c676c12a054a2e3e7406ae552_cgraph">
 <area shape="rect" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="5,31,156,57"/>
 <area shape="rect" href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="204,53,393,94"/>
 <area shape="rect" href="class_manager.html#aa4bed3b281902993e78e526bb9894247" title="Method to process a message incoming from arduino." alt="" coords="443,5,605,32"/>
@@ -389,7 +389,7 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a74306e8c676c12a054a2e3e7406ae552_icgraph.png" border="0" usemap="#aclass_manager_a74306e8c676c12a054a2e3e7406ae552_icgraph" alt=""/></div>
-<map name="class_manager_a74306e8c676c12a054a2e3e7406ae552_icgraph" id="aclass_manager_a74306e8c676c12a054a2e3e7406ae552_icgraph">
+<map name="class_manager_a74306e8c676c12a054a2e3e7406ae552_icgraph" id="class_manager_a74306e8c676c12a054a2e3e7406ae552_icgraph">
 <area shape="rect" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="393,5,544,32"/>
 <area shape="rect" href="class_manager.html#a6bc2c56fa1f8ee2cac139b7ee28d14f9" title="Corrutine to pause a process, until the Database is readable." alt="" coords="168,5,345,32"/>
 <area shape="rect" href="class_manager.html#af811202f2435cafd1900161911fbd344" title="On Awake:" alt="" coords="5,5,120,32"/>
@@ -413,12 +413,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Corutine to Update the state of each of the conditions on a Dashboard <a class="el" href="class_plant.html">Plant</a> Screen (The screen that details the state of a <a class="el" href="class_plant.html">Plant</a>) Called periodically, when Dashboar <a class="el" href="class_plant.html">Plant</a> Screen is enabled. </p>
+<p>Corutine to Update the state of each of the conditions on a Dashboard <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Screen (The screen that details the state of a <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a>) Called periodically, when Dashboar <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Screen is enabled. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_abccc4f76372162a4bcc5c520cdb14ebb_icgraph.png" border="0" usemap="#aclass_manager_abccc4f76372162a4bcc5c520cdb14ebb_icgraph" alt=""/></div>
-<map name="class_manager_abccc4f76372162a4bcc5c520cdb14ebb_icgraph" id="aclass_manager_abccc4f76372162a4bcc5c520cdb14ebb_icgraph">
+<map name="class_manager_abccc4f76372162a4bcc5c520cdb14ebb_icgraph" id="class_manager_abccc4f76372162a4bcc5c520cdb14ebb_icgraph">
 <area shape="rect" title="Corutine to Update the state of each of the conditions on a Dashboard Plant Screen (The screen that d..." alt="" coords="232,31,441,57"/>
 <area shape="rect" href="class_dashboard_plant.html#aea7bb2ef468bb7fc93dc4399d50fcd3b" title="Stop the corutine to update the information displayed on the screen" alt="" coords="5,5,184,32"/>
 <area shape="rect" href="class_dashboard_plant.html#aeef91addbf168afc754f21b5117287e6" title="Start the corutine to update the information displayed on the screen" alt="" coords="7,56,182,83"/>
@@ -443,7 +443,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Method to eliminate a <a class="el" href="class_plant.html">Plant</a> from the System. When called, it navigates to the updated dashboard screen. </p>
+<p>Method to eliminate a <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> from the System. When called, it navigates to the updated dashboard screen. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">plantItem</td><td>Game Object to be destroyed</td></tr>
@@ -491,7 +491,7 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_cgraph.png" border="0" usemap="#aclass_manager_a4533f68e5f44706b28452d22b2e3a0a0_cgraph" alt=""/></div>
-<map name="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_cgraph" id="aclass_manager_a4533f68e5f44706b28452d22b2e3a0a0_cgraph">
+<map name="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_cgraph" id="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_cgraph">
 <area shape="rect" title="Method to add an item to the dashboard that, when pressed, takes the user to the AddPlant screen." alt="" coords="5,13,195,39"/>
 <area shape="rect" href="class_go_to_screen.html#a53ac8ed025677ea61c8964e58aa2144e" title="Open the Add Plant Screen." alt="" coords="243,13,425,39"/>
 <area shape="rect" href="class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="473,5,637,47"/>
@@ -502,7 +502,7 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_icgraph.png" border="0" usemap="#aclass_manager_a4533f68e5f44706b28452d22b2e3a0a0_icgraph" alt=""/></div>
-<map name="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_icgraph" id="aclass_manager_a4533f68e5f44706b28452d22b2e3a0a0_icgraph">
+<map name="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_icgraph" id="class_manager_a4533f68e5f44706b28452d22b2e3a0a0_icgraph">
 <area shape="rect" title="Method to add an item to the dashboard that, when pressed, takes the user to the AddPlant screen." alt="" coords="395,5,584,32"/>
 <area shape="rect" href="class_manager.html#abdb9c16cbe3ddc7dbceb93d5d493f11d" title="Method that loads the default bottom part of the dashboard." alt="" coords="168,5,347,32"/>
 <area shape="rect" href="class_manager.html#af811202f2435cafd1900161911fbd344" title="On Awake:" alt="" coords="5,5,120,32"/>
@@ -539,7 +539,7 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_cgraph.png" border="0" usemap="#aclass_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_cgraph" alt=""/></div>
-<map name="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_cgraph" id="aclass_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_cgraph">
+<map name="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_cgraph" id="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_cgraph">
 <area shape="rect" title="Method that loads the default bottom part of the dashboard." alt="" coords="5,13,184,39"/>
 <area shape="rect" href="class_manager.html#a4533f68e5f44706b28452d22b2e3a0a0" title="Method to add an item to the dashboard that, when pressed, takes the user to the AddPlant screen." alt="" coords="232,13,421,39"/>
 <area shape="rect" href="class_go_to_screen.html#a53ac8ed025677ea61c8964e58aa2144e" title="Open the Add Plant Screen." alt="" coords="469,13,652,39"/>
@@ -551,7 +551,7 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_icgraph.png" border="0" usemap="#aclass_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_icgraph" alt=""/></div>
-<map name="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_icgraph" id="aclass_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_icgraph">
+<map name="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_icgraph" id="class_manager_abdb9c16cbe3ddc7dbceb93d5d493f11d_icgraph">
 <area shape="rect" title="Method that loads the default bottom part of the dashboard." alt="" coords="168,5,347,32"/>
 <area shape="rect" href="class_manager.html#af811202f2435cafd1900161911fbd344" title="On Awake:" alt="" coords="5,5,120,32"/>
 </map>
@@ -578,7 +578,7 @@ Here is the caller graph for this function:</div>
 <p>Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it in the correct place. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">plant</td><td><a class="el" href="class_plant.html">Plant</a> Item with the details for the new item</td></tr>
+    <tr><td class="paramname">plant</td><td><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Item with the details for the new item</td></tr>
   </table>
   </dd>
 </dl>
@@ -589,7 +589,7 @@ Here is the call graph for this function:</div>
 <map name="class_manager_ae620f72f84e525d425c9ca44fbc3f342_cgraph" id="class_manager_ae620f72f84e525d425c9ca44fbc3f342_cgraph">
 <area shape="rect" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="5,5,221,32"/>
 <area shape="rect" href="class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="269,5,431,32"/>
-<area shape="rect" href="class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="479,5,675,32"/>
+<area shape="rect" href="class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="479,5,675,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -644,7 +644,7 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_aa4bed3b281902993e78e526bb9894247_icgraph.png" border="0" usemap="#aclass_manager_aa4bed3b281902993e78e526bb9894247_icgraph" alt=""/></div>
-<map name="class_manager_aa4bed3b281902993e78e526bb9894247_icgraph" id="aclass_manager_aa4bed3b281902993e78e526bb9894247_icgraph">
+<map name="class_manager_aa4bed3b281902993e78e526bb9894247_icgraph" id="class_manager_aa4bed3b281902993e78e526bb9894247_icgraph">
 <area shape="rect" title="Method to process a message incoming from arduino." alt="" coords="829,42,992,69"/>
 <area shape="rect" href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="592,5,781,47"/>
 <area shape="rect" href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="393,42,544,69"/>
@@ -681,7 +681,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the <em>nickname</em>  as the nickname of the <a class="el" href="class_plant.html">Plant</a> whose Dashboard <a class="el" href="class_plant.html">Plant</a> Screen has been open. &lt;/summary </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the <em>nickname</em>  as the nickname of the <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> whose Dashboard <a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a> Screen has been open. &lt;/summary </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nickname</td><td>Name of the selected plant </td></tr>
     <tr><td class="paramname">state</td><td>State of the selected plant </td></tr>
@@ -719,7 +719,7 @@ Here is the caller graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a32577bd91fff79effc92999d1607c4bd_cgraph.png" border="0" usemap="#aclass_manager_a32577bd91fff79effc92999d1607c4bd_cgraph" alt=""/></div>
-<map name="class_manager_a32577bd91fff79effc92999d1607c4bd_cgraph" id="aclass_manager_a32577bd91fff79effc92999d1607c4bd_cgraph">
+<map name="class_manager_a32577bd91fff79effc92999d1607c4bd_cgraph" id="class_manager_a32577bd91fff79effc92999d1607c4bd_cgraph">
 <area shape="rect" title="Method to send commands to Arduino to turn on/off an equipment." alt="" coords="5,5,227,32"/>
 <area shape="rect" href="class_manager.html#aff8a94962f15b6d23d86238f7c5b7de2" title="Method to write a message to the Arduino, through the Serial Port" alt="" coords="275,5,440,32"/>
 </map>
@@ -755,7 +755,7 @@ Here is the call graph for this function:</div>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_cgraph.png" border="0" usemap="#aclass_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_cgraph" alt=""/></div>
-<map name="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_cgraph" id="aclass_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_cgraph">
+<map name="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_cgraph" id="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_cgraph">
 <area shape="rect" title="Corrutine to pause a process, until the Database is readable." alt="" coords="5,31,183,57"/>
 <area shape="rect" href="class_manager.html#a74306e8c676c12a054a2e3e7406ae552" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="231,31,381,57"/>
 <area shape="rect" href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="429,53,619,94"/>
@@ -767,7 +767,7 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_icgraph.png" border="0" usemap="#aclass_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_icgraph" alt=""/></div>
-<map name="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_icgraph" id="aclass_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_icgraph">
+<map name="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_icgraph" id="class_manager_a6bc2c56fa1f8ee2cac139b7ee28d14f9_icgraph">
 <area shape="rect" title="Corrutine to pause a process, until the Database is readable." alt="" coords="168,5,345,32"/>
 <area shape="rect" href="class_manager.html#af811202f2435cafd1900161911fbd344" title="On Awake:" alt="" coords="5,5,120,32"/>
 </map>
@@ -810,7 +810,7 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_manager_aff8a94962f15b6d23d86238f7c5b7de2_icgraph.png" border="0" usemap="#aclass_manager_aff8a94962f15b6d23d86238f7c5b7de2_icgraph" alt=""/></div>
-<map name="class_manager_aff8a94962f15b6d23d86238f7c5b7de2_icgraph" id="aclass_manager_aff8a94962f15b6d23d86238f7c5b7de2_icgraph">
+<map name="class_manager_aff8a94962f15b6d23d86238f7c5b7de2_icgraph" id="class_manager_aff8a94962f15b6d23d86238f7c5b7de2_icgraph">
 <area shape="rect" title="Method to write a message to the Arduino, through the Serial Port" alt="" coords="861,42,1027,69"/>
 <area shape="rect" href="class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="608,5,797,47"/>
 <area shape="rect" href="class_manager.html#a32577bd91fff79effc92999d1607c4bd" title="Method to send commands to Arduino to turn on/off an equipment." alt="" coords="592,71,813,98"/>

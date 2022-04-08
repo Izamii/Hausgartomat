@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: GetPlantData Class Reference</title>
+<title>Hausgartomat: GetPlantData Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Hausgartomat
    </div>
   </td>
  </tr>
@@ -71,12 +71,15 @@ $(function() {
 <div class="title">GetPlantData Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Class <code><a class="el" href="class_get_plant_data.html" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database....">GetPlantData</a></code> makes Firestore API calls to retrieve data from a Firestore database. And converts it into <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> class instances to provide the application with a workable source of data from the database.  
+ <a href="class_get_plant_data.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for GetPlantData:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data__inherit__graph.png" border="0" usemap="#a_get_plant_data_inherit__map" alt="Inheritance graph"/></div>
 <map name="_get_plant_data_inherit__map" id="_get_plant_data_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,131,163,311"/>
+<area shape="rect" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database...." alt="" coords="5,131,163,311"/>
 <area shape="rect" title=" " alt="" coords="29,5,139,83"/>
 </map>
 </div>
@@ -85,7 +88,7 @@ Collaboration diagram for GetPlantData:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data__coll__graph.png" border="0" usemap="#a_get_plant_data_coll__map" alt="Collaboration graph"/></div>
 <map name="_get_plant_data_coll__map" id="_get_plant_data_coll__map">
-<area shape="rect" title=" " alt="" coords="5,131,163,311"/>
+<area shape="rect" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database...." alt="" coords="5,131,163,311"/>
 <area shape="rect" title=" " alt="" coords="29,5,139,83"/>
 </map>
 </div>
@@ -95,10 +98,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a299db6eee1201c3e073b5368c0d3543b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#a299db6eee1201c3e073b5368c0d3543b">Start</a> ()</td></tr>
 <tr class="separator:a299db6eee1201c3e073b5368c0d3543b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a240b51ce3f6b5fa66eb946b72dc72e35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35">UpdatePlantData</a> ()</td></tr>
+<tr class="memdesc:a240b51ce3f6b5fa66eb946b72dc72e35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the currently saved data by calling <code>Plantpedia</code> asynchronously.  <a href="class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35">More...</a><br /></td></tr>
 <tr class="separator:a240b51ce3f6b5fa66eb946b72dc72e35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f754f2c4830746eb2b3e3249a284128"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_plant.html">Plant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#a8f754f2c4830746eb2b3e3249a284128">GETAllPlants</a> ()</td></tr>
+<tr class="memdesc:a8f754f2c4830746eb2b3e3249a284128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all saved instances of <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code>.&gt;  <a href="class_get_plant_data.html#a8f754f2c4830746eb2b3e3249a284128">More...</a><br /></td></tr>
 <tr class="separator:a8f754f2c4830746eb2b3e3249a284128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4d7692c212f5d2c894562f8bc29e3f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_plant.html">Plant</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9">GETSinglePlant</a> (string plantName)</td></tr>
+<tr class="memdesc:ac4d7692c212f5d2c894562f8bc29e3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the data of a <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> by the given name, if no match is found returns null.  <a href="class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9">More...</a><br /></td></tr>
 <tr class="separator:ac4d7692c212f5d2c894562f8bc29e3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -109,8 +115,10 @@ Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a666f12cca42eda63c17806e70f1e1c82"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82">CheckDependencies</a> ()</td></tr>
+<tr class="memdesc:a666f12cca42eda63c17806e70f1e1c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously checks the needed database dependencies and tries to fix them if they are broken.  <a href="class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82">More...</a><br /></td></tr>
 <tr class="separator:a666f12cca42eda63c17806e70f1e1c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74a790edab55b320f60e3a2f6fe6f288"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288">Plantpedia</a> ()</td></tr>
+<tr class="memdesc:a74a790edab55b320f60e3a2f6fe6f288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes an asynchronous API call to retrieve a snapshot of database data and converts them into <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> instances that are updated into plantList.  <a href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288">More...</a><br /></td></tr>
 <tr class="separator:a74a790edab55b320f60e3a2f6fe6f288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -120,7 +128,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:af762ccde88432b0efe3690eb10c1998b"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_plant.html">Plant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_get_plant_data.html#af762ccde88432b0efe3690eb10c1998b">plantList</a> = new List&lt;<a class="el" href="class_plant.html">Plant</a>&gt;()</td></tr>
 <tr class="separator:af762ccde88432b0efe3690eb10c1998b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class <code><a class="el" href="class_get_plant_data.html" title="Class GetPlantData makes Firestore API calls to retrieve data from a Firestore database....">GetPlantData</a></code> makes Firestore API calls to retrieve data from a Firestore database. And converts it into <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> class instances to provide the application with a workable source of data from the database. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a666f12cca42eda63c17806e70f1e1c82"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a666f12cca42eda63c17806e70f1e1c82">&#9670;&nbsp;</a></span>CheckDependencies()</h2>
 
@@ -143,13 +153,15 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Asynchronously checks the needed database dependencies and tries to fix them if they are broken. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_cgraph.png" border="0" usemap="#aclass_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_cgraph" alt=""/></div>
 <map name="class_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_cgraph" id="class_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,228,32"/>
-<area shape="rect" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title=" " alt="" coords="276,5,441,32"/>
+<area shape="rect" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="5,5,228,32"/>
+<area shape="rect" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="276,5,441,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -157,7 +169,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_icgraph.png" border="0" usemap="#aclass_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_icgraph" alt=""/></div>
 <map name="class_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_icgraph" id="class_get_plant_data_a666f12cca42eda63c17806e70f1e1c82_icgraph">
-<area shape="rect" title=" " alt="" coords="185,5,408,32"/>
+<area shape="rect" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="185,5,408,32"/>
 <area shape="rect" href="class_get_plant_data.html#a299db6eee1201c3e073b5368c0d3543b" title=" " alt="" coords="5,5,137,32"/>
 </map>
 </div>
@@ -178,16 +190,18 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns a list of all saved instances of <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code>.&gt; </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data_a8f754f2c4830746eb2b3e3249a284128_icgraph.png" border="0" usemap="#aclass_get_plant_data_a8f754f2c4830746eb2b3e3249a284128_icgraph" alt=""/></div>
 <map name="class_get_plant_data_a8f754f2c4830746eb2b3e3249a284128_icgraph" id="class_get_plant_data_a8f754f2c4830746eb2b3e3249a284128_icgraph">
-<area shape="rect" title=" " alt="" coords="773,56,956,83"/>
-<area shape="rect" href="class_plantpedia_management.html#a1fcd7dc2eb2b66caf803313f671d735d" title=" " alt="" coords="509,5,723,32"/>
+<area shape="rect" title="Returns a list of all saved instances of Plant.&gt;" alt="" coords="773,56,956,83"/>
+<area shape="rect" href="class_plantpedia_management.html#a1fcd7dc2eb2b66caf803313f671d735d" title="Populates the view of the Plantpedia screen with GameObjects that represent a single plant each...." alt="" coords="509,5,723,32"/>
 <area shape="rect" href="class_add_plant_scroll.html#a8e7b9ce0f52d0ceaa76d25165a3d40a1" title="Corrutine that waits for the Databse to be ready to be read and, when ready, fills the plant list in ..." alt="" coords="509,56,723,83"/>
 <area shape="rect" href="class_dashboard_plant.html#a2a23e2345464192ea5763844771126d2" title="Corutine that pauses a process until the Database is readable. When the database becomes readable,..." alt="" coords="507,107,725,133"/>
-<area shape="rect" href="class_plantpedia_management.html#aa1ab2fdd3ba9eec8497307f027bee68a" title=" " alt="" coords="244,5,459,32"/>
+<area shape="rect" href="class_plantpedia_management.html#aa1ab2fdd3ba9eec8497307f027bee68a" title="Method that waits for the database to be read to then populate the view in order to avoid NullPointer..." alt="" coords="244,5,459,32"/>
 <area shape="rect" href="class_plantpedia_management.html#a5a7a1d6f3f1f80c8ed3646f9eba25eb1" title=" " alt="" coords="5,5,196,32"/>
 <area shape="rect" href="class_add_plant_scroll.html#a36ac95fc883c6bb6d0864609ffd991cc" title=" " alt="" coords="281,56,421,83"/>
 <area shape="rect" href="class_dashboard_plant.html#adf020d6fe42a1f81be760e9f6be1aca2" title="On Awake, wait for the Database to be readable" alt="" coords="273,107,430,133"/>
@@ -211,13 +225,21 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retrieves the data of a <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> by the given name, if no match is found returns null. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">plantName</td><td>Plantname of wanted <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> data</td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data_ac4d7692c212f5d2c894562f8bc29e3f9_icgraph.png" border="0" usemap="#aclass_get_plant_data_ac4d7692c212f5d2c894562f8bc29e3f9_icgraph" alt=""/></div>
-<map name="class_get_plant_data_ac4d7692c212f5d2c894562f8bc29e3f9_icgraph" id="aclass_get_plant_data_ac4d7692c212f5d2c894562f8bc29e3f9_icgraph">
-<area shape="rect" title=" " alt="" coords="1003,42,1199,69"/>
-<area shape="rect" href="class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921" title=" " alt="" coords="797,5,951,47"/>
+<map name="class_get_plant_data_ac4d7692c212f5d2c894562f8bc29e3f9_icgraph" id="class_get_plant_data_ac4d7692c212f5d2c894562f8bc29e3f9_icgraph">
+<area shape="rect" title="Retrieves the data of a Plant by the given name, if no match is found returns null." alt="" coords="1003,42,1199,69"/>
+<area shape="rect" href="class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921" title="Sets up the utility functionality by getting the plant data from the Firebase GameObject through a gi..." alt="" coords="797,5,951,47"/>
 <area shape="rect" href="class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="793,71,955,98"/>
 <area shape="rect" href="class_manager.html#ae620f72f84e525d425c9ca44fbc3f342" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="529,42,745,69"/>
 <area shape="rect" href="class_plant_state.html#ad508b918f8195e09d4221b6ee42450bb" title="Updates the kind of plant this plant is." alt="" coords="560,97,715,123"/>
@@ -252,14 +274,16 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Makes an asynchronous API call to retrieve a snapshot of database data and converts them into <code><a class="el" href="class_plant.html" title="A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.">Plant</a></code> instances that are updated into plantList. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data_a74a790edab55b320f60e3a2f6fe6f288_icgraph.png" border="0" usemap="#aclass_get_plant_data_a74a790edab55b320f60e3a2f6fe6f288_icgraph" alt=""/></div>
 <map name="class_get_plant_data_a74a790edab55b320f60e3a2f6fe6f288_icgraph" id="class_get_plant_data_a74a790edab55b320f60e3a2f6fe6f288_icgraph">
-<area shape="rect" title=" " alt="" coords="456,31,621,57"/>
-<area shape="rect" href="class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title=" " alt="" coords="185,5,408,32"/>
-<area shape="rect" href="class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35" title=" " alt="" coords="195,56,398,83"/>
+<area shape="rect" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="456,31,621,57"/>
+<area shape="rect" href="class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="185,5,408,32"/>
+<area shape="rect" href="class_get_plant_data.html#a240b51ce3f6b5fa66eb946b72dc72e35" title="Updates the currently saved data by calling Plantpedia asynchronously." alt="" coords="195,56,398,83"/>
 <area shape="rect" href="class_get_plant_data.html#a299db6eee1201c3e073b5368c0d3543b" title=" " alt="" coords="5,5,137,32"/>
 </map>
 </div>
@@ -286,8 +310,8 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="class_get_plant_data_a299db6eee1201c3e073b5368c0d3543b_cgraph.png" border="0" usemap="#aclass_get_plant_data_a299db6eee1201c3e073b5368c0d3543b_cgraph" alt=""/></div>
 <map name="class_get_plant_data_a299db6eee1201c3e073b5368c0d3543b_cgraph" id="class_get_plant_data_a299db6eee1201c3e073b5368c0d3543b_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,137,32"/>
-<area shape="rect" href="class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title=" " alt="" coords="185,5,408,32"/>
-<area shape="rect" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title=" " alt="" coords="456,5,621,32"/>
+<area shape="rect" href="class_get_plant_data.html#a666f12cca42eda63c17806e70f1e1c82" title="Asynchronously checks the needed database dependencies and tries to fix them if they are broken." alt="" coords="185,5,408,32"/>
+<area shape="rect" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="456,5,621,32"/>
 </map>
 </div>
 
@@ -307,13 +331,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates the currently saved data by calling <code>Plantpedia</code> asynchronously. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_get_plant_data_a240b51ce3f6b5fa66eb946b72dc72e35_cgraph.png" border="0" usemap="#aclass_get_plant_data_a240b51ce3f6b5fa66eb946b72dc72e35_cgraph" alt=""/></div>
 <map name="class_get_plant_data_a240b51ce3f6b5fa66eb946b72dc72e35_cgraph" id="class_get_plant_data_a240b51ce3f6b5fa66eb946b72dc72e35_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,208,32"/>
-<area shape="rect" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title=" " alt="" coords="256,5,421,32"/>
+<area shape="rect" title="Updates the currently saved data by calling Plantpedia asynchronously." alt="" coords="5,5,208,32"/>
+<area shape="rect" href="class_get_plant_data.html#a74a790edab55b320f60e3a2f6fe6f288" title="Makes an asynchronous API call to retrieve a snapshot of database data and converts them into Plant i..." alt="" coords="256,5,421,32"/>
 </map>
 </div>
 
