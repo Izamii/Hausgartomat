@@ -1,7 +1,9 @@
 using System;
 using Firebase.Firestore;
 using UnityEngine;
-
+/**
+ * <summary>A dataclass per Firebase convention in order to convert Firebase data into actual usable C# data.</summary>
+ */
 [FirestoreData]
 public class Plant
 {

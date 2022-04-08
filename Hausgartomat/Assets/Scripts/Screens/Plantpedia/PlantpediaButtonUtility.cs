@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
-
+/**
+ * <summary>Utility class that is used to control the behavior of prefab Buttons that represent Plantpedia entries.</summary>
+ */
 public class PlantpediaButtonUtility : MonoBehaviour
 {
     [SerializeField] private Text plantName;
@@ -77,7 +79,10 @@ public class PlantpediaButtonUtility : MonoBehaviour
     {
         return plant;
     }
-
+    /**
+     * <summary>Method to fill prefab labels and images to represent a single instance of <c>Plant</c>.</summary>
+     * <param name="data"><c>Plant</c> that represents the database values of a Plant</param>
+     */
     public void SetFromPlantData(Plant data)
     {
         plantName.text = data.name;

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/**
+ * <summary>Utility class to handle view transitions form past view to present view withing the planing screen.</summary>
+ */
 public class PlanungButtonUtility : MonoBehaviour
 {
     [SerializeField] private Image buttonHighlight;
@@ -11,7 +13,10 @@ public class PlanungButtonUtility : MonoBehaviour
     [SerializeField] private GameObject[] buttonList;
 
     [SerializeField] private GameObject[] contentList;
-
+    /**
+     * <summary>Method that disables all views except the one corresponding to the parent button.
+     * Furthermore moves the highlight image to the clicked parent.</summary>
+     */
     public void OnPlanMenuClick()
     {
         if (buttonList.Length != contentList.Length)
