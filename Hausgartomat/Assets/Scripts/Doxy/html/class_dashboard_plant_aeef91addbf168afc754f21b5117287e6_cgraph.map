@@ -1,4 +1,4 @@
 <map id="DashboardPlant.OnEnable" name="DashboardPlant.OnEnable">
 <area shape="rect" id="node1" title="Start the corutine to update the information displayed on the screen" alt="" coords="5,5,180,32"/>
-<area shape="rect" id="node2" href="$class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb" title="Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen (The screen that d..." alt="" coords="228,5,437,32"/>
+<area shape="rect" id="node2" href="$class_manager.html#abccc4f76372162a4bcc5c520cdb14ebb" title="Corutine to Update the state of each of the conditions on a Dashboard Plant Screen (The screen that d..." alt="" coords="228,5,437,32"/>
 </map>

@@ -1,11 +1,13 @@
 using UnityEngine;
 
 /**
- * <summary>This class delivers upon request, the states in
+ * <summary>
+ * This class delivers upon request, the states in
  * which the different conditions find themselves.
  * It weights the state of a plant comparing the actual
  * sensor values with the values from the Database for this
- * kind of plant.</summary>
+ * kind of plant.
+ * </summary>
  */
 public class PlantState : MonoBehaviour
 {
@@ -31,15 +33,16 @@ public class PlantState : MonoBehaviour
      * When created, the value ranges for the specified kind of plant
      * are retrieved from the database.
      * </summary>
-     * */
+     * <param name="kind"> Kind of plant to be set for this Plant </param>
+     */
     public PlantState(string kind)
     {
         UpdateKind(kind);
     }
 
     /**
-     * <summary> Updates the kind of plant this plant is</summary>
-     * <param name="kind"> New kind for this plant </param>
+     * <summary> Updates the kind of plant this plant is.</summary>
+     * <param name="kind"> New kind for this plant. </param>
      */
     public void UpdateKind(string kind)
     {
@@ -64,9 +67,10 @@ public class PlantState : MonoBehaviour
      * It calls for the evaluation of the sensor values
      * and gives back the individual state of each of the three conditions.
      * </summary>
-     * <param name="valueH"> Humidity value </param>
-     * <param name="valueL"> Light amount value </param>
-     * <param name="valueT"> Temperature value </param>
+     * <param name="valueH"> Humidity value. </param>
+     * <param name="valueL"> Light amount value. </param>
+     * <param name="valueT"> Temperature value. </param>
+     * <returns>An integer describing the general state of this plant.</returns>
      */
     public int RequestStates(float valueT, float valueL , float valueH)
     {
@@ -218,7 +222,10 @@ public class PlantState : MonoBehaviour
      *  0: Good
      * The general state of the plant is determined by the worst state of all of them.
      * </summary>
-     * 
+     * <param name="state1"> State of a condition. </param>
+     * <param name="state2"> State of a condition. </param>
+     * <param name="state3"> State of a condition. </param>
+     * <returns> An integer describing the general state of this plant.  </returns>
      */
     private int DetermineState(int state1, int state2, int state3)
     {

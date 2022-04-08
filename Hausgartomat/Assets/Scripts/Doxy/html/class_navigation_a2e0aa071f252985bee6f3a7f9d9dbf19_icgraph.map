@@ -1,11 +1,11 @@
 <map id="Navigation.NavigationBarClick" name="Navigation.NavigationBarClick">
 <area shape="rect" id="node1" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="880,74,1044,115"/>
 <area shape="rect" id="node2" href="$class_manager.html#a59ba6292b2c0afed985ab9b136d598d9" title="Method to eliminate a Plant from the System. When called, it navigates to the updated dashboard scree..." alt="" coords="661,5,803,32"/>
-<area shape="rect" id="node3" href="$class_go_to_screen.html#acb3a6f6dfcb568616c8cdce5497bffab" title="Opens the last screen to the actual one." alt="" coords="659,56,805,83"/>
-<area shape="rect" id="node4" href="$class_go_to_screen.html#a53ac8ed025677ea61c8964e58aa2144e" title="Open the Add Plant Screen" alt="" coords="641,107,823,133"/>
-<area shape="rect" id="node8" href="$class_go_to_screen.html#a77f604a42ac3af2a80d98dcb8002b2aa" title="Go to Plant Detail Screen of specified plant" alt="" coords="632,157,832,184"/>
+<area shape="rect" id="node3" href="$class_go_to_screen.html#acb3a6f6dfcb568616c8cdce5497bffab" title="Open the last screen to the actual one." alt="" coords="659,56,805,83"/>
+<area shape="rect" id="node4" href="$class_go_to_screen.html#a53ac8ed025677ea61c8964e58aa2144e" title="Open the Add Plant Screen." alt="" coords="641,107,823,133"/>
+<area shape="rect" id="node8" href="$class_go_to_screen.html#a77f604a42ac3af2a80d98dcb8002b2aa" title="Go to Plant Detail Screen of the specified plant." alt="" coords="632,157,832,184"/>
 <area shape="rect" id="node5" href="$class_manager.html#a4533f68e5f44706b28452d22b2e3a0a0" title="Method to add an item to the dashboard that, when pressed, takes the user to the AddPlant screen." alt="" coords="395,107,584,133"/>
-<area shape="rect" id="node6" href="$class_manager.html#abdb9c16cbe3ddc7dbceb93d5d493f11d" title="Method that loads the default bottom part of the dashboard" alt="" coords="168,107,347,133"/>
-<area shape="rect" id="node7" href="$class_manager.html#af811202f2435cafd1900161911fbd344" title=" " alt="" coords="5,107,120,133"/>
+<area shape="rect" id="node6" href="$class_manager.html#abdb9c16cbe3ddc7dbceb93d5d493f11d" title="Method that loads the default bottom part of the dashboard." alt="" coords="168,107,347,133"/>
+<area shape="rect" id="node7" href="$class_manager.html#af811202f2435cafd1900161911fbd344" title="On Awake:" alt="" coords="5,107,120,133"/>
 <area shape="rect" id="node9" href="$class_plant_item.html#a0af4bcdbbd9b6e83a4691f45aad746ea" title="Open the Plant Details Screen with the information of this plant" alt="" coords="398,157,581,184"/>
 </map>

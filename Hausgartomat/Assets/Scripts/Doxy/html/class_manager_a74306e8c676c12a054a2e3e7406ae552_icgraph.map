@@ -1,5 +1,5 @@
 <map id="Manager.CheckStates" name="Manager.CheckStates">
 <area shape="rect" id="node1" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="393,5,544,32"/>
 <area shape="rect" id="node2" href="$class_manager.html#a6bc2c56fa1f8ee2cac139b7ee28d14f9" title="Corrutine to pause a process, until the Database is readable." alt="" coords="168,5,345,32"/>
-<area shape="rect" id="node3" href="$class_manager.html#af811202f2435cafd1900161911fbd344" title=" " alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node3" href="$class_manager.html#af811202f2435cafd1900161911fbd344" title="On Awake:" alt="" coords="5,5,120,32"/>
 </map>

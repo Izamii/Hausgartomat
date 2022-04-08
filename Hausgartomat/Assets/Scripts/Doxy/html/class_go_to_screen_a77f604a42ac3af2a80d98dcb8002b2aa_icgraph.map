@@ -1,4 +1,4 @@
 <map id="GoToScreen.GoToPlantScreen" name="GoToScreen.GoToPlantScreen">
-<area shape="rect" id="node1" title="Go to Plant Detail Screen of specified plant" alt="" coords="236,5,436,32"/>
+<area shape="rect" id="node1" title="Go to Plant Detail Screen of the specified plant." alt="" coords="236,5,436,32"/>
 <area shape="rect" id="node2" href="$class_plant_item.html#a0af4bcdbbd9b6e83a4691f45aad746ea" title="Open the Plant Details Screen with the information of this plant" alt="" coords="5,5,188,32"/>
 </map>

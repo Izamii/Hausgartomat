@@ -1,5 +1,5 @@
 <map id="DashboardPlant.SetScreen" name="DashboardPlant.SetScreen">
 <area shape="rect" id="node1" title="Sets the UI components of the Plant Details Screen to the information of the selected plant." alt="" coords="484,5,663,32"/>
-<area shape="rect" id="node2" href="$class_go_to_screen.html#a77f604a42ac3af2a80d98dcb8002b2aa" title="Go to Plant Detail Screen of specified plant" alt="" coords="236,5,436,32"/>
+<area shape="rect" id="node2" href="$class_go_to_screen.html#a77f604a42ac3af2a80d98dcb8002b2aa" title="Go to Plant Detail Screen of the specified plant." alt="" coords="236,5,436,32"/>
 <area shape="rect" id="node3" href="$class_plant_item.html#a0af4bcdbbd9b6e83a4691f45aad746ea" title="Open the Plant Details Screen with the information of this plant" alt="" coords="5,5,188,32"/>
 </map>

@@ -5,16 +5,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /**
- * This class organizes how the application works with the database and Arduino.
+ * <summary>
+ * Organizes how the application works with the database and Arduino.
  * Makes each plantItem in the Dashboard check its state with the values sent by the
  * Arduino periodically
  * It adds and deletes Plants to the Dashboard.
- * 
+ * </summary>
  **/
 public class Manager : MonoBehaviour
 {
     [Header("Main Components")]
-    [SerializeField] private GameObject dashboard;
+    [SerializeField] private GameObject dashboardScreen;
     [SerializeField] private GameObject prefabDashPlant;
     [SerializeField] private GameObject prefabDashAddBtn;
     [SerializeField] private Sprite testSprite;
@@ -57,15 +58,17 @@ public class Manager : MonoBehaviour
     private string arduinoByte = "";
 
     public GoToScreen GoTo { get => _goToScreen; set => _goToScreen = value; }
-    public GameObject Dashboard { get => dashboard; set => dashboard = value; }
+    public GameObject Dashboard { get => dashboardScreen; set => dashboardScreen = value; }
 
     public SerialPort Sp { get => sp; set => sp = value; }
 
     /**
-     *On Awake:
+     * <summary>
+     * On Awake:
      * - The default dashboard is filled.
      * - The Serial Port to Arduino is opened.
      * - Waits until the Database is readable.
+     * </summary>
      */
     private void Awake()
     {
@@ -150,7 +153,7 @@ public class Manager : MonoBehaviour
 
     /**
      * <summary>
-     * Method that loads the default bottom part of the dashboard
+     * Method that loads the default bottom part of the dashboard.
      * </summary>
      */
     private void InstantiateBottom()
@@ -190,30 +193,30 @@ public class Manager : MonoBehaviour
                     2000f
                     )
                 );
-            for (int i = 0; i < dashboard.transform.childCount - indexOffset; i++)
+            for (int i = 0; i < dashboardScreen.transform.childCount - indexOffset; i++)
             {
                 if (Sp.IsOpen)
                 {
-                    int test = dashboard.transform.GetChild(i).GetComponent<PlantState>()
+                    int test = dashboardScreen.transform.GetChild(i).GetComponent<PlantState>()
                         .RequestStates(temp, light, humid);
                     switch (test)
                     {
                         case 0:
-                            dashboard.transform.GetChild(i).GetComponent<Image>().color = new Color32(0x97, 0xBB, 0x8F, 0xFF);
+                            dashboardScreen.transform.GetChild(i).GetComponent<Image>().color = new Color32(0x97, 0xBB, 0x8F, 0xFF);
                             break;
                         case 1:
-                            dashboard.transform.GetChild(i).GetComponent<Image>().color =
+                            dashboardScreen.transform.GetChild(i).GetComponent<Image>().color =
                                 new Color32(0xDD, 0xCA, 0x8B, 0xFF);
                             break;
                         case 2:
-                            dashboard.transform.GetChild(i).GetComponent<Image>().color =
+                            dashboardScreen.transform.GetChild(i).GetComponent<Image>().color =
                                 new Color32(0xb3, 0x52, 0x52, 0xFF);;
                             break;
                     }
                 }
                 else
                 {
-                    dashboard.transform.GetChild(i).GetComponent<Image>().color = new Color32(0xDB, 0x8B, 0xDD, 0xFF);
+                    dashboardScreen.transform.GetChild(i).GetComponent<Image>().color = new Color32(0xDB, 0x8B, 0xDD, 0xFF);
                 }
             }
             //Debug.Log("States checked " + j + " times.");
@@ -224,9 +227,15 @@ public class Manager : MonoBehaviour
 
     /**
      * <summary>
-     * Recursive Corutine to request sensor information from the Arduino.
+     * Recursive Corutine to request the relevant sensor information from the Arduino.
      * Runs 3 times, one for each kind of sensor.
      * </summary>
+     * <param name="callback"> Function to be called using the message from Arduino as a parameter.</param>
+     * <param name="fail"> Function run when Read from arduino fails.</param>
+     * <param name="requisite">Default: "GETLIGHT". Command to send now to Arduino.</param>
+     * <param name="next">Default: "GETTEMP". Command to send to Arduino, on the next call of this corutine.</param>
+     * <param name="last">Default: "GETHUMIDITY". Command to send last to Arduino.</param>
+     * <param name="timeout">Max amount of time to wait for a response from Arduino.</param>
      */
     public IEnumerator AsynchronousReadFromArduino(Action<string> callback, Action fail = null,
                             float timeout = float.PositiveInfinity,
@@ -297,12 +306,13 @@ public class Manager : MonoBehaviour
      * <summary>
      * Method to send commands to Arduino to turn on/off an equipment.
      * </summary>
+     * <param name="index">Index of the corresponding equipment.</param>
      * */
-    public void SwitchArduinoEquipment(int i)
+    public void SwitchArduinoEquipment(int index)
     {
         //Debug.Log(waterPump.value);
 
-        switch (i)
+        switch (index)
         {
             case 0:
                 if (waterPump.value == 1)
@@ -341,6 +351,7 @@ public class Manager : MonoBehaviour
      * <summary>
      * Method to write a message to the Arduino, through the Serial Port
      * </summary>
+     * <param name="message">Message for Arduino</param>
      * */
     private void WriteToArduino(string message)
     {
@@ -362,12 +373,12 @@ public class Manager : MonoBehaviour
 
     /**
      * <summary>
-     * Method to process a message from arduino. 
+     * Method to process a message incoming from arduino. 
      *
      * Format from arduino message: (t,h,l) (###) (0,1)
-     * t,h,l: Type of Information
-     * ###: Value read by the sensor
-     * 0,1: State of the corresponding equipment
+     * t (Temperature), h (Humidity), l (Light). Type of value.
+     * ###: Value read by the sensor.
+     * 0,1: State of the corresponding equipment.
      *      0: Off, 1: On
      * </summary>
      * <param name="message"> What is sent from Arduino</param>
@@ -404,9 +415,9 @@ public class Manager : MonoBehaviour
 
     /**
      * <summary>
-     * Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen
+     * Corutine to Update the state of each of the conditions on a Dashboard Plant Screen
      * (The screen that details the state of a Plant)
-     * Also called periodically, when Dashboar_Plant Screen is enabled.
+     * Called periodically, when Dashboar Plant Screen is enabled.
      * </summary>
      */
     public IEnumerator DashboardPlantUpdate()
@@ -421,7 +432,7 @@ public class Manager : MonoBehaviour
 
     /**
      * <summary>
-     * Sets the activePlant as the nickname of the Plant whose Dashboard_Plant Screen
+     * Sets the <paramref name="nickname"/> as the nickname of the Plant whose Dashboard Plant Screen
      * has been open.
      * </summary
      * <param name="nickname"> Name of the selected plant </param>

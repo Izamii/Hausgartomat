@@ -1,7 +1,7 @@
 <map id="Manager.WaitForDatabase" name="Manager.WaitForDatabase">
 <area shape="rect" id="node1" title="Corrutine to pause a process, until the Database is readable." alt="" coords="5,31,183,57"/>
 <area shape="rect" id="node2" href="$class_manager.html#a74306e8c676c12a054a2e3e7406ae552" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="231,31,381,57"/>
-<area shape="rect" id="node3" href="$class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request sensor information from the Arduino. Runs 3 times, one for each kind of..." alt="" coords="429,53,619,94"/>
-<area shape="rect" id="node4" href="$class_manager.html#aa4bed3b281902993e78e526bb9894247" title="Method to process a message from arduino." alt="" coords="668,5,831,32"/>
+<area shape="rect" id="node3" href="$class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request the relevant sensor information from the Arduino. Runs 3 times,..." alt="" coords="429,53,619,94"/>
+<area shape="rect" id="node4" href="$class_manager.html#aa4bed3b281902993e78e526bb9894247" title="Method to process a message incoming from arduino." alt="" coords="668,5,831,32"/>
 <area shape="rect" id="node5" href="$class_manager.html#aff8a94962f15b6d23d86238f7c5b7de2" title="Method to write a message to the Arduino, through the Serial Port" alt="" coords="667,60,832,87"/>
 </map>

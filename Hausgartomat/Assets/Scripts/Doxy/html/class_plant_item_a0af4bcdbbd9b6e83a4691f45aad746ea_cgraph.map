@@ -1,6 +1,6 @@
 <map id="PlantItem.OpenPlantScreen" name="PlantItem.OpenPlantScreen">
 <area shape="rect" id="node1" title="Open the Plant Details Screen with the information of this plant" alt="" coords="5,42,188,69"/>
-<area shape="rect" id="node2" href="$class_go_to_screen.html#a77f604a42ac3af2a80d98dcb8002b2aa" title="Go to Plant Detail Screen of specified plant" alt="" coords="236,42,436,69"/>
+<area shape="rect" id="node2" href="$class_go_to_screen.html#a77f604a42ac3af2a80d98dcb8002b2aa" title="Go to Plant Detail Screen of the specified plant." alt="" coords="236,42,436,69"/>
 <area shape="rect" id="node3" href="$class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="491,5,655,47"/>
 <area shape="rect" id="node5" href="$class_dashboard_plant.html#a750248b1a5594ae5d966b4f6042e63d8" title="Sets the UI components of the Plant Details Screen to the information of the selected plant." alt="" coords="484,71,663,98"/>
 <area shape="rect" id="node4" href="$class_navigation.html#a009b68edcf32df14750a3b0dd1ecba70" title=" " alt="" coords="711,13,901,39"/>

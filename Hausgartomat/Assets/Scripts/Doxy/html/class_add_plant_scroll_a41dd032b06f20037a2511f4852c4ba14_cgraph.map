@@ -1,4 +1,4 @@
 <map id="AddPlantScroll.LeftButtonClick" name="AddPlantScroll.LeftButtonClick">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,176,47"/>
+<area shape="rect" id="node1" title="Navigate backwards in the list of plant kinds." alt="" coords="5,5,176,47"/>
 <area shape="rect" id="node2" href="$class_add_plant_scroll.html#aff776fdd6cead8afc567aff26ea4e249" title="Checks if there is still a next or previous plant on the list. If there isn´t, block the correspondin..." alt="" coords="224,13,423,39"/>
 </map>

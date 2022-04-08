@@ -1,5 +1,5 @@
 <map id="GoToScreen" name="GoToScreen">
-<area shape="rect" id="node1" title=" " alt="" coords="5,1461,149,1612"/>
+<area shape="rect" id="node1" title="Class with multiple navigation methods to open specific screens and provide them with required parame..." alt="" coords="5,1461,149,1612"/>
 <area shape="rect" id="node2" title=" " alt="" coords="109,5,219,83"/>
 <area shape="rect" id="node3" href="$class_dashboard_plant.html" title="Class that manages the Plant Details Screen, managing it´s corresponding equipments in the green hous..." alt="" coords="93,925,280,1399"/>
 <area shape="rect" id="node5" href="$class_get_plant_data.html" title=" " alt="" coords="144,154,301,334"/>

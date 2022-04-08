@@ -1,5 +1,5 @@
 <map id="Manager.DashboardPlantUpdate" name="Manager.DashboardPlantUpdate">
-<area shape="rect" id="node1" title="Corutine to Update the state of each of the conditions on a Dashboard_Plant Screen (The screen that d..." alt="" coords="232,31,441,57"/>
+<area shape="rect" id="node1" title="Corutine to Update the state of each of the conditions on a Dashboard Plant Screen (The screen that d..." alt="" coords="232,31,441,57"/>
 <area shape="rect" id="node2" href="$class_dashboard_plant.html#aea7bb2ef468bb7fc93dc4399d50fcd3b" title="Stop the corutine to update the information displayed on the screen" alt="" coords="5,5,184,32"/>
 <area shape="rect" id="node3" href="$class_dashboard_plant.html#aeef91addbf168afc754f21b5117287e6" title="Start the corutine to update the information displayed on the screen" alt="" coords="7,56,182,83"/>
 </map>

@@ -31,9 +31,8 @@ public class AddPlantScroll : MonoBehaviour
 
     /**
      * <summary>
-     * Navigate the list of plant kinds.
+     * Navigate forward in the list of plant kinds.
      * </summary>
-     *
      */
     public void RightButtonClick()
     {
@@ -48,7 +47,12 @@ public class AddPlantScroll : MonoBehaviour
         plantNameConfirmScreen.text = plantList[currentPlant].name;
         UpdateButtons(); 
     }
-    
+
+    /**
+     * <summary>
+     * Navigate backwards in the list of plant kinds.
+     * </summary>
+     */
     public void LeftButtonClick()
     {
         if (plantList.Count == 0 || 0 > currentPlant-1 )

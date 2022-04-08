@@ -1,7 +1,7 @@
 <map id="AddPlantScroll.UpdateButtons" name="AddPlantScroll.UpdateButtons">
 <area shape="rect" id="node1" title="Checks if there is still a next or previous plant on the list. If there isn´t, block the correspondin..." alt="" coords="455,78,653,105"/>
-<area shape="rect" id="node2" href="$class_add_plant_scroll.html#a41dd032b06f20037a2511f4852c4ba14" title=" " alt="" coords="215,5,385,47"/>
-<area shape="rect" id="node3" href="$class_add_plant_scroll.html#a14f2fc1ddfc484b43a3675d62aa5502c" title="Navigate the list of plant kinds." alt="" coords="210,71,390,112"/>
+<area shape="rect" id="node2" href="$class_add_plant_scroll.html#a41dd032b06f20037a2511f4852c4ba14" title="Navigate backwards in the list of plant kinds." alt="" coords="215,5,385,47"/>
+<area shape="rect" id="node3" href="$class_add_plant_scroll.html#a14f2fc1ddfc484b43a3675d62aa5502c" title="Navigate forward in the list of plant kinds." alt="" coords="210,71,390,112"/>
 <area shape="rect" id="node4" href="$class_add_plant_scroll.html#a8e7b9ce0f52d0ceaa76d25165a3d40a1" title="Corrutine that waits for the Databse to be ready to be read and, when ready, fills the plant list in ..." alt="" coords="193,137,407,163"/>
 <area shape="rect" id="node5" href="$class_add_plant_scroll.html#a36ac95fc883c6bb6d0864609ffd991cc" title=" " alt="" coords="5,137,145,163"/>
 </map>

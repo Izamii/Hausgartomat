@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * <summary>Navigation for the Add Plant form</summary> 
- * 
+ * <summary>
+ * Navigation for the Add Plant form.
+ * </summary> 
  */
 public class AddPlantBackBtn : MonoBehaviour
 {
@@ -16,7 +17,9 @@ public class AddPlantBackBtn : MonoBehaviour
     private GameObject[] screens;
 
     /**
-     * <summary>Set an array of the relevant screens for the Add Plant form</summary> 
+     * <summary>
+     * Set an array of the relevant screens for the Add Plant form.
+     * </summary> 
      */
     private void OnEnable()
     {
@@ -24,9 +27,11 @@ public class AddPlantBackBtn : MonoBehaviour
 
     }
     /**
-     * <summary>Backweards navigation for the Add Plant form.
+     * <summary>
+     * Backwards navigation for the Add Plant form.
      * If the  actual screen is screen1, then it goes outside from
-     * the Add Plant form, back into the dashboard. </summary> 
+     * the Add Plant form, back into the dashboard. 
+     * </summary> 
      */
     public void BackBtn()
     {
