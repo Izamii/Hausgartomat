@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * <summary>
+ * Class responsible for the navigation from the last page of the "add plant" form.
+ * </summary>
+ */
 public class AddPlantReview : MonoBehaviour
 {
     [SerializeField] private GameObject plantpedia;

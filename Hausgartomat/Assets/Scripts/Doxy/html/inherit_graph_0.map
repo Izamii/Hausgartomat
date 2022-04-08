@@ -2,7 +2,7 @@
 <area shape="rect" id="node1" title=" " alt="" coords="5,461,116,488"/>
 <area shape="rect" id="node2" href="$class_add_plant_back_btn.html" title="Navigation for the Add Plant form." alt="" coords="181,5,306,32"/>
 <area shape="rect" id="node3" href="$class_add_plan_test.html" title="A test class to demonstrate the instantiation of Planung entries within the preset view." alt="" coords="195,56,291,83"/>
-<area shape="rect" id="node4" href="$class_add_plant_review.html" title=" " alt="" coords="186,107,301,133"/>
+<area shape="rect" id="node4" href="$class_add_plant_review.html" title="Class responsible for the navigation from the last page of the &quot;add plant&quot; form." alt="" coords="186,107,301,133"/>
 <area shape="rect" id="node5" href="$class_add_plant_script.html" title="Class to manage the addition of new Plants" alt="" coords="189,157,298,184"/>
 <area shape="rect" id="node6" href="$class_add_plant_scroll.html" title="Class to manage the list of plant kinds in the Add Plant´s first screen." alt="" coords="189,208,297,235"/>
 <area shape="rect" id="node7" href="$class_add_plant_step_btn.html" title="This class helps with the navigation inside the Form to add a new plant." alt="" coords="182,259,305,285"/>
