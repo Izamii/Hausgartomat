@@ -1,0 +1,11 @@
+<map id="AddPlantScript" name="AddPlantScript">
+<area shape="rect" id="node1" title=" " alt="" coords="266,2181,441,2567"/>
+<area shape="rect" id="node2" title=" " alt="" coords="439,5,550,83"/>
+<area shape="rect" id="node4" href="$class_manager.html" title=" " alt="" coords="239,1675,468,2119"/>
+<area shape="rect" id="node5" href="$class_get_plant_data.html" title=" " alt="" coords="316,154,473,334"/>
+<area shape="rect" id="node7" href="$class_plant_state.html" title="This class delivers upon request, the states in which the different conditions find themselves...." alt="" coords="155,419,298,804"/>
+<area shape="rect" id="node8" href="$class_go_to_screen.html" title=" " alt="" coords="460,1461,604,1612"/>
+<area shape="rect" id="node9" href="$class_dashboard_plant.html" title="Class that manages the Plant Details Screen, managing it´s corresponding equipments in the green hous..." alt="" coords="439,925,625,1399"/>
+<area shape="rect" id="node3" title=" " alt="" coords="642,573,734,650"/>
+<area shape="rect" id="node6" href="$class_plant.html" title=" " alt="" coords="45,132,189,356"/>
+</map>

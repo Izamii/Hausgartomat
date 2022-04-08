@@ -1,0 +1,4 @@
+<map id="Manager.SwitchArduinoEquipment" name="Manager.SwitchArduinoEquipment">
+<area shape="rect" id="node1" title="Method to send commands to Arduino to turn on/off an equipment." alt="" coords="5,5,227,32"/>
+<area shape="rect" id="node2" href="$class_manager.html#aff8a94962f15b6d23d86238f7c5b7de2" title="Method to write a message to the Arduino, through the Serial Port" alt="" coords="275,5,440,32"/>
+</map>

@@ -1,0 +1,22 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,461,116,488"/>
+<area shape="rect" id="node2" href="$class_add_plant_back_btn.html" title="Navigation for the Add Plant form" alt="" coords="181,5,306,32"/>
+<area shape="rect" id="node3" href="$class_add_plan_test.html" title=" " alt="" coords="195,56,291,83"/>
+<area shape="rect" id="node4" href="$class_add_plant_review.html" title=" " alt="" coords="186,107,301,133"/>
+<area shape="rect" id="node5" href="$class_add_plant_script.html" title=" " alt="" coords="189,157,298,184"/>
+<area shape="rect" id="node6" href="$class_add_plant_scroll.html" title="Class to manage the list of plant kinds in the Add Plant´s first screen." alt="" coords="189,208,297,235"/>
+<area shape="rect" id="node7" href="$class_add_plant_step_btn.html" title="This class helps with the navigation inside the Form to add a new plant." alt="" coords="182,259,305,285"/>
+<area shape="rect" id="node8" href="$class_back_button_pedia.html" title="The last screen of a Plantpedia entry can be variable. This class contains the actual last screen of ..." alt="" coords="182,309,305,336"/>
+<area shape="rect" id="node9" href="$class_dashboard_plant.html" title="Class that manages the Plant Details Screen, managing itÂ´s corresponding equipments in the green hous..." alt="" coords="186,360,301,387"/>
+<area shape="rect" id="node10" href="$class_get_plant_data.html" title=" " alt="" coords="193,411,293,437"/>
+<area shape="rect" id="node11" href="$class_go_to_screen.html" title=" " alt="" coords="196,461,291,488"/>
+<area shape="rect" id="node12" href="$class_manager.html" title=" " alt="" coords="207,512,279,539"/>
+<area shape="rect" id="node13" href="$class_navigation.html" title="Class to manage the basic navigation inside the app." alt="" coords="203,563,284,589"/>
+<area shape="rect" id="node14" href="$class_plant_item.html" title=" " alt="" coords="205,613,282,640"/>
+<area shape="rect" id="node15" href="$class_plantpedia_button_utility.html" title=" " alt="" coords="166,664,321,691"/>
+<area shape="rect" id="node16" href="$class_plantpedia_detail_utility.html" title=" " alt="" coords="169,715,318,741"/>
+<area shape="rect" id="node17" href="$class_plantpedia_info_utility.html" title=" " alt="" coords="175,765,311,792"/>
+<area shape="rect" id="node18" href="$class_plantpedia_management.html" title=" " alt="" coords="164,816,323,843"/>
+<area shape="rect" id="node19" href="$class_plant_state.html" title="This class delivers upon request, the states in which the different conditions find themselves...." alt="" coords="202,867,285,893"/>
+<area shape="rect" id="node20" href="$class_planung_button_utility.html" title=" " alt="" coords="173,917,313,944"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="DashboardPlant.SetState" name="DashboardPlant.SetState">
+<area shape="rect" id="node1" title="Set the UI components accordingly to the states of the displayed plant." alt="" coords="5,35,175,61"/>
+<area shape="rect" id="node2" href="$class_dashboard_plant.html#ace104fb40787d03924d585b25dd23942" title="Sets a switch as interactable or not, according to the state of the plant in the respective value." alt="" coords="223,5,409,32"/>
+<area shape="rect" id="node3" href="$class_dashboard_plant.html#afc62a3e3dcd41b2808e578d667199f7a" title="Sets the corresponding smiley and color of a condition of this plant." alt="" coords="224,57,408,98"/>
+</map>

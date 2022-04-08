@@ -1,0 +1,4 @@
+<map id="Manager.InstantiateNewPlantItem" name="Manager.InstantiateNewPlantItem">
+<area shape="rect" id="node1" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="229,13,445,39"/>
+<area shape="rect" id="node2" href="$class_add_plant_script.html#abb427b52538cb29e543e8a5a60beba9b" title="Calls the manager to instatiate a new plant." alt="" coords="5,5,181,47"/>
+</map>

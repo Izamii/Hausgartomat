@@ -1,0 +1,6 @@
+<map id="PlantState.UpdateKind" name="PlantState.UpdateKind">
+<area shape="rect" id="node1" title="Updates the kind of plant this plant is" alt="" coords="529,31,684,57"/>
+<area shape="rect" id="node2" href="$class_dashboard_plant.html#ad5128e01e65830148cb7f350d8f2379c" title="Update the kind of the displayed plant." alt="" coords="263,5,481,32"/>
+<area shape="rect" id="node4" href="$class_plant_state.html#a11225d0aefa3de7e19102e0716f53686" title="Constructor for PlantState. When created, the value ranges for the specified kind of plant are retrie..." alt="" coords="298,56,446,83"/>
+<area shape="rect" id="node3" href="$class_dashboard_plant.html#af54ad09ecd85e6a9af632717a889d24a" title="Depending on which property is being updated, call the corresponding method." alt="" coords="5,5,215,32"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="GoToScreen.GoToPlantScreen" name="GoToScreen.GoToPlantScreen">
+<area shape="rect" id="node1" title="Go to Plant Detail Screen of specified plant" alt="" coords="5,42,205,69"/>
+<area shape="rect" id="node2" href="$class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="261,5,425,47"/>
+<area shape="rect" id="node4" href="$class_dashboard_plant.html#a750248b1a5594ae5d966b4f6042e63d8" title="Sets the UI components of the Plant Details Screen to the information of the selected plant." alt="" coords="253,71,432,98"/>
+<area shape="rect" id="node3" href="$class_navigation.html#a009b68edcf32df14750a3b0dd1ecba70" title=" " alt="" coords="480,13,671,39"/>
+<area shape="rect" id="node5" href="$class_dashboard_plant.html#aa7dc05114a52a89a96d16f362ec1ea5e" title="Set the UI components accordingly to the states of the displayed plant." alt="" coords="491,71,660,98"/>
+<area shape="rect" id="node6" href="$class_dashboard_plant.html#ace104fb40787d03924d585b25dd23942" title="Sets a switch as interactable or not, according to the state of the plant in the respective value." alt="" coords="719,42,905,69"/>
+<area shape="rect" id="node7" href="$class_dashboard_plant.html#afc62a3e3dcd41b2808e578d667199f7a" title="Sets the corresponding smiley and color of a condition of this plant." alt="" coords="720,93,904,135"/>
+</map>

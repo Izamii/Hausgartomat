@@ -1,0 +1,8 @@
+<map id="DashboardPlant.UpdatePlantInfo" name="DashboardPlant.UpdatePlantInfo">
+<area shape="rect" id="node1" title="Depending on which property is being updated, call the corresponding method." alt="" coords="5,35,215,61"/>
+<area shape="rect" id="node2" href="$class_dashboard_plant.html#ad5128e01e65830148cb7f350d8f2379c" title="Update the kind of the displayed plant." alt="" coords="263,5,481,32"/>
+<area shape="rect" id="node6" href="$class_dashboard_plant.html#a39b264cf9df2e4e4f28e9cff2cee6676" title="Update the nickname of the displayed plant." alt="" coords="276,57,468,98"/>
+<area shape="rect" id="node3" href="$class_plant_state.html#ad508b918f8195e09d4221b6ee42450bb" title="Updates the kind of plant this plant is" alt="" coords="529,5,684,32"/>
+<area shape="rect" id="node4" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="732,5,893,32"/>
+<area shape="rect" id="node5" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="941,5,1137,32"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="AddPlantScript.TurnAddButtonOn" name="AddPlantScript.TurnAddButtonOn">
+<area shape="rect" id="node1" title="Enable/Disable the confirmation button." alt="" coords="265,5,481,32"/>
+<area shape="rect" id="node2" href="$class_add_plant_script.html#a21e7bf513b6fd72f0e0544c7520bf05c" title=" " alt="" coords="5,5,217,32"/>
+</map>

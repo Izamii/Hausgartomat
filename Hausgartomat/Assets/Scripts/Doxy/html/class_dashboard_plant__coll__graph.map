@@ -1,0 +1,8 @@
+<map id="DashboardPlant" name="DashboardPlant">
+<area shape="rect" id="node1" title="Class that manages the Plant Details Screen, managing it´s corresponding equipments in the green hous..." alt="" coords="21,925,207,1399"/>
+<area shape="rect" id="node2" title=" " alt="" coords="56,5,167,83"/>
+<area shape="rect" id="node4" href="$class_get_plant_data.html" title=" " alt="" coords="33,154,190,334"/>
+<area shape="rect" id="node5" href="$class_plant_state.html" title="This class delivers upon request, the states in which the different conditions find themselves...." alt="" coords="156,419,299,804"/>
+<area shape="rect" id="node3" title=" " alt="" coords="323,573,415,650"/>
+<area shape="rect" id="node6" href="$class_plant.html" title=" " alt="" coords="265,132,409,356"/>
+</map>

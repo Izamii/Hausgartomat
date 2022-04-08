@@ -1,0 +1,4 @@
+<map id="DashboardPlant.WaitForDatabase" name="DashboardPlant.WaitForDatabase">
+<area shape="rect" id="node1" title="Corutine that pauses a process until the Database is readable. When the database becomes readable,..." alt="" coords="211,5,429,32"/>
+<area shape="rect" id="node2" href="$class_dashboard_plant.html#adf020d6fe42a1f81be760e9f6be1aca2" title="On Awake, wait for the Database to be readable" alt="" coords="5,5,163,32"/>
+</map>

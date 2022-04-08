@@ -1,0 +1,6 @@
+<map id="AddPlantScript.CreateNewPlant" name="AddPlantScript.CreateNewPlant">
+<area shape="rect" id="node1" title="Calls the manager to instatiate a new plant." alt="" coords="5,5,181,47"/>
+<area shape="rect" id="node2" href="$class_manager.html#ae620f72f84e525d425c9ca44fbc3f342" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="229,13,445,39"/>
+<area shape="rect" id="node3" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="493,13,655,39"/>
+<area shape="rect" id="node4" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="703,13,899,39"/>
+</map>

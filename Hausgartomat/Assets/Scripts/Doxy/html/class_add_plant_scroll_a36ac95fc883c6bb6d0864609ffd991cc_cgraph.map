@@ -1,0 +1,6 @@
+<map id="AddPlantScroll.Start" name="AddPlantScroll.Start">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,145,57"/>
+<area shape="rect" id="node2" href="$class_add_plant_scroll.html#a8e7b9ce0f52d0ceaa76d25165a3d40a1" title="Corrutine that waits for the Databse to be ready to be read and, when ready, fills the plant list in ..." alt="" coords="193,31,407,57"/>
+<area shape="rect" id="node3" href="$class_get_plant_data.html#a8f754f2c4830746eb2b3e3249a284128" title=" " alt="" coords="463,5,645,32"/>
+<area shape="rect" id="node4" href="$class_add_plant_scroll.html#aff776fdd6cead8afc567aff26ea4e249" title="Checks if there is still a next or previous plant on the list. If there isn´t, block the correspondin..." alt="" coords="455,56,653,83"/>
+</map>

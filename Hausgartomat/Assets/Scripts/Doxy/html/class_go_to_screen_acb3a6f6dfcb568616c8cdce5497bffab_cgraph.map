@@ -1,0 +1,5 @@
+<map id="GoToScreen.GoBack" name="GoToScreen.GoBack">
+<area shape="rect" id="node1" title="Opens the last screen to the actual one." alt="" coords="5,13,151,39"/>
+<area shape="rect" id="node2" href="$class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="199,5,363,47"/>
+<area shape="rect" id="node3" href="$class_navigation.html#a009b68edcf32df14750a3b0dd1ecba70" title=" " alt="" coords="411,13,601,39"/>
+</map>

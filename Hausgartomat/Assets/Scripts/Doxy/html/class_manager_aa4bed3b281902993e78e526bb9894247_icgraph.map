@@ -1,0 +1,7 @@
+<map id="Manager.ParseMessage" name="Manager.ParseMessage">
+<area shape="rect" id="node1" title="Method to process a message from arduino." alt="" coords="829,42,992,69"/>
+<area shape="rect" id="node2" href="$class_manager.html#a783e71a1c1da71e6f6cbad01fea5da5d" title="Recursive Corutine to request sensor information from the Arduino. Runs 3 times, one for each kind of..." alt="" coords="592,5,781,47"/>
+<area shape="rect" id="node3" href="$class_manager.html#a74306e8c676c12a054a2e3e7406ae552" title="Corutine to periodically request the state of the greenhouse conditions and compare it to the Databas..." alt="" coords="393,42,544,69"/>
+<area shape="rect" id="node4" href="$class_manager.html#a6bc2c56fa1f8ee2cac139b7ee28d14f9" title="Corrutine to pause a process, until the Database is readable." alt="" coords="168,42,345,69"/>
+<area shape="rect" id="node5" href="$class_manager.html#af811202f2435cafd1900161911fbd344" title=" " alt="" coords="5,42,120,69"/>
+</map>

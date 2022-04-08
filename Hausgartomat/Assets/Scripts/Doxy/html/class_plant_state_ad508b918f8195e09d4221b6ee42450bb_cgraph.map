@@ -1,0 +1,5 @@
+<map id="PlantState.UpdateKind" name="PlantState.UpdateKind">
+<area shape="rect" id="node1" title="Updates the kind of plant this plant is" alt="" coords="5,5,160,32"/>
+<area shape="rect" id="node2" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="208,5,369,32"/>
+<area shape="rect" id="node3" href="$class_get_plant_data.html#ac4d7692c212f5d2c894562f8bc29e3f9" title=" " alt="" coords="417,5,613,32"/>
+</map>

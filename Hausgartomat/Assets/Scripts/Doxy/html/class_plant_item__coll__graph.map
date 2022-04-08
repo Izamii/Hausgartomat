@@ -1,0 +1,7 @@
+<map id="PlantItem" name="PlantItem">
+<area shape="rect" id="node1" title=" " alt="" coords="5,867,149,1076"/>
+<area shape="rect" id="node2" title=" " alt="" coords="51,5,162,83"/>
+<area shape="rect" id="node3" href="$class_plant_state.html" title="This class delivers upon request, the states in which the different conditions find themselves...." alt="" coords="122,419,265,804"/>
+<area shape="rect" id="node4" href="$class_get_plant_data.html" title=" " alt="" coords="144,154,301,334"/>
+<area shape="rect" id="node5" href="$class_plant.html" title=" " alt="" coords="325,132,469,356"/>
+</map>

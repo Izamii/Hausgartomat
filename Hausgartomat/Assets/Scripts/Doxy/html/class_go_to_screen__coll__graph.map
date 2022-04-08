@@ -1,0 +1,9 @@
+<map id="GoToScreen" name="GoToScreen">
+<area shape="rect" id="node1" title=" " alt="" coords="5,1461,149,1612"/>
+<area shape="rect" id="node2" title=" " alt="" coords="109,5,219,83"/>
+<area shape="rect" id="node3" href="$class_dashboard_plant.html" title="Class that manages the Plant Details Screen, managing it´s corresponding equipments in the green hous..." alt="" coords="93,925,280,1399"/>
+<area shape="rect" id="node5" href="$class_get_plant_data.html" title=" " alt="" coords="144,154,301,334"/>
+<area shape="rect" id="node6" href="$class_plant_state.html" title="This class delivers upon request, the states in which the different conditions find themselves...." alt="" coords="267,419,410,804"/>
+<area shape="rect" id="node4" title=" " alt="" coords="434,573,526,650"/>
+<area shape="rect" id="node7" href="$class_plant.html" title=" " alt="" coords="376,132,520,356"/>
+</map>

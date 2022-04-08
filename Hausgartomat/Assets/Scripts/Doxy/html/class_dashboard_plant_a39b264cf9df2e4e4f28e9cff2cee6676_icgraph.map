@@ -1,0 +1,4 @@
+<map id="DashboardPlant.ChangePlantNickname" name="DashboardPlant.ChangePlantNickname">
+<area shape="rect" id="node1" title="Update the nickname of the displayed plant." alt="" coords="263,5,455,47"/>
+<area shape="rect" id="node2" href="$class_dashboard_plant.html#af54ad09ecd85e6a9af632717a889d24a" title="Depending on which property is being updated, call the corresponding method." alt="" coords="5,13,215,39"/>
+</map>

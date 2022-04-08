@@ -1,0 +1,11 @@
+<map id="GetPlantData.GETSinglePlant" name="GetPlantData.GETSinglePlant">
+<area shape="rect" id="node1" title=" " alt="" coords="1003,42,1199,69"/>
+<area shape="rect" id="node2" href="$class_plantpedia_detail_utility.html#a0a567f555416f6d50920668e26063921" title=" " alt="" coords="797,5,951,47"/>
+<area shape="rect" id="node3" href="$class_plant_state.html#af7d19416c1107708f8436fdf9efc05f1" title="This method sets the appropiate value ranges for this plant, according to the data retrieved from the..." alt="" coords="793,71,955,98"/>
+<area shape="rect" id="node4" href="$class_manager.html#ae620f72f84e525d425c9ca44fbc3f342" title="Method that adds a new plant to the system, instatiating a new item in the dashboard and placing it i..." alt="" coords="529,42,745,69"/>
+<area shape="rect" id="node6" href="$class_plant_state.html#ad508b918f8195e09d4221b6ee42450bb" title="Updates the kind of plant this plant is" alt="" coords="560,97,715,123"/>
+<area shape="rect" id="node5" href="$class_add_plant_script.html#abb427b52538cb29e543e8a5a60beba9b" title="Calls the manager to instatiate a new plant." alt="" coords="284,31,460,72"/>
+<area shape="rect" id="node7" href="$class_dashboard_plant.html#ad5128e01e65830148cb7f350d8f2379c" title="Update the kind of the displayed plant." alt="" coords="263,97,481,123"/>
+<area shape="rect" id="node9" href="$class_plant_state.html#a11225d0aefa3de7e19102e0716f53686" title="Constructor for PlantState. When created, the value ranges for the specified kind of plant are retrie..." alt="" coords="298,147,446,174"/>
+<area shape="rect" id="node8" href="$class_dashboard_plant.html#af54ad09ecd85e6a9af632717a889d24a" title="Depending on which property is being updated, call the corresponding method." alt="" coords="5,97,215,123"/>
+</map>

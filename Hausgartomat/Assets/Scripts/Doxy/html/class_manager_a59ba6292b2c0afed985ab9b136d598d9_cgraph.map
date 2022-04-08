@@ -1,0 +1,5 @@
+<map id="Manager.DeletePlant" name="Manager.DeletePlant">
+<area shape="rect" id="node1" title="Method to eliminate a Plant from the System. When called, it navigates to the updated dashboard scree..." alt="" coords="5,13,148,39"/>
+<area shape="rect" id="node2" href="$class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="196,5,360,47"/>
+<area shape="rect" id="node3" href="$class_navigation.html#a009b68edcf32df14750a3b0dd1ecba70" title=" " alt="" coords="408,13,599,39"/>
+</map>

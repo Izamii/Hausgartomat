@@ -1,0 +1,7 @@
+<map id="Manager.InstantiateBottom" name="Manager.InstantiateBottom">
+<area shape="rect" id="node1" title="Method that loads the default bottom part of the dashboard" alt="" coords="5,13,184,39"/>
+<area shape="rect" id="node2" href="$class_manager.html#a4533f68e5f44706b28452d22b2e3a0a0" title="Method to add an item to the dashboard that, when pressed, takes the user to the AddPlant screen." alt="" coords="232,13,421,39"/>
+<area shape="rect" id="node3" href="$class_go_to_screen.html#a53ac8ed025677ea61c8964e58aa2144e" title="Open the Add Plant Screen" alt="" coords="469,13,652,39"/>
+<area shape="rect" id="node4" href="$class_navigation.html#a2e0aa071f252985bee6f3a7f9d9dbf19" title="Enable the selected panel and disable the rest. Except for the dashboard, which is set to always be a..." alt="" coords="700,5,864,47"/>
+<area shape="rect" id="node5" href="$class_navigation.html#a009b68edcf32df14750a3b0dd1ecba70" title=" " alt="" coords="912,13,1103,39"/>
+</map>

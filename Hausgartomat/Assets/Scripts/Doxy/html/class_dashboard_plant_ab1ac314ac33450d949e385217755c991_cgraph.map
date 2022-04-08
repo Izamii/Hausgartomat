@@ -1,0 +1,4 @@
+<map id="DashboardPlant.StartWaterPumpLock" name="DashboardPlant.StartWaterPumpLock">
+<area shape="rect" id="node1" title="Initiate the corrutine to temporarily lock the waterpump." alt="" coords="5,5,187,47"/>
+<area shape="rect" id="node2" href="$class_dashboard_plant.html#ac6bd00c70ad145bc52878308021b79f5" title="Corutine that locks the waterpump switch, to give the water pump time to push water into the green ho..." alt="" coords="235,13,449,39"/>
+</map>
